@@ -407,12 +407,13 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 <img src="https://user-images.githubusercontent.com/99788755/218190524-c7462796-0ca6-4c34-9501-4e0a376bbedb.png">
 </p> 
 <p align="center">
-Fig 11. Schematic of 6 input CMOS circuit
+Fig 12. Schematic of 6 input CMOS circuit
 </p>
 
 ## 9.1 Pre-layout Simulation of function Fn using Ngspice
 
-The netlist `fn_prelayout.spice` for the function **Fn** given can be written as 
+1. The netlist `fn_prelayout.spice` for the function **Fn** given can be written as
+
 ```
 ***Netlist description for prelayout simulation***
 M1 3 a vdd vdd pmos W=2.125u L=0.25u
@@ -454,19 +455,32 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
 .MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
 .save all
 
-Run the ngspice simulation using the following commands.
+2. Run the ngspice simulation using the following commands
 ```
     $ngspice fn_prelayout.spice
 ```
 
 ```
-    ngspice 2 -> run
-    ngspice 3 -> plot out
+    ngspice 42 -> run
+    ngspice 43 -> plot out
 ```
 
+3. The pre-layout transient output of function Fn using Ngspice is shown in fig 13 and ngspice command window shows the rise and fall time of output waveform as shown in fig 14 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218194403-915ebbe2-e076-49dc-a7d3-eddbea209b2e.png">
+</p> 
+<p align="center">
+Fig 13. Pre-layout transient output of function Fn 
+</p>
 
 
-
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218194844-9e10a6d0-f57c-40a8-aff1-1515d4c1683c.png">
+</p> 
+<p align="center">
+Fig 14. Ngspice window terminal showing rise and fall time
+</p>
 
  
 
