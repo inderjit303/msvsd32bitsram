@@ -495,6 +495,14 @@ Fig 14. Ngspice window terminal showing rise and fall time
 Fig 15. Layout of function Fn using Magic 
 </p>
 
-3. 
- 
+2. Next, we Extract the netlist from the from the magic layout by typing these commands in tkcon 2.3 Main console ash shown in fig 16 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218197983-c86a84bd-32ca-4bbb-b0fc-b27302f47362.png">
+</p> 
+<p align="center">
+Fig 16. function Fn Tkcon terminal 
+</p>
+
+
 
