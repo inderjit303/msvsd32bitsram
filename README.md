@@ -6,7 +6,7 @@
 
 This repository discusses Week 0 work (4.2.23 to 11.2.23) 
 
-- [AI 1](#ai-1)
+- [AI 1 Ubuntu Installation ](#ai-1-ubuntu-installation)
 - 
 - [Sense amplifier circuit](#Sense-amplifier-circuit)
 - [AI 3](#Open-Source-Tools-Used)
@@ -16,7 +16,7 @@ This repository discusses Week 0 work (4.2.23 to 11.2.23)
   * [Verilator](#verilator)
 
 
-# AI 1
+# AI 1 Ubuntu Installation 
 
 With a windows machine, Oracle virtual box 7 is installed (fig 1) with latest version of Ubuntu 22.04.1 LTS, 64 bit OS with 8 GB RAM, with 12th Gen Intel Core i5-1235Ux4 and 2.2 TB of hard-disk space as shown in fig 2.  
 
