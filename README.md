@@ -361,7 +361,7 @@ Fig 11. Pre Layout CMOS inverter spice file
 <img src="https://user-images.githubusercontent.com/99788755/218188082-1c288d6a-15d0-4735-9bb8-fbfe71b308df.png">
 </p> 
 <p align="center">
-Fig 11. Pre LAyout CMOS transient curve(Accurate) 
+Fig 11. Pre Layout CMOS transient curve(Accurate) 
 </p>
 
 Rise time = time(@90 % of Vout) - time(@10% of Vout)
@@ -398,8 +398,17 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 
 ## Enrolled and completed the course 
 
-<img width="473" alt="certificate" src="https://user-images.githubusercontent.com/99788755/218189661-ff84a1d8-06ed-468b-9d43-5cd6b927f2d8.png">
+# AI 9 Pre-layout simulation of a function using xschem and ngspice
 
+1. The following circuit (fig 12) is implemented using CMOS 
+2. Fn= [(B+D).(A+C)+E.F]'
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218190524-c7462796-0ca6-4c34-9501-4e0a376bbedb.png">
+</p> 
+<p align="center">
+Fig 11. Schematic of 6 input CMOS circuit
+</p>
 
 
 
