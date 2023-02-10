@@ -201,6 +201,43 @@ Fig 4. Invoking xschem
 Fig 5. Invoking ngspice
 </p>
 
+# AI 2 ALIGN tool installation 
+
+1. ALIGN is Analog Layout, Intelligently Generated from Netlists.
+2. ALIGN is an open source automatic layout generator for analog circuits jointly developed under the DARPA IDEA program by the University of Minnesota, Texas A&M University, and Intel Corporation.
+3. The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to automatically translate an unannotated (or partially annotated) SPICE netlist of an analog circuit to a GDSII layout.
+4. ALIGN is installed next, with installation steps as given below: 
+
+```
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+
+# Clone the ALIGN source
+    $git clone https://github.com/ALIGN-analoglayout/ALIGN-public
+    $cd ALIGN-public
+# Install virtual environment for python
+    $sudo apt -y install python3.8-venv
+# Install the latest pip
+    $sudo apt-get -y install python3-pip
+
+# Create a Python virtualenv
+    python -m venv general
+    source general/bin/activate
+    python -m pip install pip --upgrade
+
+# Install ALIGN as a USER
+    pip install -v .
+
+# Install ALIGN as a DEVELOPER
+    pip install -e .
+    pip install setuptools wheel pybind11 scikit-build cmake ninja
+    pip install -v -e .[test] --no-build-isolation
+    pip install -v --no-build-isolation -e . --no-deps --install-option='-DBUILD_TESTING=ON'
+
+```
+
+
+
 
 
 
