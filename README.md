@@ -443,10 +443,16 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
 .op
 .tran 10p 4n
 
+
 *** .include model file ***
 .include my_model_file.mod
 .end
 ```
+
+***To measure Rise and Fall time***
+.MEAS TRAN rise_time TRIG V(out) VAL=0.25 RISE=1 TARG V(out) VAL=2.25 RISE=1
+.MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
+.save all
 
 Run the ngspice simulation using the following commands.
 ```
