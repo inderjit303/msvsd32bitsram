@@ -297,14 +297,25 @@ The CMOS inverter schematic in xschem is shown in fig 6 below
 Fig 6. CMOS Inverter schematic in xschem 
 </p>
 
+4. Go to Options> Spice netlist to set the netlist option. 
+5. Click on Netlist from the menu to generate a spice file for the schematic created. 
+6. Click on Simulate to run the simulation, ngspice window opens up
+7. Type plot V(Vout) V(Vin) and press enter 
+8. Voltage-transfer characteristic(VTC) appears for the inverter as shown in fig 7
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/99788755/218146735-0e2c3e96-edd2-46d5-9964-7d84dfa26558.png">
+<img src="https://user-images.githubusercontent.com/99788755/218148710-1940997e-73f5-468a-8f26-714772f4d841.png">
 </p> 
 <p align="center">
 Fig 7. Pre Layout CMOS VTC curve
 </p>
 
+9. From the VTC, we calculate the values VIH, VOL, VIL and VOH 
+10. They can be used to calculate noise margins level ( NML and NMH) of CMOS inverter.  
 
 
+
+
+
+ 
 
