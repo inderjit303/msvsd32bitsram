@@ -2,9 +2,7 @@
 
 ## Week 0 AIs 
 
-### 1. AI 1 Ubuntu Installation 
-
-This repository discusses Week 0 work (4.2.23 to 11.2.23) 
+This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-signal PD Research Program
 
 - [AI 1 Ubuntu Installation ](#ai-1-ubuntu-installation)
 - 
@@ -40,6 +38,29 @@ Fig 2. Ubuntu 22.04.1 window running using Oracle VM VirtualBox
 
 1. Latest version of Ubuntu can be installed from: https://ubuntu.com/download/desktop
 2. Download the latest LTS version of Ubuntu
+
+
+# AI 2 Magic and SKY130 PDKs installation 
+
+Magic and related open source softwares like xschem, skywater130 pdks are installed next and their installation steps are provided for reference: 
+
+## Magic installation 
+
+1. Magic is an open-source VLSI layout tool. 
+2. Magic version 8.3 is the official current released version of the program
+3. It can be downloaded from terminal window in Ubuntu. 
+4. Installation steps are given below:
+
+```
+git clone git://opencircuitdesign.com/magic
+sudo cd magic
+sudo ./configure
+sudo make
+sudo make install
+
+```
+
+More information can be found at http://opencircuitdesign.com/magic/index.html
 
 
 
