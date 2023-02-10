@@ -57,12 +57,24 @@ sudo cd magic
 sudo ./configure
 sudo make
 sudo make install
-
 ```
 
 More information can be found at http://opencircuitdesign.com/magic/index.html
 
+## Netgen
 
+1. Netgen is a tool for comparing netlists, a process known as LVS, which stands for "Layout vs. Schematic"
+2. It can be downloaded from terminal window in Ubuntu. 
+3. Installation steps are given below:
+
+```
+git clone git://opencircuitdesign.com/netgen
+cd netgen
+sudo ./configure
+sudo make
+sudo make install
+```
+More information can be found at http://opencircuitdesign.com/netgen/index.html
 
 
 
