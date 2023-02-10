@@ -27,8 +27,8 @@ With a windows machine, Oracle virtual box 7 is installed (fig 1) with latest ve
 Fig 1. Oracle VM Virtual Box 7 
 </p>
 
-Latest version of Virtual Box can be installed from: https://www.virtualbox.org/wiki/Downloads
-Note: Click on Windows hosts for Windows machine. 
+1. Latest version of Virtual Box can be installed from: https://www.virtualbox.org/wiki/Downloads
+2. Note: Click on Windows hosts for Windows machine. 
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/218108179-aef04619-8f6e-468a-9bbc-1e5dce5818eb.png">
