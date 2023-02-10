@@ -162,3 +162,18 @@ cp /usr/local/share/pdk/sky130A/libs.tech/magic/sky130A.magicrc .magicrc
 cd ../netgen
 cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
+
+Checking if Magic is working with SKY130A pdks with the following command: 
+
+```
+sudo magic -T sky130A.tech
+```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218125899-cc637b82-30fb-477a-b6ea-cfd99d72bd9f.png">
+</p> 
+<p align="center">
+Fig 1. Magic tool opening with SKY130A pdk
+</p>
+
+
