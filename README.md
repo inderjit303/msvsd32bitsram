@@ -128,3 +128,37 @@ Please note that to view the simulation graphs of ngspice, xterm is required and
 sudo apt-get update
 sudo apt-get install xterm
 ```
+
+## SKY130 PDKs
+1. Open_PDKs is distributed with files that support the Google/SkyWater sky130 open process description https://github.com/google/skywater-pdk. 
+2. Open_PDKs will set up an environment for using the SkyWater sky130 process with open-source EDA tools and tool flows such as magic, qflow, openlane, netgen, klayout, etc.
+3. It can be downloaded from terminal window in Ubuntu. 
+4. Installation steps are given below:
+
+```
+git clone git://opencircuitdesign.com/open_pdks
+open_pdks
+sudo ./configure --enable-sky130-pdk
+sudo make
+sudo make install
+```
+
+## Verifiying the open_pdk installation
+
+1. An initial working directory naming lab1_inverter can be made by copying the required files as follows:
+2. Type the following commands in terminal. 
+
+```
+mkdir Lab1_inverter
+cd Lab1_inverter
+mkdir mag
+mkdir netgen
+mkdir xschem
+cd xschem
+cp /usr/local/share/pdk/sky130A/libs.tech/xschem/xschemrc .
+cp /usr/local/share/pdk/sky130A/libs.tech/ngspice/spinit .spiceinit
+cd ../mag
+cp /usr/local/share/pdk/sky130A/libs.tech/magic/sky130A.magicrc .magicrc
+cd ../netgen
+cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
+```
