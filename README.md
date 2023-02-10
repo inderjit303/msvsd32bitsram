@@ -38,8 +38,8 @@ Fig 2. Ubuntu 22.04.1 window running using Oracle VM VirtualBox
 </p>
 
 
-
-
+1. Latest version of Ubuntu can be installed from: https://ubuntu.com/download/desktop
+2. Download the latest LTS version of Ubuntu
 
 
 
