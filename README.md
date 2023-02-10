@@ -27,9 +27,8 @@ With a windows machine, Oracle virtual box 7 is installed (fig 1) with latest ve
 Fig 1. Oracle VM Virtual Box 7 
 </p>
 
-
 <p align="center">
-<img src="https://user-images.githubusercontent.com/99788755/218104264-10cd0595-1e00-41c3-9279-d6f01e55cdf4.png">
+<img src="https://user-images.githubusercontent.com/99788755/218108179-aef04619-8f6e-468a-9bbc-1e5dce5818eb.png">
 </p> 
 <p align="center">
 Fig 2. Ubuntu 22.04.1 window running using Oracle VM VirtualBox
