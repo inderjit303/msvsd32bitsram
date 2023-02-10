@@ -55,8 +55,8 @@ libX11-6 libx11-der libxrender-dev libx11-xcb-dev libcairo2-dev tcl8.6-dev tk8.6
 ```
 Links for above commands:
 ```
-a. https://lootr5858.wordpress.com/2020/10/06/magic-vlsi-skywater-pdk-local-installation-guide/
-b. http://repo.hu/projects/xschem/xschem_man/install_xschem.html
+https://lootr5858.wordpress.com/2020/10/06/magic-vlsi-skywater-pdk-local-installation-guide/
+http://repo.hu/projects/xschem/xschem_man/install_xschem.html
 ```
 
 ## Magic installation 
@@ -97,8 +97,6 @@ More information can be found at http://opencircuitdesign.com/netgen/index.html
 2. It can be downloaded from terminal window in Ubuntu. 
 3. Installation steps are given below:
 
-Install steps:
-
 ```
 git clone https://github.com/StefanSchippers/xschem.git xschem_git
 sudo ./configure
@@ -107,4 +105,26 @@ sudo make install
 ```
 More info can be found at http://repo.hu/projects/xschem/index.html
 
+## Ngspice
 
+1. Ngspice is the open-source spice simulator for electric and electronic circuits.
+2. It can be downloaded from terminal window in Ubuntu. 
+3. After downloading the tarball from https://ngspice.sourceforge.io/download.html to a local directory, unpack it using:
+
+```
+tar -zxvf ngspice-39.tar.gz 
+cd ngspice-38
+mkdir release
+cd release
+sudo apt-get install libxaw7-dev
+sudo ../configure  --with-x --with-readline=yes --disable-debug
+sudo make
+sudo make install
+```
+
+Please note that to view the simulation graphs of ngspice, xterm is required and can be installed using.
+
+```
+sudo apt-get update
+sudo apt-get install xterm
+```
