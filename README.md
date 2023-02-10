@@ -7,13 +7,13 @@ This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-s
 - [AI 1 Ubuntu Installation ](#ai-1-ubuntu-installation)
 - [AI 2 Magic and SKY130 PDKs installation ](#ai-2-magic-and-sky130-pdks-installation)
 - [AI 3 ALIGN tool installation ](#AI-3-ALIGN-tool-installation)
-- [AI 4 Pre-layout simulation of CMOS inverter using xschem and ngspice]
-- [AI 5 Post-layout simulation of CMOS inverter using Magic]
-- [AI 6 Post-layout simulation of CMOS inverter using ALIGN]
-- [AI 7 Comparing AI 5 and 6]
-- [AI 8 Enroll in FREE VSD-custom layout course]
-- [AI 9 Pre-layout simulation of a function Fn using ngspice]
-- [AI 10 Post-layout simulation of a function Fn using Magic and ALIGN]
+- [AI 4 Pre-layout simulation of CMOS inverter using xschem and ngspice](#AI-4-Pre-layout-simulation-of-CMOS-inverter-using-xschem-and-ngspice)
+- [AI 5 Post-layout simulation of CMOS inverter using Magic](#AI-5-Post-layout-simulation-of-CMOS-inverter-using-Magic)
+- [AI 6 Post-layout simulation of CMOS inverter using ALIGN](#AI-6-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
+- [AI 7 Comparing AI 5 and 6](#AI-7-Comparing-AI-5-and-6)
+- [AI 8 Enroll in FREE VSD-custom layout course](#AI-8-Enroll-in-FREE-VSD-custom-layout-course)
+- [AI 9 Pre-layout simulation of a function Fn using ngspice](#AI-9-Pre-layout-simulation-of-a-function-Fn-using-ngspice)
+- [AI 10 Post-layout simulation of a function Fn using Magic and ALIGN](#AI-10-Post-layout-simulation-of-a-function-Fn-using-Magic-and-ALIGN)
 
 
 # AI 1 Ubuntu Installation 
