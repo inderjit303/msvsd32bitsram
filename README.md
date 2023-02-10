@@ -450,12 +450,14 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
 .end
 ```
 
-***To measure Rise and Fall time***
+2. To measure Rise and Fall time of the output, following lines aare added to the fn_prelayout.spice netlist
+```
 .MEAS TRAN rise_time TRIG V(out) VAL=0.25 RISE=1 TARG V(out) VAL=2.25 RISE=1
 .MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
 .save all
+```
 
-2. Run the ngspice simulation using the following commands
+3. Run the ngspice simulation using the following commands
 ```
     $ngspice fn_prelayout.spice
 ```
@@ -465,7 +467,7 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
     ngspice 43 -> plot out
 ```
 
-3. The pre-layout transient output of function Fn using Ngspice is shown in fig 13 and ngspice command window shows the rise and fall time of output waveform as shown in fig 14 
+4. The pre-layout transient output of function Fn using Ngspice is shown in fig 13 and ngspice command window shows the rise and fall time of output waveform as shown in fig 14 
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/218194403-915ebbe2-e076-49dc-a7d3-eddbea209b2e.png">
