@@ -18,21 +18,21 @@ This repository discusses Week 0 work (4.2.23 to 11.2.23)
 
 # AI 1
 
-**Ubuntu Installation **
-
-
-The components required for building 32 Bit SRAM cell are:
-1. 5x32 SRAM Address Decoder and 3x8 SRAM Address Decoder implemented in digital domain using NgVeri feature in eSim. 
-2. 1-bit SRAM cell as shown in fig 2 which further consists of
-3. Data writer circuit implemented in digital domain using NgVeri
-4. 6T SRAM cell and 
-5. Sense amplifier circuit implemented in analog domain using eSim. 
-
-The project is about building a 32-bit SRAM memory array, using 130nm CMOS technology and modular design approach. The functional block diagram of 32 bit SRAM is shown in fig 1. 
+With a windows machine, Oracle virtual box 7 is installed (fig 1) with latest version of Ubuntu 22.04.1 LTS, 64 bit OS with 8 GB RAM, with 12th Gen Intel Core i5-1235Ux4 and 2.2 TB of hard-disk space as shown in fig 2.  
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/99788755/194718005-4117a875-6010-48e6-9486-85eff340662a.png">
+<img src="[https://user-images.githubusercontent.com/99788755/218104264-10cd0595-1e00-41c3-9279-d6f01e55cdf4.png]">
 </p> 
 <p align="center">
-Fig 1. Functional block for 32 bit SRAM cell
+Fig 1. Virtual Box 7 
 </p>
+
+
+
+<img width="960" alt="ubuntu2" src="https://user-images.githubusercontent.com/99788755/218106736-8ec1ca6f-91be-44ce-89e8-ce1ea2a667a4.png">
+
+
+
+
+
+
