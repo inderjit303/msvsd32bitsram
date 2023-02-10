@@ -263,11 +263,47 @@ EXAMPLE 2:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
 ```
 
-# AI 4 Pre-layout simulation of CMOS inverter using xschem or ngspice
+# AI 4 Pre-layout simulation of CMOS inverter using xschem and ngspice
+
+## 4.1 DC Analysis of CMOS Inverter using xschem and ngspice
+
+1. Create the schematic for inverter in Xschem. 
+2. The TT_MODELS contain the process corner details for PMOS and NMOS. The contents of TT_MODELS will be
+
+```
+name= TT_MODELS
+only_toplevel=true
+format="tcleval( @value )"
+value="
+** opencircuitdesign pdks install
+.lib $::SKYWATER_MODELS/sky130.lib.spice tt
+"
+spice_ignore=false
+```
+
+3. DC analysis is done by using the .dc command using code_shown.sym from components.
+
+```
+.dc Vin 0 1.8 0.01
+.save all
+```
+
+The CMOS inverter schematic in xschem is shown in fig 6 below
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218146702-aec053a0-221f-45e0-aa37-ff56168291f5.png">
+</p> 
+<p align="center">
+Fig 6. CMOS Inverter schematic in xschem 
+</p>
 
 
-
-
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218146735-0e2c3e96-edd2-46d5-9964-7d84dfa26558.png">
+</p> 
+<p align="center">
+Fig 7. Pre Layout CMOS VTC curve
+</p>
 
 
 
