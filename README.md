@@ -448,7 +448,7 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
 .end
 ```
 
-4. To measure Rise and Fall time of the output, following lines aare added to the fn_prelayout.spice netlist
+4. To measure Rise and Fall time of the output, following lines are added to the fn_prelayout.spice netlist
 ```
 .MEAS TRAN rise_time TRIG V(out) VAL=0.25 RISE=1 TARG V(out) VAL=2.25 RISE=1
 .MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
@@ -495,7 +495,7 @@ Fig 14. Ngspice window terminal showing rise and fall time
 Fig 15. Layout of function Fn using Magic 
 </p>
 
-2. Next, we Extract the netlist from the from the magic layout by typing these commands in tkcon 2.3 Main console ash shown in fig 16 
+2. Next, we extract the netlist from the from the magic layout by typing these commands in tkcon 2.3 Main console ash shown in fig 16 
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/218197983-c86a84bd-32ca-4bbb-b0fc-b27302f47362.png">
@@ -504,5 +504,98 @@ Fig 15. Layout of function Fn using Magic
 Fig 16. function Fn Tkcon terminal 
 </p>
 
+3. The netlist `fn_postlayout.spice` generated is as shown below. 
+4. The netlist shows the parasitic capacitances added with post layout simulation. 
+5. Model file is same as the one used for pre-layout simulation.
+
+```
+***Netlist description for post-layout simulation***
+* SPICE3 file created from fn_postlayout.ext - technology: min2
+.option scale=0.09u
+M1000 a_46_38# d a_22_38# vdd pmos w=17 l=2
++  ad=102 pd=46 as=204 ps=92
+M1001 out c a_14_9# gnd nmos w=17 l=2
++  ad=204 pd=92 as=204 ps=92
+M1002 vdd b a_46_38# vdd pmos w=17 l=2
++  ad=204 pd=92 as=0 ps=0
+M1003 gnd f a_30_9# gnd nmos w=17 l=2
++  ad=204 pd=92 as=102 ps=46
+M1004 gnd b a_14_9# gnd nmos w=17 l=2
++  ad=0 pd=0 as=0 ps=0
+M1005 out e a_22_38# vdd pmos w=17 l=2
++  ad=102 pd=46 as=0 ps=0
+M1006 a_14_38# a vdd vdd pmos w=17 l=2
++  ad=102 pd=46 as=0 ps=0
+M1007 a_14_9# a out gnd nmos w=17 l=2
++  ad=0 pd=0 as=0 ps=0
+M1008 a_30_9# e out gnd nmos w=17 l=2
++  ad=0 pd=0 as=0 ps=0
+M1009 a_22_38# f out vdd pmos w=17 l=2
++  ad=0 pd=0 as=0 ps=0
+M1010 a_22_38# c a_14_38# vdd pmos w=17 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 a_14_9# d gnd gnd nmos w=17 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 a_30_9# gnd 3.37fF
+C1 a_14_9# gnd 6.82fF
+C2 out gnd 8.40fF
+C3 a_22_38# gnd 3.02fF
+C4 vdd gnd 9.58fF
+
+Vdd vdd 0 2.5
+V1 a 0 0 pulse 0 2.5 0.1n 10p 10p 1n 2n
+V2 b 0 0 pulse 0 2.5 0.2n 10p 10p 1n 2n
+V3 c 0 0 pulse 0 2.5 0.3n 10p 10p 1n 2n
+V4 d 0 0 pulse 0 2.5 0.4n 10p 10p 1n 2n
+V5 e 0 0 pulse 0 2.5 0.5n 10p 10p 1n 2n
+V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
+
+***Simulation commands***
+.op
+.tran 10p 4n
+
+*** .include model file ***
+.include  my_model_file.mod
+.end
+```
+6. To measure Rise and Fall time of the output, following lines are added to the fn_prelayout.spice netlist
+```
+.MEAS TRAN rise_time TRIG V(out) VAL=0.25 RISE=1 TARG V(out) VAL=2.25 RISE=1
+.MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
+.save all
+```
+
+7. Run the ngspice simulation using the following commands.
+```
+    $ngspice fn_postlayout.spice
+```
+
+```
+    ngspice 44 -> run
+    ngspice 45 -> plot out
+```
+
+8. The post-layout transient output of function Fn using Ngspice is shown in fig 17 and ngspice command window shows the rise and fall time of output waveform as shown in fig 18
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218201312-59567d22-2203-49dd-8651-8b6d9ef8a203.png">
+</p> 
+<p align="center">
+Fig 17. Post-layout transient output of function Fn Layout
+</p>
 
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218201235-f05d6d8e-3a47-4b69-80d4-9c512c24cecf.png">
+</p> 
+<p align="center">
+Fig 18. Ngspice window terminal showing rise and fall time(Post Layout) 
+</p>
+
+ ## 10.2 Pre-layout simulation of a function Fn using ALIGN
+ ## in porgress 
+ 
+ ## 10.3 Comparison of Pre-layout and post-layout simulation of a function Fn 
+ 
+ 
+ 
