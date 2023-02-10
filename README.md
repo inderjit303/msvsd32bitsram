@@ -382,6 +382,24 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 |Low to High Propagation Delay|13.12 ps|
 |Average Propagation Delay|10.15 ps|
 
+# AI 5 Post-layout simulation of CMOS inverter using Magic
+
+## in progress 
+
+# AI 6 Post-layout simulation of CMOS inverter using ALIGN
+
+## in progress
+
+# AI 7 Comparing AI 5 and 6 
+
+## in progress 
+
+# AI 8 Enroll in FREE VSD-custom layout course
+
+## Enrolled and completed the course 
+
+<img width="473" alt="certificate" src="https://user-images.githubusercontent.com/99788755/218189661-ff84a1d8-06ed-468b-9d43-5cd6b927f2d8.png">
+
 
 
 
