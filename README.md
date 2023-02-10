@@ -109,7 +109,7 @@ More info can be found at http://repo.hu/projects/xschem/index.html
 
 1. Ngspice is the open-source spice simulator for electric and electronic circuits.
 2. It can be downloaded from terminal window in Ubuntu. 
-3. After downloading the tarball from https://ngspice.sourceforge.io/download.html to a local directory, unpack it using:
+3. Download ngspice-39 tarball ngspice-39.tar.gzfrom https://ngspice.sourceforge.io/download.html into the work directory. Install ngspice and all its dependicies using the following commands.
 
 ```
 tar -zxvf ngspice-39.tar.gz 
@@ -163,7 +163,7 @@ cd ../netgen
 cp /usr/local/share/pdk/sky130A/libs.tech/netgen//sky130A_setup.tcl .
 ```
 
-Checking if Magic is working with SKY130A pdks with the following command: 
+## Checking if Magic is working with SKY130A pdks with the following command: 
 
 ```
 sudo magic -T sky130A.tech
@@ -175,5 +175,18 @@ sudo magic -T sky130A.tech
 <p align="center">
 Fig 1. Magic tool opening with SKY130A pdk
 </p>
+
+## Checking if xschem is working with SKY130A pdks with the following command: 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218126810-a87b18bc-b923-4eb4-9424-bf453b1425e1.png">
+</p> 
+<p align="center">
+Fig 1. Magic tool opening with SKY130A pdk
+</p>
+
+
+
+
 
 
