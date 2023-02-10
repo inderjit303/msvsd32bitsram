@@ -609,7 +609,7 @@ Fig 18. Ngspice window terminal showing rise and fall time(Post Layout)
 3.  The report `comp.out` is obtained using Netgen by typing the following command.
 
 ```
-/home/inderjit/LAB1/netgen$ netgen -batch lvs INV_pre.spice INV_post.spice
+~/magic_experiments$ netgen -batch lvs fn_prelayout.spice fn_postlayout.spice
 ```
 4. The content of the report is as shown in fig 19
 
