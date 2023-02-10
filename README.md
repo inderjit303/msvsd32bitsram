@@ -345,13 +345,14 @@ Fig 9. Pre Layout CMOS transient curve
 Vin Vin GND pulse(0 1.8 100ps 10ps 10ps 200ps 500ps)
 .tran 1ps 600ps
 
-9. Te measure rise, fall and propagation delay times, .meas statements were added in spice file as shown in fig 10 below 
+9. To measure rise, fall and propagation delay times, .meas statements were added in spice file as shown in fig 10 below 
 
-
-
-<img width="960" alt="pre_layout_inverter_vtc_output_xschem" src="">
-
-
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218188595-1abb8921-e09f-412e-bc4a-23094103b668.png">
+</p> 
+<p align="center">
+Fig 11. Pre Layout CMOS inverter spice file
+</p>
 
 
 10. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 11 as follows: 
