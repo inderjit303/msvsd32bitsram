@@ -602,6 +602,25 @@ Fig 18. Ngspice window terminal showing rise and fall time(Post Layout)
 |Rise Time|1.40 ns|0.11 ns|
 |Fall Time|0.08 ns |0.17 ns|
 
+## 10.4 LVS Check
+
+1. The layout vs schematic compares the pre-layout netlist with the netlist extracted from the layout.
+2.  The mismatch is due to the extra parasitic capacitances in the post-layout netlist. 
+3.  The report `comp.out` is obtained using Netgen by typing the following command.
+
+```
+/home/inderjit/LAB1/netgen$ netgen -batch lvs INV_pre.spice INV_post.spice
+```
+4. The content of the report is as shown in fig 19
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218203927-42506bbc-e261-4c67-beb0-8f9c9d157d7b.png">
+</p> 
+<p align="center">
+Fig 19. LVS for function Fn
+</p>
+
+5. It can be seen that except for 4 extra devices(Capacitances) and corresponding nets, the pre-layout netlist and the post-layout extracted netlist are same.
 
  
  
