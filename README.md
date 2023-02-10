@@ -294,7 +294,7 @@ The CMOS inverter schematic in xschem is shown in fig 6 below
 <img src="https://user-images.githubusercontent.com/99788755/218146702-aec053a0-221f-45e0-aa37-ff56168291f5.png">
 </p> 
 <p align="center">
-Fig 6. CMOS Inverter schematic in xschem 
+Fig 6. CMOS Inverter schematic in xschem(VTC) 
 </p>
 
 4. Go to Options> Spice netlist to set the netlist option. 
@@ -312,6 +312,47 @@ Fig 7. Pre Layout CMOS VTC curve
 
 9. From the VTC, we calculate the values VIH, VOL, VIL and VOH 
 10. They can be used to calculate noise margins level ( NML and NMH) of CMOS inverter.  
+
+## 4.2 Transient Analysis of CMOS inverter
+
+1. The transient analysis of the CMOS inverter can be obtained by adding .tran in the code_shown.sym block.
+2. The schematic for the CMOS inverter is shown in fig 8 below 
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218152568-0286cf44-3091-4a89-aab6-9e926494058b.png">
+</p> 
+<p align="center">
+Fig 8. CMOS Inverter schematic in xschem(Transient) 
+</p>
+
+3. Go to Options> Spice netlist to set the netlist option. 
+4. Click on Netlist from the menu to generate a spice file for the schematic created.
+5. Click on Simulate to run the simulation, ngspice window opens up
+7. Type plot V(Vout) V(Vin) and press enter 
+8. Transient characteristics i.e Vout vs time and Vin vs time appears for the inverter as shown in fig 9 
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218154741-9320f00c-d5ce-4c79-b69e-a237ecf61581.png">
+</p> 
+<p align="center">
+Fig 9. Pre Layout CMOS transient curve
+</p>
+
+9. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 9 as follows: 
+
+```
+Rise time = time(@90 % of Vout) - time(@10% of Vout)
+
+Fall time = time(@10 % of Vout) - time(@90% of Vout)
+
+Cell Rise Delay =time taken by output to rise to its 50% value - time taken by the input to fall to its 50% value
+
+Cell Rise Delay =time taken by output to fall to its 50% value - time taken by the input to rise to its 50% value
+
+The timing parameters obtained from pre-layout simulations (... in progress) 
+```
 
 
 
