@@ -173,17 +173,38 @@ sudo magic -T sky130A.tech
 <img src="https://user-images.githubusercontent.com/99788755/218125899-cc637b82-30fb-477a-b6ea-cfd99d72bd9f.png">
 </p> 
 <p align="center">
-Fig 1. Magic tool opening with SKY130A pdk
+Fig 1. Invoking Magic tool with SKY130A pdk
 </p>
 
 ## Checking if xschem is working with SKY130A pdks with the following command: 
 
+
+```
+~/lab1_inverter/work$ xschem 
+```
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/99788755/218126810-a87b18bc-b923-4eb4-9424-bf453b1425e1.png">
+<img src="https://user-images.githubusercontent.com/99788755/218129862-7cbfe99b-49db-4d04-b7b3-010b1a106dc4.png">
 </p> 
 <p align="center">
-Fig 1. Magic tool opening with SKY130A pdk
+Fig 1. Invoking xschem 
 </p>
+
+
+## Checking if ngspice is working with the following command: 
+
+```
+~/lab1_inverter$ ngspice 
+```
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218130956-055925f5-39c3-44ad-999c-b1a1f5d9c6fd.png">
+</p> 
+<p align="center">
+Fig 1. Invoking ngspice
+</p>
+
+
 
 
 
