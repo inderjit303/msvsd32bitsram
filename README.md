@@ -448,7 +448,7 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
 .end
 ```
 
-4. To measure Rise and Fall time of the output, following lines are added to the fn_prelayout.spice netlist
+4. To measure Rise and Fall time of the output, following lines are added to the `fn_prelayout.spice` netlist
 ```
 .MEAS TRAN rise_time TRIG V(out) VAL=0.25 RISE=1 TARG V(out) VAL=2.25 RISE=1
 .MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
@@ -558,7 +558,7 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
 .include  my_model_file.mod
 .end
 ```
-6. To measure Rise and Fall time of the output, following lines are added to the fn_prelayout.spice netlist
+6. To measure Rise and Fall time of the output, following lines are added to the `fn_postlayout.spice` netlist
 ```
 .MEAS TRAN rise_time TRIG V(out) VAL=0.25 RISE=1 TARG V(out) VAL=2.25 RISE=1
 .MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
@@ -593,9 +593,11 @@ Fig 18. Ngspice window terminal showing rise and fall time(Post Layout)
 </p>
 
  ## 10.2 Pre-layout simulation of a function Fn using ALIGN
- ## in porgress 
+ ## in progress 
  
  ## 10.3 Comparison of Pre-layout and post-layout simulation of a function Fn 
+ 
+ 
  
  
  
