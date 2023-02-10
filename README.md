@@ -201,7 +201,7 @@ Fig 4. Invoking xschem
 Fig 5. Invoking ngspice
 </p>
 
-# AI 2 ALIGN tool installation 
+# AI 3 ALIGN tool installation 
 
 1. ALIGN is Analog Layout, Intelligently Generated from Netlists.
 2. ALIGN is an open source automatic layout generator for analog circuits jointly developed under the DARPA IDEA program by the University of Minnesota, Texas A&M University, and Intel Corporation.
@@ -240,11 +240,11 @@ Making ALIGN Portable to Sky130 tehnology. Clone the following Repository inside
 git clone https://github.com/ALIGN-analoglayout/ALIGN-pdk-sky130
 ```
 
-Move SKY130_PDK folder to ~/VSD_8TSRAM/ALIGN-public/pdks. Everytime we start the tool in new terminal, run the following commands.
+Move SKY130_PDK folder to home/inderjit/ALIGN-public/pdks. Everytime we start the tool in new terminal, run the following commands.
 
 ```
 # Running ALIGN TOOL
-python -m venv general
+python3 -m venv general
 source general/bin/activate
 ```
 Commands to run ALIGN (goto ALIGN-public directory)
@@ -262,6 +262,9 @@ schematic2layout.py ../examples/telescopic_ota -p ../pdks/FinFET14nm_Mock_PDK/
 EXAMPLE 2:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
 ```
+
+# AI 4 Pre-layout simulation of CMOS inverter using xschem or ngspice
+
 
 
 
