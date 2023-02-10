@@ -595,9 +595,14 @@ Fig 18. Ngspice window terminal showing rise and fall time(Post Layout)
  ## 10.2 Pre-layout simulation of a function Fn using ALIGN
  ## in progress 
  
- ## 10.3 Comparison of Pre-layout and post-layout simulation of a function Fn 
+ ## 10.3 Comparison of Pre-layout and post-layout timing parameters of a function Fn 
  
- 
+| Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation|
+|----------|-----|-----|
+|Rise Time|1.40 ns|0.11 ns|
+|Fall Time|0.08 ns |0.17 ns|
+
+
  
  
  
