@@ -341,8 +341,27 @@ Fig 9. Pre Layout CMOS transient curve
 </p>
 
 
-8. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 9 as follows: 
+8. For more accurate estimation of propagation delay, the following changes were made to the inverter_trans.spice file: 
+Vin Vin GND pulse(0 1.8 100ps 10ps 10ps 200ps 500ps)
+.tran 1ps 600ps
 
+9. Te measure rise, fall and propagation delay times, .meas statements were added in spice file as shown in fig 10 below 
+
+
+
+<img width="960" alt="pre_layout_inverter_vtc_output_xschem" src="">
+
+
+
+
+10. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 11 as follows: 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218188082-1c288d6a-15d0-4735-9bb8-fbfe71b308df.png">
+</p> 
+<p align="center">
+Fig 11. Pre LAyout CMOS transient curve(Accurate) 
+</p>
 
 Rise time = time(@90 % of Vout) - time(@10% of Vout)
 
@@ -352,17 +371,15 @@ Cell Rise Delay = (time taken by output to rise to its 50% value - time taken by
 
 Cell Rise Delay = (time taken by output to fall to its 50% value - time taken by the input to rise to its 50% value)
 
-The timing parameters obtained from pre-layout simulations 
-
 The timing parameters obtained from pre-layout simulations is tabulated below.
 
 | Parameter    | Value| 
 |----------|-----|
-|Rise Time|109.68 ps|
-|Fall Time|89.94 ps|
-|High to Low Propagation Delay|4.09 ps|
-|Low to High Propagation Delay|81.74 ps|
-|Average Propagation Delay|42.92 ps|
+|Rise Time|15.45 ps|
+|Fall Time|4.83 ps|
+|High to Low Propagation Delay|7.18 ps|
+|Low to High Propagation Delay|13.12 ps|
+|Average Propagation Delay|10.15 ps|
 
 
 
