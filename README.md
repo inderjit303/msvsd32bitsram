@@ -398,7 +398,7 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 
 ## Enrolled and completed the course 
 
-# AI 9 Pre-layout simulation of a function using xschem and ngspice
+# AI 9 Pre-layout simulation of a function Fn using ngspice
 
 1. The following circuit (fig 12) is implemented using CMOS logic design style
 2. Fn= [(B+D).(A+C)+E.F]'
@@ -410,9 +410,7 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 Fig 12. Schematic of 6 input CMOS circuit
 </p>
 
-## 9.1 Pre-layout Simulation of function Fn using Ngspice
-
-1. The netlist `fn_prelayout.spice` for the function **Fn** given can be written as
+3. The netlist `fn_prelayout.spice` for the function **Fn** given can be written as
 
 ```
 ***Netlist description for prelayout simulation***
@@ -450,14 +448,14 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
 .end
 ```
 
-2. To measure Rise and Fall time of the output, following lines aare added to the fn_prelayout.spice netlist
+4. To measure Rise and Fall time of the output, following lines aare added to the fn_prelayout.spice netlist
 ```
 .MEAS TRAN rise_time TRIG V(out) VAL=0.25 RISE=1 TARG V(out) VAL=2.25 RISE=1
 .MEAS TRAN FALL_time TRIG V(out) VAL=2.25 FALL=1 TARG V(out) VAL=0.25 FALL=1
 .save all
 ```
 
-3. Run the ngspice simulation using the following commands
+5. Run the ngspice simulation using the following commands
 ```
     $ngspice fn_prelayout.spice
 ```
@@ -467,7 +465,7 @@ V6 f 0 0 pulse 0 2.5 0.6n 10p 10p 1n 2n
     ngspice 43 -> plot out
 ```
 
-4. The pre-layout transient output of function Fn using Ngspice is shown in fig 13 and ngspice command window shows the rise and fall time of output waveform as shown in fig 14 
+6. The pre-layout transient output of function Fn using Ngspice is shown in fig 13 and ngspice command window shows the rise and fall time of output waveform as shown in fig 14 
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/218194403-915ebbe2-e076-49dc-a7d3-eddbea209b2e.png">
@@ -484,5 +482,19 @@ Fig 13. Pre-layout transient output of function Fn
 Fig 14. Ngspice window terminal showing rise and fall time
 </p>
 
+ # AI 10 Pre-layout simulation of a function Fn using Magic and ALIGN
+ 
+ ## 10.1 Pre-layout simulation of a function Fn using Magic
+ 
+1. Layout of function Fn is created in Magic with the help of Euler path and stick diagrams implemented as shown in fig 15 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218196820-2cdf78be-5ce8-4793-aac8-801003e8c866.png">
+</p> 
+<p align="center">
+Fig 15. Layout of function Fn using Magic 
+</p>
+
+3. 
  
 
