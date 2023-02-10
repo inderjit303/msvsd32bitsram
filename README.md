@@ -53,9 +53,11 @@ Magic and related open source softwares like xschem, skywater130 pdks are instal
 sudo apt update && sudo apt install m4 tcsh csh libx11-dev tcl-dev tk-dev libcairo2-dev libncurses-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev
 libX11-6 libx11-der libxrender-dev libx11-xcb-dev libcairo2-dev tcl8.6-dev tk8.6-dev flex bison libxpm4 libxpm-dev
 ```
-Links for above commands: 
+Links for above commands:
+```
 a. https://lootr5858.wordpress.com/2020/10/06/magic-vlsi-skywater-pdk-local-installation-guide/
 b. http://repo.hu/projects/xschem/xschem_man/install_xschem.html
+```
 
 ## Magic installation 
 
