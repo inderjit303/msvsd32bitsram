@@ -5,10 +5,15 @@
 This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-signal PD Research Program
 
 - [AI 1 Ubuntu Installation ](#ai-1-ubuntu-installation)
-- 
-- [AI 2 Magic and SKY130 PDKs installation ](#ai-2-magic-and-sky130-pdks-installation )
-- [AI 3](#Open-Source-Tools-Used)
- 
+- [AI 2 Magic and SKY130 PDKs installation ](#ai-2-magic-and-sky130-pdks-installation)
+- [AI 3 ALIGN tool installation ](#AI-3-ALIGN-tool-installation)
+- [AI 4 Pre-layout simulation of CMOS inverter using xschem and ngspice]
+- [AI 5 Post-layout simulation of CMOS inverter using Magic]
+- [AI 6 Post-layout simulation of CMOS inverter using ALIGN]
+- [AI 7 Comparing AI 5 and 6]
+- [AI 8 Enroll in FREE VSD-custom layout course]
+- [AI 9 Pre-layout simulation of a function Fn using ngspice]
+- [AI 10 Post-layout simulation of a function Fn using Magic and ALIGN]
 
 
 # AI 1 Ubuntu Installation 
@@ -482,9 +487,9 @@ Fig 13. Pre-layout transient output of function Fn
 Fig 14. Ngspice window terminal showing rise and fall time
 </p>
 
- # AI 10 Pre-layout simulation of a function Fn using Magic and ALIGN
+# AI 10 Post-layout simulation of a function Fn using Magic and ALIGN
  
- ## 10.1 Pre-layout simulation of a function Fn using Magic
+ ## 10.1 Post-layout simulation of a function Fn using Magic
  
 1. Layout of function Fn is created in Magic with the help of Euler path and stick diagrams implemented as shown in fig 15 
 
