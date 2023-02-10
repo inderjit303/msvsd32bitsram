@@ -340,7 +340,8 @@ Fig 8. CMOS Inverter schematic in xschem(Transient)
 Fig 9. Pre Layout CMOS transient curve
 </p>
 
-9. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 9 as follows: 
+
+8. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 9 as follows: 
 
 ```
 Rise time = time(@90 % of Vout) - time(@10% of Vout)
