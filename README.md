@@ -6,12 +6,9 @@ This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-s
 
 - [AI 1 Ubuntu Installation ](#ai-1-ubuntu-installation)
 - 
-- [Sense amplifier circuit](#Sense-amplifier-circuit)
+- [AI 2 Magic and SKY130 PDKs installation ](#ai-2-magic-and-sky130-pdks-installation )
 - [AI 3](#Open-Source-Tools-Used)
-  * [eSim](#esim)
-  * [NgSpice](#ngspice)
-  * [Makerchip](#makerchip)
-  * [Verilator](#verilator)
+ 
 
 
 # AI 1 Ubuntu Installation 
@@ -173,7 +170,7 @@ sudo magic -T sky130A.tech
 <img src="https://user-images.githubusercontent.com/99788755/218125899-cc637b82-30fb-477a-b6ea-cfd99d72bd9f.png">
 </p> 
 <p align="center">
-Fig 1. Invoking Magic tool with SKY130A pdk
+Fig 3. Invoking Magic tool with SKY130A pdk
 </p>
 
 ## Checking if xschem is working with SKY130A pdks with the following command: 
@@ -187,7 +184,7 @@ Fig 1. Invoking Magic tool with SKY130A pdk
 <img src="https://user-images.githubusercontent.com/99788755/218129862-7cbfe99b-49db-4d04-b7b3-010b1a106dc4.png">
 </p> 
 <p align="center">
-Fig 1. Invoking xschem 
+Fig 4. Invoking xschem 
 </p>
 
 
@@ -201,7 +198,7 @@ Fig 1. Invoking xschem
 <img src="https://user-images.githubusercontent.com/99788755/218130956-055925f5-39c3-44ad-999c-b1a1f5d9c6fd.png">
 </p> 
 <p align="center">
-Fig 1. Invoking ngspice
+Fig 5. Invoking ngspice
 </p>
 
 
