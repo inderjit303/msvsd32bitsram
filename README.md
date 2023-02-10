@@ -343,7 +343,7 @@ Fig 9. Pre Layout CMOS transient curve
 
 8. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 9 as follows: 
 
-```
+
 Rise time = time(@90 % of Vout) - time(@10% of Vout)
 
 Fall time = time(@10 % of Vout) - time(@90% of Vout)
@@ -363,7 +363,8 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 |High to Low Propagation Delay|4.09 ps|
 |Low to High Propagation Delay|81.74 ps|
 |Average Propagation Delay|42.92 ps|
-```
+
+
 
 
 
