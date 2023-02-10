@@ -44,9 +44,22 @@ Fig 2. Ubuntu 22.04.1 window running using Oracle VM VirtualBox
 
 Magic and related open source softwares like xschem, skywater130 pdks are installed next and their installation steps are provided for reference: 
 
+1. Basic command's to install before installing opensource softwares: 
+2. Git install: sudo apt install git 
+3. Make install: sudo apt install make
+4. Some dependencies required to run Magic and xschem do not come preinstalled. Enter enter the following command line in your terminal to install:
+
+```
+sudo apt update && sudo apt install m4 tcsh csh libx11-dev tcl-dev tk-dev libcairo2-dev libncurses-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev
+libX11-6 libx11-der libxrender-dev libx11-xcb-dev libcairo2-dev tcl8.6-dev tk8.6-dev flex bison libxpm4 libxpm-dev
+```
+Links for above commands: 
+a. https://lootr5858.wordpress.com/2020/10/06/magic-vlsi-skywater-pdk-local-installation-guide/
+b. http://repo.hu/projects/xschem/xschem_man/install_xschem.html
+
 ## Magic installation 
 
-1. Magic is an open-source VLSI layout tool. 
+1. Magic is an open-source VLSI layout tool. It is the software tool for drawing layout.
 2. Magic version 8.3 is the official current released version of the program
 3. It can be downloaded from terminal window in Ubuntu. 
 4. Installation steps are given below:
@@ -76,6 +89,20 @@ sudo make install
 ```
 More information can be found at http://opencircuitdesign.com/netgen/index.html
 
+## Xschem
 
+1. Xschem is a schematic capture tool. 
+2. It can be downloaded from terminal window in Ubuntu. 
+3. Installation steps are given below:
+
+Install steps:
+
+```
+git clone https://github.com/StefanSchippers/xschem.git xschem_git
+sudo ./configure
+sudo make
+sudo make install
+```
+More info can be found at http://repo.hu/projects/xschem/index.html
 
 
