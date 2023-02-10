@@ -347,9 +347,9 @@ Rise time = time(@90 % of Vout) - time(@10% of Vout)
 
 Fall time = time(@10 % of Vout) - time(@90% of Vout)
 
-Cell Rise Delay =time taken by output to rise to its 50% value - time taken by the input to fall to its 50% value
+Cell Rise Delay = (time taken by output to rise to its 50% value - time taken by the input to fall to its 50% value)
 
-Cell Rise Delay =time taken by output to fall to its 50% value - time taken by the input to rise to its 50% value
+Cell Rise Delay = (time taken by output to fall to its 50% value - time taken by the input to rise to its 50% value)
 
 The timing parameters obtained from pre-layout simulations (... in progress) 
 ```
