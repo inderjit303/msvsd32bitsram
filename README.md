@@ -567,6 +567,9 @@ This repository discusses Week 1 work (12.2.23 to 19.2.23) as part of VSD Mixed-
 - [AI 10 Post-layout simulation of CMOS inverter using ALIGN](#AI-10-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
 - [AI 11 Comparing AI 5 and 6](#AI-11-Comparing-AI-5-and-6)
 - [AI 12 Enroll in FREE VSD-custom layout course](#AI-12-Enroll-in-FREE-VSD-custom-layout-course)
+- [AI 13 Pre-layout of function using xschem/ngspice using SKY130 PDKS](#AI-13-Pre-layout-of-function-using-xschem/ngspice-using-SKY130-PDKS)
+- [AI 14 Post-layout of function using magic/ngspice using SKY130 PDKS](#AI-14-Post-layout-of-function-using-magic/ngspice-using-SKY130-PDKS)
+- [AI 15 Post-layout simulation of function using ALIGN](#AI-15-Post-layout-simulation-of-function-using-ALIGN)
 
 # AI 9 ALIGN Installation 
 
@@ -648,7 +651,7 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/
 
 ## Section 1
 
-# AI 14 Pre-layout of function using xschem/ngspice using SKY130 PDKS
+# AI 14 Post-layout of function using magic/ngspice using SKY130 PDKS
 
 ## Section 1 
 
