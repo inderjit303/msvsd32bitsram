@@ -567,11 +567,11 @@ This repository discusses Week 1 work (12.2.23 to 19.2.23) as part of VSD Mixed-
 - [AI 10 Post-layout simulation of CMOS inverter using ALIGN](#AI-10-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
 - [AI 11 Comparing AI 5 and 6](#AI-11-Comparing-AI-5-and-6)
 - [AI 12 Enroll in FREE VSD-custom layout course](#AI-12-Enroll-in-FREE-VSD-custom-layout-course)
-- [AI 13 Pre-layout of function using xschem/ngspice using SKY130 PDKS](#AI-13-Pre-layout-of-function-using-xschem-/ngspice-using-SKY130-PDKS)
-- [AI 14 Post-layout of function using magic/ngspice using SKY130 PDKS](#AI-14-Post-layout-of-function-using-magic-/ngspice-using-SKY130-PDKS)
+- [AI 13 Pre-layout of function using xschem and ngspice using SKY130 PDKS](#AI-13-Pre-layout-of-function-using-xschem-and-ngspice-using-SKY130-PDKS)
+- [AI 14 Post-layout of function using magic and ngspice using SKY130 PDKS](#AI-14-Post-layout-of-function-using-magic-and-ngspice-using-SKY130-PDKS)
 - [AI 15 Post-layout simulation of function using ALIGN](#AI-15-Post-layout-simulation-of-function-using-ALIGN)
-- [AI 16 Compare AI 14 and 15](#AI-15-Compare-AI-14-and-15) 
-
+- [AI 16 Compare AI 14 and 15](#AI-16-Compare-AI-14-and-15) 
+- [AI 17 Update Week 1 findings](#AI-17-Update-Week-1-findings)
 
 # AI 9 ALIGN Installation 
 
@@ -643,17 +643,37 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/
 
 # AI 11 Comparing AI 10 and 4
 
-## in progress 
+## 11.1 Pre-schematic simulation of CMOS inverter(hierarchical approach) using xschem/ngspice 
+
+### 3.1 Transient analysis of CMOS Inverter(hierarchical approach) using xschem and ngspice
+
+1. Create the schematic for CMOS inverter schematic in Xschem as shown in fig 1
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/219781370-4b6b2825-d7a5-4c93-a718-ac4070216530.png">
+</p> 
+<p align="center">
+Fig 1. CMOS inverter schematic inner
+</p>
+
+
+
+
+
+
+
 
 # AI 12 Enroll in FREE VSD-custom layout course
 
 ## Enrolled and completed
 
-# AI 13 Pre-layout of function using xschem/ngspice using SKY130 PDKS
+
+
+# AI 13 Pre-layout of function using xschem and ngspice using SKY130 PDKS
 
 ## Section 1
 
-# AI 14 Post-layout of function using magic/ngspice using SKY130 PDKS
+# AI 14 Post-layout of function using magic and ngspice using SKY130 PDKS
 
 ## Section 1 
 
