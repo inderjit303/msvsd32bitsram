@@ -564,9 +564,9 @@ It can be seen that except for 4 extra devices(Capacitances) and corresponding n
 This repository discusses Week 1 work (12.2.23 to 19.2.23) as part of VSD Mixed-signal PD Research Program
  
 - [AI 9 ALIGN Installation](#AI-9-ALIGN-Installation)
-- [AI 10 Post-layout simulation of CMOS inverter using ALIGN](#AI-6-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
-- [AI 11 Comparing AI 5 and 6](#AI-7-Comparing-AI-5-and-6)
-- [AI 12 Enroll in FREE VSD-custom layout course](#AI-8-Enroll-in-FREE-VSD-custom-layout-course)
+- [AI 10 Post-layout simulation of CMOS inverter using ALIGN](#AI-10-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
+- [AI 11 Comparing AI 5 and 6](#AI-11-Comparing-AI-5-and-6)
+- [AI 12 Enroll in FREE VSD-custom layout course](#AI-12-Enroll-in-FREE-VSD-custom-layout-course)
 
 # AI 9 ALIGN Installation 
 
@@ -639,3 +639,7 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/
 # AI 11 Comparing AI 10 and 4
 
 ## in progress 
+
+# AI 12 Enroll in FREE VSD-custom layout course
+
+## Enrolled and completed 
