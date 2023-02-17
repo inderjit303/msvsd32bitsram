@@ -628,5 +628,10 @@ Fig 19. LVS for function Fn
 5. It can be seen that except for 4 extra devices(Capacitances) and corresponding nets, the pre-layout netlist and the post-layout extracted netlist are same.
 
  
+ # VSD Mixed-signal PD Research Program
+
+## Week 1 AIs 
+
+This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-signal PD Research Program
  
  
