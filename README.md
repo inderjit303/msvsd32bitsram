@@ -666,7 +666,7 @@ Fig 1. CMOS inverter schematic in xschem
 Fig 2. CMOS inverter symbol in xschem
 </p>
 
-4. Next, we create the testbench for CMOS inverter with input signals, control signals, and power supply as shown in fig 3
+4. Next, we create the testbench for CMOS inverter with input signals, control signals, supply signals and transient parameters as shown in fig 3
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/219783770-01db51fe-ad77-4685-b188-f3149fa0bdb7.png">
@@ -675,7 +675,57 @@ Fig 2. CMOS inverter symbol in xschem
 Fig 3. CMOS inverter testbench in xschem
 </p>
 
+5. Next, we extract netlist. Go to Options> Spice netlist to set the netlist option. 
+4. Click on Netlist from the menu to generate a spice file for the schematic created.
+5. Click on Simulate to run the simulation, ngspice window opens up
+7. Type plot V(Vout) V(Vin) and press enter 
+8. Transient characteristics i.e Vout vs time and Vin vs time appears for the inverter as shown in fig 4 
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/219784902-4a1aafaa-805f-4688-bce2-066fc38c6f06.png">
+</p> 
+<p align="center">
+Fig 9. Pre Layout CMOS transient curve
+</p>
+
+
+
+9. To measure rise, fall and propagation delay times, .meas statements were added in spice file as shown in fig 10 below 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218188595-1abb8921-e09f-412e-bc4a-23094103b668.png">
+</p> 
+<p align="center">
+Fig 11. Pre Layout CMOS inverter spice file
+</p>
+
+
+10. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 11 as follows: 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/218188082-1c288d6a-15d0-4735-9bb8-fbfe71b308df.png">
+</p> 
+<p align="center">
+Fig 11. Pre Layout CMOS transient curve(Accurate) 
+</p>
+
+Rise time = time(@90 % of Vout) - time(@10% of Vout)
+
+Fall time = time(@10 % of Vout) - time(@90% of Vout)
+
+Cell Rise Delay = (time taken by output to rise to its 50% value - time taken by the input to fall to its 50% value)
+
+Cell Rise Delay = (time taken by output to fall to its 50% value - time taken by the input to rise to its 50% value)
+
+The timing parameters obtained from pre-layout simulations is tabulated below.
+
+| Parameter    | Value| 
+|----------|-----|
+|Rise Time|15.45 ps|
+|Fall Time|4.83 ps|
+|High to Low Propagation Delay|7.18 ps|
+|Low to High Propagation Delay|13.12 ps|
+|Average Propagation Delay|10.15 ps|
 
 
 # AI 12 Enroll in FREE VSD-custom layout course
