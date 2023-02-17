@@ -6,11 +6,12 @@ This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-s
 
 - [AI 1 Ubuntu Installation ](#ai-1-ubuntu-installation)
 - [AI 2 Magic and SKY130 PDKs installation ](#ai-2-magic-and-sky130-pdks-installation)
-- [AI 3 Pre-layout simulation of CMOS inverter using xschem and ngspice](#AI-4-Pre-layout-simulation-of-CMOS-inverter-using-xschem-and-ngspice)
-- [AI 4 Post-layout simulation of CMOS inverter using Magic](#AI-5-Post-layout-simulation-of-CMOS-inverter-using-Magic)
+- [AI 3 Pre-layout simulation of CMOS inverter using xschem and ngspice](#AI-3-Pre-layout-simulation-of-CMOS-inverter-using-xschem-and-ngspice)
+- [AI 4 Post-layout simulation of CMOS inverter using Magic](#AI-4-Post-layout-simulation-of-CMOS-inverter-using-Magic)
 - [AI 5 Enroll in FREE VSD-custom layout course](#ai-5-enroll-in-free-vsd-custom-layout-course)
-- [AI 6 Pre-layout simulation of a function Fn using ngspice](#AI-9-Pre-layout-simulation-of-a-function-Fn-using-ngspice)
-- [AI 7 Post-layout simulation of a function Fn using Magic and ALIGN](#AI-10-Post-layout-simulation-of-a-function-Fn-using-Magic-and-ALIGN)
+- [AI 6 Pre-layout simulation of a function Fn using ngspice](#AI-6-Pre-layout-simulation-of-a-function-Fn-using-ngspice)
+- [AI 7 Post-layout simulation of a function Fn using Magic and ALIGN](#AI-7-Post-layout-simulation-of-a-function-Fn-using-Magic-and-ALIGN)
+- [AI 8 Update-week0 Findings](#AI-8-update-week-0-findings)
 
 
 # AI 1 Ubuntu Installation 
@@ -550,8 +551,13 @@ Fig 18. Ngspice window terminal showing rise and fall time(Post Layout)
 Fig 19. LVS for function Fn
 </p>
 
-5. It can be seen that except for 4 extra devices(Capacitances) and corresponding nets, the pre-layout netlist and the post-layout extracted netlist are same.
+5.
 
+
+# AI 8 Update-week0 Findings
+
+It can be seen that except for 4 extra devices(Capacitances) and corresponding nets, the pre-layout netlist and the post-layout of function using min2.tech extracted netlist are same.
+ 
  
 # VSD Mixed-signal PD Research Program
 
