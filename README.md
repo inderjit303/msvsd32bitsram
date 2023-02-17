@@ -821,11 +821,51 @@ Fig 10. LVS for CMOS Inverter
 
 # AI 13 Pre-layout of function using xschem and ngspice using SKY130 PDKS
 
-## Section 1
+<img width="960" alt="fn_prelayout_schm" src="https://user-images.githubusercontent.com/99788755/219800768-3e4a7b6f-bf84-4c73-b492-1b5aa2aac930.png">
+
+<img width="960" alt="fn_prelayout_output" src="https://user-images.githubusercontent.com/99788755/219800795-d560968e-6ff9-46d2-b804-09c733167f26.png">
+
+<img width="960" alt="fn_prelayout_output_with_delays" src="https://user-images.githubusercontent.com/99788755/219800814-2351979b-b0ac-4a43-bf21-10612b751c16.png">
+
+<img width="960" alt="tkcon_window_pre" src="https://user-images.githubusercontent.com/99788755/219800850-946b26ae-bc76-4490-a0a8-5a6759e418e5.png">
+
 
 # AI 14 Post-layout of function using magic and ngspice using SKY130 PDKS
 
-## Section 1 
+## 14.1 Fail try at Layout
+
+<img width="960" alt="post_layout_complete_with_labels" src="https://user-images.githubusercontent.com/99788755/219801049-982a0488-2eb3-4919-8c88-b0d781af6c27.png">
+
+
+## 14.2 Correct Layout for function 
+
+<img width="960" alt="post_layout_complete_with_labels_final" src="https://user-images.githubusercontent.com/99788755/219801150-93c63031-ebf3-4839-89b4-74b6c6d199f9.png">
+
+<img width="960" alt="fn_postlayout_output" src="https://user-images.githubusercontent.com/99788755/219801203-85b033a6-583e-4cd6-807b-8e941f8107c4.png">
+
+<img width="960" alt="fn_postlayout_output_with_delays" src="https://user-images.githubusercontent.com/99788755/219801222-6b8c287d-817f-4bc9-96ef-0b73d26e3f30.png">
+
+
+<img width="960" alt="tkcon_window_post" src="https://user-images.githubusercontent.com/99788755/219801246-f10142bb-bf73-4219-bb29-4ef564a35c8e.png">
+
+
+<img width="960" alt="lvs_function" src="https://user-images.githubusercontent.com/99788755/219801257-9ab51d96-3a7a-4cc1-a5de-ca9b4c6f8d8f.png">
+
+
+## 14.3 Comparison of Pre-layout and post-layout timing parameters of Fn
+ 
+| Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation|
+|----------|-----|-----|
+|Rise Time|10.84 ns|1.37 ns|
+|Fall Time|46.9 ns |48.74 ns|
+|High to Low Propagation Delay|13.1 ns|13.75 ns|
+|Low to High Propagation Delay|44.33 ns |47.54 ns|
+|Average Propagation Delay|28.71 ns |30.64 ns|
+
+1. The postlab waveforms is similar to that of pre-layout simulation. However, there is a small delay in the waveform that might be caused due to parasitics in the layout. 
+
+2. From above comparison table, its clearly visible that Postlayout delays are more than prelayout due to parasitics in postlayout of CMOS Inverter. 
+
 
 # AI 15 Post-layout simulation of function using ALIGN
 
