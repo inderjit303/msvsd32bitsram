@@ -11,7 +11,7 @@ This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-s
 - [AI 5 Enroll in FREE VSD-custom layout course](#ai-5-enroll-in-free-vsd-custom-layout-course)
 - [AI 6 Pre-layout simulation of a function Fn using ngspice](#AI-6-Pre-layout-simulation-of-a-function-Fn-using-ngspice)
 - [AI 7 Post-layout simulation of a function Fn using Magic and ALIGN](#AI-7-Post-layout-simulation-of-a-function-Fn-using-Magic-and-ALIGN)
-- [AI 8 Update-week0 Findings](#AI-8-update-week-0-findings)
+- [AI 8 Update Week 0 Findings](#AI-8-update-week-0-findings)
 
 
 # AI 1 Ubuntu Installation 
@@ -551,10 +551,8 @@ Fig 18. Ngspice window terminal showing rise and fall time(Post Layout)
 Fig 19. LVS for function Fn
 </p>
 
-5.
 
-
-# AI 8 Update-week0 Findings
+# AI 8 Update Week 0 Findings
 
 It can be seen that except for 4 extra devices(Capacitances) and corresponding nets, the pre-layout netlist and the post-layout of function using min2.tech extracted netlist are same.
  
@@ -565,8 +563,8 @@ It can be seen that except for 4 extra devices(Capacitances) and corresponding n
 
 This repository discusses Week 1 work (12.2.23 to 19.2.23) as part of VSD Mixed-signal PD Research Program
  
- - [AI 9 ALIGN Installation](#AI-9-ALIGN-Installation)
- - [AI 10 Post-layout simulation of CMOS inverter using ALIGN](#AI-6-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
+- [AI 9 ALIGN Installation](#AI-9-ALIGN-Installation)
+- [AI 10 Post-layout simulation of CMOS inverter using ALIGN](#AI-6-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
 - [AI 11 Comparing AI 5 and 6](#AI-7-Comparing-AI-5-and-6)
 - [AI 12 Enroll in FREE VSD-custom layout course](#AI-8-Enroll-in-FREE-VSD-custom-layout-course)
 
@@ -633,7 +631,6 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/
 ```
 
 ## in progress
-
 
 # AI 10 Post-layout simulation of CMOS inverter using ALIGN
 
