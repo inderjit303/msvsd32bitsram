@@ -642,4 +642,26 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/
 
 # AI 12 Enroll in FREE VSD-custom layout course
 
-## Enrolled and completed 
+## Enrolled and completed
+
+# AI 13 Pre-layout of function using xschem/ngspice using SKY130 PDKS
+
+## Section 1
+
+# AI 14 Pre-layout of function using xschem/ngspice using SKY130 PDKS
+
+## Section 1 
+
+# AI 15 Post-layout simulation of function using ALIGN
+
+## in progress
+
+# AI 16 Compare AI 14 and 15 
+
+## in progress 
+
+# AI 17 Update Week 1 findings
+
+## in progress 
+
+
