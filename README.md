@@ -6,14 +6,11 @@ This repository discusses Week 0 work (4.2.23 to 11.2.23) as part of VSD Mixed-s
 
 - [AI 1 Ubuntu Installation ](#ai-1-ubuntu-installation)
 - [AI 2 Magic and SKY130 PDKs installation ](#ai-2-magic-and-sky130-pdks-installation)
-- [AI 3 ALIGN tool installation ](#AI-3-ALIGN-tool-installation)
-- [AI 4 Pre-layout simulation of CMOS inverter using xschem and ngspice](#AI-4-Pre-layout-simulation-of-CMOS-inverter-using-xschem-and-ngspice)
-- [AI 5 Post-layout simulation of CMOS inverter using Magic](#AI-5-Post-layout-simulation-of-CMOS-inverter-using-Magic)
-- [AI 6 Post-layout simulation of CMOS inverter using ALIGN](#AI-6-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
-- [AI 7 Comparing AI 5 and 6](#AI-7-Comparing-AI-5-and-6)
-- [AI 8 Enroll in FREE VSD-custom layout course](#AI-8-Enroll-in-FREE-VSD-custom-layout-course)
-- [AI 9 Pre-layout simulation of a function Fn using ngspice](#AI-9-Pre-layout-simulation-of-a-function-Fn-using-ngspice)
-- [AI 10 Post-layout simulation of a function Fn using Magic and ALIGN](#AI-10-Post-layout-simulation-of-a-function-Fn-using-Magic-and-ALIGN)
+- [AI 3 Pre-layout simulation of CMOS inverter using xschem and ngspice](#AI-4-Pre-layout-simulation-of-CMOS-inverter-using-xschem-and-ngspice)
+- [AI 4 Post-layout simulation of CMOS inverter using Magic](#AI-5-Post-layout-simulation-of-CMOS-inverter-using-Magic)
+- [AI 5 Enroll in FREE VSD-custom layout course](#ai-5-enroll-in-free-vsd-custom-layout-course)
+- [AI 6 Pre-layout simulation of a function Fn using ngspice](#AI-9-Pre-layout-simulation-of-a-function-Fn-using-ngspice)
+- [AI 7 Post-layout simulation of a function Fn using Magic and ALIGN](#AI-10-Post-layout-simulation-of-a-function-Fn-using-Magic-and-ALIGN)
 
 
 # AI 1 Ubuntu Installation 
@@ -206,71 +203,10 @@ Fig 4. Invoking xschem
 Fig 5. Invoking ngspice
 </p>
 
-# AI 3 ALIGN tool installation 
 
-1. ALIGN is Analog Layout, Intelligently Generated from Netlists.
-2. ALIGN is an open source automatic layout generator for analog circuits jointly developed under the DARPA IDEA program by the University of Minnesota, Texas A&M University, and Intel Corporation.
-3. The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to automatically translate an unannotated (or partially annotated) SPICE netlist of an analog circuit to a GDSII layout.
-4. ALIGN is installed next, with installation steps as given below: 
+# AI 3 Pre-layout simulation of CMOS inverter using xschem and ngspice
 
-```
-export CC=/usr/bin/gcc
-export CXX=/usr/bin/g++
-
-# Clone the ALIGN source
-    git clone https://github.com/ALIGN-analoglayout/ALIGN-public
-    cd ALIGN-public
-# Install virtual environment for python
-    sudo apt -y install python3.8-venv
-# Install the latest pip
-    sudo apt-get -y install python3-pip
-
-# Create a Python virtualenv
-    python -m venv general
-    source general/bin/activate
-    python -m pip install pip --upgrade
-
-# Install ALIGN as a USER
-    pip install -v .
-
-# Install ALIGN as a DEVELOPER
-    pip install -e .
-    pip install setuptools wheel pybind11 scikit-build cmake ninja
-    pip install -v -e .[test] --no-build-isolation
-    pip install -v --no-build-isolation -e . --no-deps --install-option='-DBUILD_TESTING=ON'
-```
-
-Making ALIGN Portable to Sky130 tehnology. Clone the following Repository inside ALIGN-public directory
-```
-git clone https://github.com/ALIGN-analoglayout/ALIGN-pdk-sky130
-```
-
-Move SKY130_PDK folder to home/inderjit/ALIGN-public/pdks. Everytime we start the tool in new terminal, run the following commands.
-
-```
-# Running ALIGN TOOL
-python3 -m venv general
-source general/bin/activate
-```
-Commands to run ALIGN (goto ALIGN-public directory)
-```
-mkdir work
-cd work
-```
-
-General syntax to give inputs
-
-```
-schematic2layout.py <NETLIST_DIR> -p <PDK_DIR> -c
-EXAMPLE 1:
-schematic2layout.py ../examples/telescopic_ota -p ../pdks/FinFET14nm_Mock_PDK/
-EXAMPLE 2:
-schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
-```
-
-# AI 4 Pre-layout simulation of CMOS inverter using xschem and ngspice
-
-## 4.1 DC Analysis of CMOS Inverter using xschem and ngspice
+## 3.1 DC Analysis of CMOS Inverter using xschem and ngspice
 
 1. Create the schematic for inverter in Xschem. 
 2. The TT_MODELS contain the process corner details for PMOS and NMOS. The contents of TT_MODELS will be
@@ -318,7 +254,7 @@ Fig 7. Pre Layout CMOS VTC curve
 9. From the VTC, we calculate the values VIH, VOL, VIL and VOH 
 10. They can be used to calculate noise margins level ( NML and NMH) of CMOS inverter.  
 
-## 4.2 Transient Analysis of CMOS inverter
+## 3.2 Transient Analysis of CMOS inverter
 
 1. The transient analysis of the CMOS inverter can be obtained by adding .tran in the code_shown.sym block.
 2. The schematic for the CMOS inverter is shown in fig 8 below 
@@ -387,23 +323,15 @@ The timing parameters obtained from pre-layout simulations is tabulated below.
 |Low to High Propagation Delay|13.12 ps|
 |Average Propagation Delay|10.15 ps|
 
-# AI 5 Post-layout simulation of CMOS inverter using Magic
+# AI 4 Post-layout simulation of CMOS inverter using Magic
 
-## in progress 
+## Covered in Week 1
 
-# AI 6 Post-layout simulation of CMOS inverter using ALIGN
+# AI 5 Enroll in FREE VSD-custom layout course
 
-## in progress
+## Enrolled and completed 
 
-# AI 7 Comparing AI 5 and 6 
-
-## in progress 
-
-# AI 8 Enroll in FREE VSD-custom layout course
-
-## Enrolled and completed the course 
-
-# AI 9 Pre-layout simulation of a function Fn using ngspice
+# AI 6 Pre-layout simulation of a function Fn using ngspice
 
 1. The following circuit (fig 12) is implemented using CMOS logic design style
 2. Fn= [(B+D).(A+C)+E.F]'
@@ -487,9 +415,9 @@ Fig 13. Pre-layout transient output of function Fn
 Fig 14. Ngspice window terminal showing rise and fall time
 </p>
 
-# AI 10 Post-layout simulation of a function Fn using Magic and ALIGN
+# AI 7 Post-layout simulation of a function Fn using Magic and ALIGN
  
- ## 10.1 Post-layout simulation of a function Fn using Magic
+ ## 7.1 Post-layout simulation of a function Fn using Magic
  
 1. Layout of function Fn is created in Magic with the help of Euler path and stick diagrams implemented as shown in fig 15 
 
@@ -597,17 +525,14 @@ Fig 17. Post-layout transient output of function Fn Layout
 Fig 18. Ngspice window terminal showing rise and fall time(Post Layout) 
 </p>
 
- ## 10.2 Pre-layout simulation of a function Fn using ALIGN
- ## in progress 
- 
- ## 10.3 Comparison of Pre-layout and post-layout timing parameters of a function Fn 
+ ## 7.2 Comparison of Pre-layout and post-layout timing parameters of a function Fn 
  
 | Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation|
 |----------|-----|-----|
 |Rise Time|1.40 ns|0.11 ns|
 |Fall Time|0.08 ns |0.17 ns|
 
-## 10.4 LVS Check
+## 7.3 LVS Check
 
 1. The layout vs schematic compares the pre-layout netlist with the netlist extracted from the layout.
 2.  The mismatch is due to the extra parasitic capacitances in the post-layout netlist. 
@@ -634,4 +559,80 @@ Fig 19. LVS for function Fn
 
 This repository discusses Week 1 work (12.2.23 to 19.2.23) as part of VSD Mixed-signal PD Research Program
  
- 
+ - [AI 9 ALIGN Installation](#AI-9-ALIGN-Installation)
+ - [AI 10 Post-layout simulation of CMOS inverter using ALIGN](#AI-6-Post-layout-simulation-of-CMOS-inverter-using-ALIGN)
+- [AI 11 Comparing AI 5 and 6](#AI-7-Comparing-AI-5-and-6)
+- [AI 12 Enroll in FREE VSD-custom layout course](#AI-8-Enroll-in-FREE-VSD-custom-layout-course)
+
+# AI 9 ALIGN Installation 
+
+1. ALIGN is Analog Layout, Intelligently Generated from Netlists.
+2. ALIGN is an open source automatic layout generator for analog circuits jointly developed under the DARPA IDEA program by the University of Minnesota, Texas A&M University, and Intel Corporation.
+3. The goal of ALIGN (Analog Layout, Intelligently Generated from Netlists) is to automatically translate an unannotated (or partially annotated) SPICE netlist of an analog circuit to a GDSII layout.
+4. ALIGN is installed next, with installation steps as given below: 
+
+```
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+
+# Clone the ALIGN source
+    git clone https://github.com/ALIGN-analoglayout/ALIGN-public
+    cd ALIGN-public
+# Install virtual environment for python
+    sudo apt -y install python3.8-venv
+# Install the latest pip
+    sudo apt-get -y install python3-pip
+
+# Create a Python virtualenv
+    python -m venv general
+    source general/bin/activate
+    python -m pip install pip --upgrade
+
+# Install ALIGN as a USER
+    pip install -v .
+
+# Install ALIGN as a DEVELOPER
+    pip install -e .
+    pip install setuptools wheel pybind11 scikit-build cmake ninja
+    pip install -v -e .[test] --no-build-isolation
+    pip install -v --no-build-isolation -e . --no-deps --install-option='-DBUILD_TESTING=ON'
+```
+
+Making ALIGN Portable to Sky130 tehnology. Clone the following Repository inside ALIGN-public directory
+```
+git clone https://github.com/ALIGN-analoglayout/ALIGN-pdk-sky130
+```
+
+Move SKY130_PDK folder to home/inderjit/ALIGN-public/pdks. Everytime we start the tool in new terminal, run the following commands.
+
+```
+# Running ALIGN TOOL
+python3 -m venv general
+source general/bin/activate
+```
+Commands to run ALIGN (goto ALIGN-public directory)
+```
+mkdir work
+cd work
+```
+
+General syntax to give inputs
+
+```
+schematic2layout.py <NETLIST_DIR> -p <PDK_DIR> -c
+EXAMPLE 1:
+schematic2layout.py ../examples/telescopic_ota -p ../pdks/FinFET14nm_Mock_PDK/
+EXAMPLE 2:
+schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
+```
+
+## in progress
+
+
+# AI 10 Post-layout simulation of CMOS inverter using ALIGN
+
+## in progress
+
+# AI 11 Comparing AI 10 and 4
+
+## in progress 
