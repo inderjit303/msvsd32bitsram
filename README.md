@@ -647,18 +647,33 @@ schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/
 
 ### 3.1 Transient analysis of CMOS Inverter(hierarchical approach) using xschem and ngspice
 
-1. Create the schematic for CMOS inverter schematic in Xschem as shown in fig 1
+1. In week 0, schematic of CMOS inverter was tested in xschem, but for post layout simulation in magic, hierarchical approach was adopted. 
+2. Create the schematic for CMOS inverter schematic in Xschem as shown in fig 1
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/219781370-4b6b2825-d7a5-4c93-a718-ac4070216530.png">
 </p> 
 <p align="center">
-Fig 1. CMOS inverter schematic inner
+Fig 1. CMOS inverter schematic in xschem
 </p>
 
+3. Next, we create the symbol from schematic as shown in fig 2
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/219783337-305c6d52-170a-4197-bea5-4bb02b56412d.png">
+</p> 
+<p align="center">
+Fig 2. CMOS inverter symbol in xschem
+</p>
 
+4. Next, we create the testbench for CMOS inverter with input signals, control signals, and power supply as shown in fig 3
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/219783770-01db51fe-ad77-4685-b188-f3149fa0bdb7.png">
+</p> 
+<p align="center">
+Fig 3. CMOS inverter testbench in xschem
+</p>
 
 
 
