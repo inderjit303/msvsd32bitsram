@@ -787,7 +787,7 @@ The timing parameters obtained from post-layout simulations of CMOS inverter are
 |Fall Time|5.68 ns |7.78 ns|
 |High to Low Propagation Delay|7.13 ns|9.05 ns|
 |Low to High Propagation Delay|13.35 ns |18.96 ns|
-|Average Propagation Delay|10.32 ns |0.17 ns|
+|Average Propagation Delay|10.32 ns |14.01 ns|
 
 1. The waveforms in fig 8 is similar to that of pre-layout simulation. However, there is a small delay in the waveform that might be caused due to parasitics in the layout. 
 
