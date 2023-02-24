@@ -665,27 +665,42 @@ d) Next, use the following command to make it work
 e) After running the command successfully you will see that a GDS file is created your terminal window would look as shown in Fig 9.3
 
 
-<img width="960" alt="inverter align 1 working" src="">
-
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/221296007-056fdde6-8ba8-4eb3-be38-60bbfe207721.png">
 </p> 
 <p align="center">
 Fig 9.3 .GDS generated for Inverter using ALIGN  
-</p>
+ 
+f) We next can view ALIGN Generated .gdb and .lef in ``klayout`` as show in fig 9.4 and 9.5
 
-f) Next, we open GDS file. To open this .gds file you need to run magic first using the magic commands as 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/221303884-557f7088-ffce-4e33-bb05-b3265ebc4e0e.png">
+</p> 
+<p align="center">
+Fig 9.4 Inverter .gds file open in klayout
+    
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/221303921-69351666-2294-4aca-8b23-da25099b8b9f.png">
+</p> 
+<p align="center">
+Fig 9.5 Inverter .lef file open in klayout
+
+g) Next, we open GDS file. To open this .gds file you need to run magic first using the magic commands as 
 
 ``` magic -T sky130A.tech ```
 
-g) Next go to file menu in Magic-> Click on read gds -> Select your .gds file
+h) Next go to file menu in Magic-> Click on read gds -> Select your .gds file
 
-h) You will get box with black boundaries, do not panic just press s and then x your layout will be displayed like shown in fig 9.4
+i) You will get box with black boundaries, do not panic just press s and then x your layout will be displayed like shown in fig 9.4
 
-<img width="960" alt="inverter align 6 layout" src="https://user-images.githubusercontent.com/99788755/221298079-6cfabe3a-40ed-4aef-8000-9ac08812e2e8.png">
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/221298079-6cfabe3a-40ed-4aef-8000-9ac08812e2e8.png">
+</p> 
+<p align="center">
+Fig 9.4 ALIGN Inverter layout
+</p>
 
-
-
+j) 
 
 
 
