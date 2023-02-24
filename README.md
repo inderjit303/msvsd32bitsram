@@ -635,7 +635,50 @@ EXAMPLE 2:
 schematic2layout.py ../ALIGN-pdk-sky130/examples/five_transistor_ota -p ../pdks/SKY130_PDK/
 ```
 
-## in progress
+## Inverter Post-layout From Align 
+
+1. To make the layout using align tool
+a) Create a work directory in ALIGN-public folder.
+b) Make sure you have the inv_tb.spice file (created from lvs netlist in xschem) in that folder by copying that file and rename it to .sp as ALIGN only reads .sp files
+c) Contents of inv_tb.spice is Shown below in figure 9.1
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/221291409-28ceec9f-fc4c-4627-a44f-f0746135cb86.png">
+</p> 
+<p align="center">
+Fig 9.1 CMOS inverter lvs netlist in xschem
+</p>
+
+d) Contents of inv.sp is Shown below in figure 9.1
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/221292062-d32af21f-fa03-40f8-a1f5-ceec4a5d52a8.png">
+</p> 
+<p align="center">
+Fig 9.2 inv.sp file within ALIGN-public folder
+</p>
+
+d) Next, use the following command to make it work
+
+``` python3 ../bin/schematic2layout.py (your .spice file name here) -p ../pdks/SKY130_PDK/ ```
+
+e) After running the command successfully you will see that a GDS file is created your terminal window would look as shown in Fig 9.3
+
+
+<img width="960" alt="inverter align 1 working" src="">
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/221296007-056fdde6-8ba8-4eb3-be38-60bbfe207721.png">
+</p> 
+<p align="center">
+Fig 9.3 .GDS generated for Inverter using ALIGN  
+</p>
+
+
+
+
+
+
 
 # AI 10 Post-layout simulation of CMOS inverter using ALIGN
 
