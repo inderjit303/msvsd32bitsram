@@ -1002,7 +1002,7 @@ Fig 10. LVS for CMOS Inverter
  
 | Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation (MAGIC)| Value from Post-layout Simulation (ALIGN)|
 |----------|-----|-----|----------|
-|Rise Time|17.75 ns|25.53 ns| 10.56 ns|
+|Rise Time|17.75 ns|25.53 ns| 0.1 ns|
 |Fall Time|5.68 ns |7.78 ns| 0.05 ns|
 |High to Low Propagation Delay|7.13 ns|9.05 ns| 0.03 ns|
 |Low to High Propagation Delay|13.35 ns |18.96 ns| 0.067 ns| 
