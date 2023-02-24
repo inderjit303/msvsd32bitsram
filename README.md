@@ -722,13 +722,23 @@ Fig 9.7 Tkcon terminal for inverter
 
 1. Take the .spice file generated from ALIGN layout and paste it in our testbench spice file.
 
-2. PostLayout extracted netlist is shown in fig 9.7 and postlayout netlist with control statements and sources is shown in fig 9.8
+2. PostLayout extracted netlist is shown in fig 9.8 and postlayout netlist with control statements and sources is shown in fig 9.9
 
 <p align="center">
-<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305025-2530f65d-7f4e-41f4-adde-17d487dc3cac.png">
+<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221314363-f3a9bddf-2142-4bee-a5fe-65ca6cdfe2a2.png">
 </p> 
 <p align="center">
-Fig 9.8 Tkcon terminal for inverter
+Fig 9.8 PostLayout extracted netlist for inverter
+</p>
+
+
+<img width="960" alt="">
+
+<p align="center">
+<img src="inverter align 8 netlist postlayout" src="https://user-images.githubusercontent.com/99788755/221314386-c34e8d35-82b2-4db7-bceb-5b3c4517ac73.png"">
+</p> 
+<p align="center">
+Fig 9.9 Tkcon terminal for inverter
 </p>
 
 
@@ -754,29 +764,6 @@ Fig 9.10 Post Layout CMOS inverter output with delays measurement
 |High to Low Propagation Delay|0.3 ps|
 |Low to High Propagation Delay|0.67 ps|
 |Average Propagation Delay|0.48 ps|
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # AI 11 Comparing AI 10 and 4
