@@ -674,6 +674,15 @@ e) After running the command successfully you will see that a GDS file is create
 Fig 9.3 .GDS generated for Inverter using ALIGN  
 </p>
 
+f) Next, we open GDS file. To open this .gds file you need to run magic first using the magic commands as 
+
+``` magic -T sky130A.tech ```
+
+g) Next go to file menu in Magic-> Click on read gds -> Select your .gds file
+
+h) You will get box with black boundaries, do not panic just press s and then x your layout will be displayed like shown in fig 9.4
+
+<img width="960" alt="inverter align 6 layout" src="https://user-images.githubusercontent.com/99788755/221298079-6cfabe3a-40ed-4aef-8000-9ac08812e2e8.png">
 
 
 
