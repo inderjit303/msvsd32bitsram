@@ -724,18 +724,11 @@ Fig 9.7 Tkcon terminal for inverter
 
 2. PostLayout extracted netlist is shown in fig 9.7 and postlayout netlist with control statements and sources is shown in fig 9.8
 
-
 <p align="center">
-<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305963-c0fd80df-a834-4cca-89d5-56ff292609d1.png">
+<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305025-2530f65d-7f4e-41f4-adde-17d487dc3cac.png">
 </p> 
 <p align="center">
-Fig 9.8 inverter postlayout align extracted netlist
-</p>
-
-
-<p align="center">
-<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305997-115fe582-f424-4dca-96b9-879f99a232f6.png">
-Fig 9.9 inverter postlayout align netlist with control statements
+Fig 9.8 Tkcon terminal for inverter
 </p>
 
 
