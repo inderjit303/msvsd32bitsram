@@ -691,22 +691,100 @@ g) Next, we open GDS file. To open this .gds file you need to run magic first us
 
 h) Next go to file menu in Magic-> Click on read gds -> Select your .gds file
 
-i) You will get box with black boundaries, do not panic just press s and then x your layout will be displayed like shown in fig 9.4
+i) You will get box with black boundaries, do not panic just press s and then x your layout will be displayed like shown in fig 9.6
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/99788755/221298079-6cfabe3a-40ed-4aef-8000-9ac08812e2e8.png">
 </p> 
 <p align="center">
-Fig 9.4 ALIGN Inverter layout
+Fig 9.6 ALIGN Inverter layout
 </p>
 
-j) 
+j) Next we need to run post layout spice simulation, so go to tkcon window and type the following command as shown in fig 9.7
+
+```
+extract do local
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```
+
+<p align="center">
+<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305025-2530f65d-7f4e-41f4-adde-17d487dc3cac.png">
+</p> 
+<p align="center">
+Fig 9.7 Tkcon terminal for inverter
+</p>
 
 
 
 # AI 10 Post-layout simulation of CMOS inverter using ALIGN
 
-## in progress
+1. Take the .spice file generated from ALIGN layout and paste it in our testbench spice file.
+
+2. PostLayout extracted netlist is shown in fig 9.7 and postlayout netlist with control statements and sources is shown in fig 9.8
+
+
+<p align="center">
+<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305963-c0fd80df-a834-4cca-89d5-56ff292609d1.png">
+</p> 
+<p align="center">
+Fig 9.8 inverter postlayout align extracted netlist
+</p>
+
+
+<p align="center">
+<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305997-115fe582-f424-4dca-96b9-879f99a232f6.png">
+Fig 9.9 inverter postlayout align netlist with control statements
+</p>
+
+
+3. Next we, simulate it by invoking ngspice with command ```ngspice filename.spice``` . The following waveform are obtained as shown in fig 9.10
+
+4. To measure rise, fall and propagation delay times, .meas statements were added in postlayout spice file. 
+
+5. Timing parameters of CMOS inverter can be calculated from the graph shown in fig 9.10 as follows: 
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/99788755/221309852-dab7b0bb-047f-4956-a3bf-93cf07bf45fe.png">
+</p> 
+<p align="center">
+Fig 9. Post Layout CMOS inverter output with delays measurement
+</p>
+
+6. The timing parameters obtained from post-layout simulations of CMOS inverter with ALIGN are tabulated below.
+
+| Parameter    | Value| 
+|----------|-----|
+|Rise Time|10.57 ps|
+|Fall Time|0.52 ps|
+|High to Low Propagation Delay|0.3 ps|
+|Low to High Propagation Delay|0.67 ps|
+|Average Propagation Delay|0.48 ps|
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # AI 11 Comparing AI 10 and 4
 
