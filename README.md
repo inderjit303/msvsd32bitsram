@@ -755,11 +755,11 @@ Fig 9.10 Post Layout CMOS inverter output with delays measurement
 
 | Parameter    | Value| 
 |----------|-----|
-|Rise Time|0.0106 ps|
-|Fall Time|0.52 ps|
-|High to Low Propagation Delay|0.3 ps|
-|Low to High Propagation Delay|0.67 ps|
-|Average Propagation Delay|0.48 ps|
+|Rise Time|0.0106 ns|
+|Fall Time|0.052 ns|
+|High to Low Propagation Delay|0.03 ns|
+|Low to High Propagation Delay|0.067 ns|
+|Average Propagation Delay|0.048 ns|
 
 
 # AI 11 Comparing AI 10 and 4
