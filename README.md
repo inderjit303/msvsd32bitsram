@@ -1069,6 +1069,6 @@ export OPENROAD=~/OpenROAD-flow-scripts/tools/OpenROAD
 export PATH=~/OpenROAD-flow-scripts/tools/install/OpenROAD/bin:~/OpenROAD-flow-scripts/tools/install/yosys/bin:~/OpenROAD-flow-scripts/tools/install/LSOracle/bin:$PATH
 ```
 
-1. In OpenROAD, facing the following error while installation process for OpenROAD as shown in fig 0.1
+1. In OpenROAD, facing the following configuration error while installation process for OpenROAD as shown in fig 0.1
 ![image](https://user-images.githubusercontent.com/99788755/221319637-dc4956e6-52ec-4668-80c1-f42f543cea80.png)
 
