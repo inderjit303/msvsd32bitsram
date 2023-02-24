@@ -710,7 +710,7 @@ ext2spice
 ```
 
 <p align="center">
-<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221305025-2530f65d-7f4e-41f4-adde-17d487dc3cac.png">
+<img src="inverter align 5 tkcon" src="https://user-images.githubusercontent.com/99788755/221316225-c88d6148-0028-4ce7-b72b-a239095975f9.png">
 </p> 
 <p align="center">
 Fig 9.7 Tkcon terminal for inverter
@@ -731,14 +731,12 @@ Fig 9.7 Tkcon terminal for inverter
 Fig 9.8 PostLayout extracted netlist for inverter
 </p>
 
-
 <p align="center">
 <img src="inverter align 8 netlist postlayout" src="https://user-images.githubusercontent.com/99788755/221314386-c34e8d35-82b2-4db7-bceb-5b3c4517ac73.png"">
 </p> 
 <p align="center">
 Fig 9.9 Tkcon terminal for inverter
 </p>
-
 
 3. Next we, simulate it by invoking ngspice with command ```ngspice filename.spice``` . The following waveform are obtained as shown in fig 9.10
 
@@ -757,7 +755,7 @@ Fig 9.10 Post Layout CMOS inverter output with delays measurement
 
 | Parameter    | Value| 
 |----------|-----|
-|Rise Time|10.57 ps|
+|Rise Time|0.0106 ps|
 |Fall Time|0.52 ps|
 |High to Low Propagation Delay|0.3 ps|
 |Low to High Propagation Delay|0.67 ps|
@@ -1000,6 +998,14 @@ Fig 10. LVS for CMOS Inverter
 
 # AI 17 Update Week 1 findings
 
-## in progress 
+## 11.3 Comparison of Pre-layout and post-layout timing parameters of CMOS Inverter
+ 
+| Parameter    | Value from Pre-layout Simulation| Value from Post-layout Simulation (MAGIC)| Value from Post-layout Simulation (ALIGN)|
+|----------|-----|-----|----------|
+|Rise Time|17.75 ns|25.53 ns| 10.56 ns|
+|Fall Time|5.68 ns |7.78 ns| 0.05 ns|
+|High to Low Propagation Delay|7.13 ns|9.05 ns| 0.03 ns|
+|Low to High Propagation Delay|13.35 ns |18.96 ns| 0.067 ns| 
+|Average Propagation Delay|10.32 ns |14.01 ns| 0.048 ns|
 
 
