@@ -1008,4 +1008,67 @@ Fig 10. LVS for CMOS Inverter
 |Low to High Propagation Delay|13.35 ns |18.96 ns| 0.067 ns| 
 |Average Propagation Delay|10.32 ns |14.01 ns| 0.048 ns|
 
+# Week 2
+## OpenROAD Installation
+OpenROAD is an integrated chip physical design tool that takes a design from synthesized Verilog to routed layout.
+
+An outline of steps used to build a chip using OpenROAD is shown below:
+
+1. Initialize floorplan - define the chip size and cell rows
+2. Place pins (for designs without pads )
+3. Place macro cells (RAMs, embedded macros)
+4. Insert substrate tap cells
+5. Insert power distribution network
+6. Macro Placement of macro cells
+7. Global placement of standard cells
+8. Repair max slew, max capacitance, and max fanout violations and long wires
+9. Clock tree synthesis
+10. Optimize setup/hold timing
+11. Insert fill cells
+12. Global routing (route guides for detailed routing)
+13. Antenna repair
+14. Detailed routing
+15. Parasitic extraction
+16. Static timing analysis
+
+Run the below commands step by step to install OpenROAD
+
+```
+cd
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
+cd OpenROAD
+./etc/DependencyInstaller.sh
+cd
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+## Packages needed by Yosys
+sudo apt install -y clang bison flex \
+    libreadline-dev gawk tcl-dev libffi-dev git \
+    graphviz xdot pkg-config python3 libboost-system-dev \
+    libboost-python-dev libboost-filesystem-dev zlib1g-dev
+ 
+## Packages needed by OpenROAD
+sudo apt install -y cmake qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
+    libmng2 qt5-image-formats-plugins tcl-tclreadline \
+    swig libboost-all-dev libeigen3-dev libspdlog-dev
+## Build 'lemon' from source
+cd ~/home/inderjit mkdir lemon && cd lemon
+wget http://lemon.cs.elte.hu/pub/sources/lemon-1.3.1.tar.gz
+tar -zxf lemon-1.3.1.tar.gz && cd lemon-1.3.1
+cmake -B build .
+sudo cmake --build build -j $(nproc) --target install
+ 
+# Optional: Delete the 'lemon' sources
+cd ~/home/inderjit && rm -fR lemon
+Build all the tools needed for OpenROAD:
+
+cd OpenROAD-flow-scripts
+./build_openroad.sh --local
+## This step can take over 30 minutes
+
+export OPENROAD=~/OpenROAD-flow-scripts/tools/OpenROAD
+export PATH=~/OpenROAD-flow-scripts/tools/install/OpenROAD/bin:~/OpenROAD-flow-scripts/tools/install/yosys/bin:~/OpenROAD-flow-scripts/tools/install/LSOracle/bin:$PATH
+```
+
+1. In OpenROAD, facing the following error while installation process for OpenROAD as shown in fig 0.1
+![image](https://user-images.githubusercontent.com/99788755/221319637-dc4956e6-52ec-4668-80c1-f42f543cea80.png)
 
