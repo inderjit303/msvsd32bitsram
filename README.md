@@ -732,8 +732,6 @@ Fig 9.8 PostLayout extracted netlist for inverter
 </p>
 
 
-<img width="960" alt="">
-
 <p align="center">
 <img src="inverter align 8 netlist postlayout" src="https://user-images.githubusercontent.com/99788755/221314386-c34e8d35-82b2-4db7-bceb-5b3c4517ac73.png"">
 </p> 
