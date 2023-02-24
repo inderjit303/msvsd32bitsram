@@ -749,7 +749,7 @@ Fig 9.9 inverter postlayout align netlist with control statements
 <img src="https://user-images.githubusercontent.com/99788755/221309852-dab7b0bb-047f-4956-a3bf-93cf07bf45fe.png">
 </p> 
 <p align="center">
-Fig 9. Post Layout CMOS inverter output with delays measurement
+Fig 9.10 Post Layout CMOS inverter output with delays measurement
 </p>
 
 6. The timing parameters obtained from post-layout simulations of CMOS inverter with ALIGN are tabulated below.
