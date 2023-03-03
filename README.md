@@ -1136,7 +1136,23 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 2. SLC cell, containing the Split-Control Level Converter.
 
 - The gds and lef files of HEADER and SLC cells are pre-created before the start of the Generator flow.
+                                                                                                                 - The .gds files exist in ``` /.../openfasoc/openfasoc/generators/temp-sense-gen/blocks/sky130hd/gds ```
 
 - The layout of the HEADER cell is shown below:
+                                                                                                                 <img width="960" alt="HEADER gds klayout" src="https://user-images.githubusercontent.com/99788755/222802737-0f667cea-295d-4d4b-ab77-ddaaf2797c76.png">
+
+- The layout of the SLC cell is shown below:
+
+<img width="960" alt="SLC gds layout" src="https://user-images.githubusercontent.com/99788755/222803075-8a5a7f89-97d0-4763-b31d-ba00858c77ec.png">
+
+                                                                                                                 # 6. OpenFASOC flow for Temperature Sensor Generation       
+                                                                                                                 - To configure circuit specifications, modify the test.json specfile in the ```openfasoc/generators/temp-sense-gen/``` folder.  
+                                                                                                                                                 
+                                                                                                                                                 
+                                                                                                                                                
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
+                                                                                                                                                   
 
 
