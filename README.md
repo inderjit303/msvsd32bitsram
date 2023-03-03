@@ -1265,17 +1265,56 @@ This section discusses Week 3 work (25.2.23 to 5.3.23) as part of VSD Mixed-sign
                      
 - First, we build the schematic of ring oscillator in xschem
                                                                                                          <img width="960" alt="ring_osc_sys" src="https://user-images.githubusercontent.com/99788755/222826910-8cd65833-ca26-4fc0-aed6-467148c98952.png">
-                                                                                                 
-                                                                                                         - Create symbol by going to the symbol menu and click on "Make symbol from schematic"
+                                                                                                         
+- Create symbol by going to the symbol menu and click on "Make symbol from schematic"
                                                                                                          
 <img width="960" alt="ring_osc_sym" src="https://user-images.githubusercontent.com/99788755/222827406-1c7a248f-13a2-4e23-9490-aecd5b04143a.png">
                                                                                                          - Next, we create testbench by bringing the symbol of ring oscillator into the new schematic and add   voltage sources, gnd terminal and ipins/opins.                                   
                                                                                                           <img width="960" alt="ring_osc_tb" src="https://user-images.githubusercontent.com/99788755/222827771-38d18776-9bda-4442-a8fd-df6c402f3131.png">
-                                                                                                          
+                                                                                                         
 - Then, we simulate the ring oscillator testbench in ngspice anf obtain the following results: 
                                                                     
 <img width="960" alt="ring_osc_xschem_output" src="https://user-images.githubusercontent.com/99788755/222828074-49ba3837-b4e8-498f-afa4-1fe57e310346.png">
 
+- This completes the prelayout simulation of Ring oscillator. 
+
+- The prelayout netlist generated from xschem is shown for reference. 
+
+```bash
+** sch_path: /home/inderjit/lab_inverter/xschem/ring_osc_tb.sch
+.subckt ring_osc_tb gnd vdd out
+*.PININFO gnd:B vdd:B out:O
+x1 vdd out gnd ring_osc
+V1 vdd gnd 1.8
+.save i(v1)
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/inderjit/open_pdks/sky130/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.tran 20ps 4n
+.save all
+
+**** end user architecture code
+.ends
+
+* expanding   symbol:  ring_osc.sym # of pins=3
+** sym_path: /home/inderjit/lab_inverter/xschem/ring_osc.sym
+** sch_path: /home/inderjit/lab_inverter/xschem/ring_osc.sch
+.subckt ring_osc vdd out gnd
+*.PININFO vdd:B gnd:B out:O
+XM1 net1 out gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM2 net2 net1 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM3 out net2 gnd gnd sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM4 net1 out vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
+XM5 net2 net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
+XM6 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
+.ends
+
+.GLOBAL gnd
+.GLOBAL vdd
+.end
+```
 
 
                                                                                                                                             
