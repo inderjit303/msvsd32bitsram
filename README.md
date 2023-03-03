@@ -1316,7 +1316,7 @@ XM6 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
 .end
 ```
 
-# 2. Poatlayout simulation of Three-stage ring oscillator in Magic
+# 2. Post-layout simulation of Three-stage ring oscillator in Magic
 
 - From the testbench for ring oscilator, from the files menu and go to suimulation menu and select "LVS netlist: top lvl is a subsckt" and then tap on the netlist and close xschem.
 - Next import the netlist to magic to create the layout. 
@@ -1456,5 +1456,14 @@ C32 gnd VSUBS 1.70fF
 
 - Quite evident from above output, prelayout and postlayout outputs of Ring oscillator are very closely matching and are genrating oscillation, hene proving its functionality. 
 
+# 3. Post-layout simulation of Ring oscillator using ALIGN
 
+- Create a python virtualenv
+
+```bash
+python -m venv general
+source general/bin/activate
+```
+
+- Run Design after modifying the nf value here to get the desired output(use your original inverter spice file generated from xschem as input)
                                                                                                                                                   
