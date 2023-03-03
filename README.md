@@ -1245,8 +1245,8 @@ Placement takes place after the floorplan is ready and has two phases: global pl
 Routing is also divided into two phases: global routing and detailed routing. Right before global routing, OpenFASoC calls ```/openfasoc/openfasoc/generators/temp-sense-gen/flow/scripts/openfasoc/pre_global_route.tcl```:
 
 <img width="534" alt="routing working" src="https://user-images.githubusercontent.com/99788755/222821426-5f4618fe-3658-442a-8ea0-97fcfe369000.png">
-
-                                                                                                          ### Power Delivery Network is shown below:
+                                                                           
+                                                                                                         ## Power Delivery Network is shown below:
 
 <img width="960" alt="power delivery network" src="https://user-images.githubusercontent.com/99788755/222822498-589c2638-ad91-4c87-9c2f-efd2bb062eeb.png">
 
