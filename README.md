@@ -1022,10 +1022,7 @@ mkdir -p ~/Work/vlsi/tools/KLayout && cd ~/Work/vlsi/tools/KLayout
 wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.27.11-1_amd64.deb
 sudo apt install -y ./klayout_0.27.11-1_amd64.deb                           
 ```                  
-                                                                                                                 <img width="960" alt="klayout" src="https://user-images.githubusercontent.com/99788755/222797092-6a0000a3-2891-475e-b25e-f842cfea0247.png">
-                                                                                                                 
-
-                                                                                                                                          
+                                                                                                                    
 # 2. OpenROAD Installation
 OpenROAD is an integrated chip physical design tool that takes a design from synthesized Verilog to routed layout.
 
@@ -1096,12 +1093,24 @@ source setup_env.sh
 OPENROAD: <path>/OpenROAD-flow-scripts/tools/OpenROAD
 ```
 
-### E. In OpenROAD, facing the following configuration error while installation process for OpenROAD as shown in fig 0.1
+### E. In OpenROAD, facing the following configuration error while installation process for OpenROAD
+                                                                                                              
 ![image](https://user-images.githubusercontent.com/99788755/221319637-dc4956e6-52ec-4668-80c1-f42f543cea80.png)
 
 ### F. The above error got resolved by re-running the commands in a new terminal 
 
 <img width="960" alt="openroad testing" src="https://user-images.githubusercontent.com/99788755/222798513-cf6f7807-d385-4adc-9294-d94e6adec0bb.png">
+                                                                                                                 
+                                                                                                                 # 4. OpenFASOC Installation
+
+- OpenFASoC is a project focused on automated analog generation from user specification to GDSII with fully open-sourced tools. It is led by a team of researchers at the University of Michigan and is inspired from FASoC which sits on proprietary software.
+
+- The tool is comprised of analog and mixed-signal circuit generators, which automatically create a physical design based on user specifications.
+
+- First, cd into a directory of your choice and clone the OpenFASoC repository:
+```git clone https://github.com/idea-fasoc/openfasoc```
+
+Now go to the home location of this repository (where the README.rst file is located) and ```run sudo ./dependencies.sh.```         
 
 
 
