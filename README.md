@@ -1101,7 +1101,27 @@ OPENROAD: <path>/OpenROAD-flow-scripts/tools/OpenROAD
 ### F. The above error got resolved by re-running the commands in a new terminal 
 
 <img width="960" alt="openroad testing" src="https://user-images.githubusercontent.com/99788755/222798513-cf6f7807-d385-4adc-9294-d94e6adec0bb.png">
-                                                                                                               
+                                                                                                                                                   
+### F. Testing the openROAD installation 
+                                                                                                                                                   
+OpenROAD is a bit hard to get into without any examples of the toolchain flow. The OpenROAD-flow-scripts repository has example designs, constraints and makefile flows.
+
+Test your installation, according to the OpenROAD Flow Tutorial:
+                                                                                                                                                   
+```bash
+cd ~/home/inderjit/OpenROAD-flow-scripts/flow
+make DESIGN_CONFIG=./designs/sky130hd/ibex/config.mk
+```                                                                                                                                                
+This process takes about 30 minutes.  and it This builds the ‘ibex‘ 32-bit RISC-V CPU core and the results end up here:
+
+```bash~/home/inderjit/OpenROAD-flow-scripts/flow/results/sky130hd/ibex/base$ ```
+To see the results in OpenROAD’s GUI, type:
+
+```bash
+make DESIGN_CONFIG=./designs/sky130hd/ibex/config.mk gui_final
+```
+                                                                                                         <img width="960" alt="32bit RISC core openroad testing 1" src="https://user-images.githubusercontent.com/99788755/222837624-dfab2e52-ae40-48c9-9db0-c18dac8e79be.png">
+                                                                        
 # 4. OpenFASOC Installation
                          
 - OpenFASoC is a project focused on automated analog generation from user specification to GDSII with fully open-sourced tools. It is led by a team of researchers at the University of Michigan and is inspired from FASoC which sits on proprietary software.
