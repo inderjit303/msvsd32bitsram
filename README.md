@@ -1170,11 +1170,14 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 ```
  make sky130hd_temp_verilog
 ```      
+                                                                                                                                                 
 -  By running make sky130hd_temp_verilog, the result on the terminal is:
-                                                                                                                 <img width="960" alt="temp_sensor verilog generated" src="https://user-images.githubusercontent.com/99788755/222808230-435c35ce-ef00-4550-8948-458ca55d8fb4.png">
-         
-                      
-- The generator references the model file in an iterative process until either meeting specifications or failing.                    
+
+<img width="960" alt="temp_sensor verilog generated" src="https://user-images.githubusercontent.com/99788755/222808230-435c35ce-ef00-4550-8948-458ca55d8fb4.png">
+                           
+- The generator references the model file in an iterative process until either meeting specifications or failing.
+
+
                                                                                                                                                 
                                                                                                                                                    
                                                                                                                                                    
