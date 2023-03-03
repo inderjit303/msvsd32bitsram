@@ -1263,16 +1263,16 @@ This section discusses Week 3 work (25.2.23 to 5.3.23) as part of VSD Mixed-sign
 - Ring Oscillator is very desirable in the VLSI environment because of its integration ability. It is easy to design and easily integrated. Without the need for inductors, the ring oscillator occupies far less die area than a harmonic LC oscillator. It is simple and can be operated at Low-DC level. Unfortunately, the jitter performance of the ring oscillator falls short of the jitter performance of an LC oscillator. CMOS oscillators in today’s technology are typically implemented as ring oscillators or LCOscillators. It is a self-toggling circuit that generates clock-like pulses without any external input, other than the power that it needs. This is created by cascading inverters back to back in odd numbers (so that the next output is different than the previous).                                                                                                                                        
 # 2. Prelayout simulation of Three-stage ring oscillator in Xschem
                      
-1. First, we build the schematic of ring oscillator in xschem
+- First, we build the schematic of ring oscillator in xschem
                                                                                                          <img width="960" alt="ring_osc_sys" src="https://user-images.githubusercontent.com/99788755/222826910-8cd65833-ca26-4fc0-aed6-467148c98952.png">
-                                                                                                         
-                                                                                                         2. Create symbol by going to the symbol menu and click on "Make symbol from schematic"
+                                                                                                 
+                                                                                                         - Create symbol by going to the symbol menu and click on "Make symbol from schematic"
                                                                                                          
 <img width="960" alt="ring_osc_sym" src="https://user-images.githubusercontent.com/99788755/222827406-1c7a248f-13a2-4e23-9490-aecd5b04143a.png">
-                                                                                                          3. Next, we create testbench by bringing the symbol of ring oscillator into the new schematic and add   voltage sources, gnd terminal and ipins/opins.                                   
+                                                                                                         - Next, we create testbench by bringing the symbol of ring oscillator into the new schematic and add   voltage sources, gnd terminal and ipins/opins.                                   
                                                                                                           <img width="960" alt="ring_osc_tb" src="https://user-images.githubusercontent.com/99788755/222827771-38d18776-9bda-4442-a8fd-df6c402f3131.png">
                                                                                                           
-4. Then, we simulate the ring oscillator testbench in ngspice anf obtain the following results: 
+- Then, we simulate the ring oscillator testbench in ngspice anf obtain the following results: 
                                                                     
 <img width="960" alt="ring_osc_xschem_output" src="https://user-images.githubusercontent.com/99788755/222828074-49ba3837-b4e8-498f-afa4-1fe57e310346.png">
 
