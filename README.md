@@ -1259,8 +1259,12 @@ Routing is also divided into two phases: global routing and detailed routing. Ri
                                                                                                         
 # Week 3 AIs
 
-This section discusses Week 3 work (25.2.23 to 5.3.23) as part of VSD Mixed-signal PD Research Program                                                                                                           # 1. Background on Ring oscillator 
-- Ring Oscillator is very desirable in the VLSI environment because of its integration ability. It is easy to design and easily integrated. Without the need for inductors, the ring oscillator occupies far less die area than a harmonic LC oscillator. It is simple and can be operated at Low-DC level. Unfortunately, the jitter performance of the ring oscillator falls short of the jitter performance of an LC oscillator. CMOS oscillators in today’s technology are typically implemented as ring oscillators or LCOscillators. It is a self-toggling circuit that generates clock-like pulses without any external input, other than the power that it needs. This is created by cascading inverters back to back in odd numbers (so that the next output is different than the previous).                                                                                                                                        
+This section discusses Week 3 work (25.2.23 to 5.3.23) as part of VSD Mixed-signal PD Research Program  
+                                                                                                                                            
+ # 1. Background on Ring oscillator 
+- A Ring Oscillator(RO), is a device composed of an odd number of NOT gates in a ring, whose output oscillates between two voltage levels, representing true and false. The NOT gates, or inverters, are attached in a chain and the output of the last inverter is fed back into the first. Ring Oscillator is very desirable in the VLSI environment because of its integration ability. It is easy to design and easily integrated. Without the need for inductors, the ring oscillator occupies far less die area than a harmonic LC oscillator.  Unfortunately, the jitter performance of the ring oscillator falls short of the jitter performance of an LC oscillator. CMOS oscillators in today’s technology are typically implemented as ring oscillators or LC Oscillators. 
+                                                                                                                                            
+                                                                                                                                            
 # 2. Prelayout simulation of Three-stage ring oscillator in Xschem
                      
 - First, we build the schematic of ring oscillator in xschem
