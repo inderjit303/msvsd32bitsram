@@ -1008,7 +1008,15 @@ Fig 10. LVS for CMOS Inverter
 |Low to High Propagation Delay|13.35 ns |18.96 ns| 0.067 ns| 
 |Average Propagation Delay|10.32 ns |14.01 ns| 0.048 ns|
 
-# Week 2
+
+
+## VSD Mixed-signal PD Research Program
+
+
+# Week 2 AIs
+
+This section discusses Week 2 work (18.2.23 to 25.2.23) as part of VSD Mixed-signal PD Research Program
+
 ## OpenROAD Installation
 OpenROAD is an integrated chip physical design tool that takes a design from synthesized Verilog to routed layout.
 
