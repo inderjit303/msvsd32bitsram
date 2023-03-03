@@ -1519,9 +1519,9 @@ ext2spice
 ```
 ## Post-layout simulation of Ring oscillator using ALIGN
 
-1. Take the .spice file generated from ALIGN layout and paste it in our testbench spice file.
+- Take the .spice file generated from ALIGN layout and paste it in our testbench spice file.
 
-2. PostLayout extracted netlist is shown below: 
+- PostLayout extracted netlist is shown below: 
 
 ```bash
 * SPICE3 file created from RING_OSC_0.ext - technology: sky130A
@@ -1695,8 +1695,10 @@ C9 VDD GND 17.11fF
 ```
 
 
-3. Next we, simulate it by invoking ngspice with command ```ngspice filename.spice``` . The following waveform are obtained as shown
+- Next we, simulate it by invoking ngspice with command ```ngspice filename.spice``` . The following waveform are obtained as shown
 
 <img width="960" alt="ring_osc_align_layout_output" src="https://user-images.githubusercontent.com/99788755/222834743-f82c346b-9e9a-4312-a455-17f95cd12548.png">
+
+
 
 
