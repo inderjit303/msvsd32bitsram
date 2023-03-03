@@ -1125,7 +1125,7 @@ sudo ./dependencies.sh
 this section gives an overview of how the Temperature Sensor Generator (temp-sense-gen) works internally in OpenFASoC.
 
 ## A. Temperature Sensor Generator Circuit
-- This generator creates a compact mixed-signal temperature sensor based on the topology from this paper. It consists of a ring oscillator whose frequency is controlled by the voltage drop over a MOSFET operating in subthreshold regime, where its dependency on temperature is exponential.
+-- This generator creates a compact mixed-signal temperature sensor based on the topology from this paper. It consists of a ring oscillator whose frequency is controlled by the voltage drop over a MOSFET operating in subthreshold regime, where its dependency on temperature is exponential.
 
 ![tempsense_ckt](https://user-images.githubusercontent.com/83899035/221102960-1f5c8fdc-b63d-4392-9e59-b25b74a0abce.png)
 
