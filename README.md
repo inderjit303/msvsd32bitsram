@@ -1068,14 +1068,14 @@ sudo cmake --build build -j $(nproc) --target install
 cd
 git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
 cd OpenROAD
-./etc/DependencyInstaller.sh
+sudo ./etc/DependencyInstaller.sh
 ```
 
 ### D. Build all the tools needed for OpenROAD:
 
 ```
 cd OpenROAD-flow-scripts
-./build_openroad.sh --local
+sudo ./build_openroad.sh --local
 ## This step can take over 30 minutes
 
 export OPENROAD=~/OpenROAD-flow-scripts/tools/OpenROAD
@@ -1106,6 +1106,14 @@ OPENROAD: <path>/OpenROAD-flow-scripts/tools/OpenROAD
 - OpenFASoC is a project focused on automated analog generation from user specification to GDSII with fully open-sourced tools. It is led by a team of researchers at the University of Michigan and is inspired from FASoC which sits on proprietary software.
 
 - The tool is comprised of analog and mixed-signal circuit generators, which automatically create a physical design based on user specifications.
+ 
+ - To install the OpenFASoC use the following commands:
+```
+cd
+git clone https://github.com/idea-fasoc/openfasoc
+cd openfasoc
+sudo ./dependencies.sh  
+```
 
 - First, cd into a directory of your choice and clone the OpenFASoC repository:
 ```git clone https://github.com/idea-fasoc/openfasoc```
