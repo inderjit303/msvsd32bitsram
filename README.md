@@ -1155,12 +1155,14 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 2. RTL-to-GDS flow (OpenROAD)
 
 3. Post-layout verification (DRC and LVS)
-                                                                                                                 ## 1. Verilog generation:
+
+## 1. Verilog generation:
                                                                                                                                                  
 - By using make sky130hd_temp_verilog in ```/.../openfasoc/openfasoc/generators/temp-sense-gen ``` the verilog code based on <b>.jason file</b> will get generated. In this file temperature is being varied from -20 C to 100 C, and the parameter toward which the circuit must be optimized is selected which is <b>"error"</b> here. 
 
 - Based on the operating temperature range, generator calculates the number of header and inverters to minimize the error. 
-                                                                                                                 - To configure circuit specifications, modify the test.json specfile in the ```openfasoc/generators/temp-sense-gen/``` folder.
+
+- To configure circuit specifications, modify the test.json specfile in the ```openfasoc/generators/temp-sense-gen/``` folder.
 
 - The test.json file shown in the below screenshot corresponds to the temp_sense_gen.
 
@@ -1177,6 +1179,12 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
                            
 - The generator references the model file in an iterative process until either meeting specifications or failing.
 
+- The opmization is done based on "modelfile.csv" which exists at location ``` /.../openfasoc/openfasoc/generators/temp-sense-gen/models ```
+                                                 
+
+<img width="960" alt="model_file" src="https://user-images.githubusercontent.com/99788755/222812679-3331dd2b-845b-4472-8cd9-b99f9f7a47aa.png">
+                                                                                                                                             
+                                                                                                                                            
 
                                                                                                                                                 
                                                                                                                                                    
