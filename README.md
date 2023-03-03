@@ -1020,9 +1020,21 @@ Download the ‘.deb’ file from the KLayout homepage and install it, as shown 
 ```
 # Install KLayout
 mkdir -p ~/Work/vlsi/tools/KLayout && cd ~/Work/vlsi/tools/KLayout
-wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.28.5-1_amd64.deb
-sudo apt install -y ./klayout_0.28.5-1_amd64.deb                           
-```                                                                                                                                               
+wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.27.11-1_amd64.deb
+sudo apt install -y ./klayout_0.27.11-1_amd64.deb                           
+```                                                                                                                                                
+                                                                                                                 ![klayout install](https://user-images.githubusercontent.com/99788755/222795850-d0286a57-dee8-4816-aa32-fe2adcca00b1.png)
+
+                                                                                                                 
+<img width="960" alt="klayout 1" src="https://user-images.githubusercontent.com/99788755/222796145-c7f3ea6c-2c91-433f-b103-268bc5af11b0.png">
+                                                                                      
+
+                                    
+
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
 
 ## OpenROAD Installation
 OpenROAD is an integrated chip physical design tool that takes a design from synthesized Verilog to routed layout.
