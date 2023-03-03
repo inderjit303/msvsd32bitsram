@@ -1100,7 +1100,7 @@ OPENROAD: <path>/OpenROAD-flow-scripts/tools/OpenROAD
 ### F. The above error got resolved by re-running the commands in a new terminal 
 
 <img width="960" alt="openroad testing" src="https://user-images.githubusercontent.com/99788755/222798513-cf6f7807-d385-4adc-9294-d94e6adec0bb.png">
-                                                                                                                # 4. OpenFASOC Installation
+                                                                                                                # # 4. OpenFASOC Installation
 
 - OpenFASoC is a project focused on automated analog generation from user specification to GDSII with fully open-sourced tools. It is led by a team of researchers at the University of Michigan and is inspired from FASoC which sits on proprietary software.
 
