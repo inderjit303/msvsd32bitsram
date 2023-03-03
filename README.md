@@ -1205,7 +1205,7 @@ export PDK_ROOT=/home/inderjit/open_pdks/sky130
                      
 <img width="960" alt="temp sens config file image" src="https://user-images.githubusercontent.com/99788755/222816821-c7f75414-4805-44cc-86de-d6dc19ea859a.png">
 
-- The systhesis verilog codes are found inside tempsense folder
+- The systhesis verilog codes are found inside tempsense directory. In the following directory all the files corresponding to different stages of the RTL2GDS flow is saved.
 ```/openfasoc/openfasoc/generators/temp-sense-gen/flow/results/sky130hd/tempsense```
 
 <img width="960" alt="synthesis verilog code location" src="https://user-images.githubusercontent.com/99788755/222818061-70be9327-e2bd-4f3e-8e11-beb464d47707.png">
@@ -1217,7 +1217,8 @@ export PDK_ROOT=/home/inderjit/open_pdks/sky130
 
 - The floorplan final power report is shown below:
 
-<img width="960" alt="floor plan final script" src="https://user-images.githubusercontent.com/99788755/222818827-a7190d43-1c34-4fbf-9c8a-06f49c044613.png">
+<img width="960" alt="floor plan final power report" src="https://user-images.githubusercontent.com/99788755/222820583-a1d3d985-bf4a-48db-be4e-3f245edaa387.png">
+
 
 - This temperature sensor design implements two voltage domains: one for the VDD that powers most of the circuit, and another for the VIN that powers the ring oscillator and is an output of the HEADER cells. 
 
@@ -1226,9 +1227,23 @@ export PDK_ROOT=/home/inderjit/open_pdks/sky130
 <img width="960" alt="floor plan final script" src="https://user-images.githubusercontent.com/99788755/222819876-28ad55e2-d0cc-4ba6-a6f6-81b4854383d8.png">
 
 
-      
-                                                                                                                                                   
-                                                                                                                                                   
-                                                                                                                                                   
+## Placement
+Placement takes place after the floorplan is ready and has two phases: global placement and detailed placement. The output of this phase will have all instances placed in their corresponding voltage domain, ready for routing.
+
+
+##  Routing
+Routing is also divided into two phases: global routing and detailed routing. Right before global routing, OpenFASoC calls ```/openfasoc/openfasoc/generators/temp-sense-gen/flow/scripts/openfasoc/pre_global_route.tcl```:
+
+<img width="534" alt="routing working" src="https://user-images.githubusercontent.com/99788755/222821426-5f4618fe-3658-442a-8ea0-97fcfe369000.png">
+
+                                                                                                          ### Power Delivery Network is shown below:
+
+<img width="960" alt="power delivery network" src="https://user-images.githubusercontent.com/99788755/222822498-589c2638-ad91-4c87-9c2f-efd2bb062eeb.png">
+
+## Final Layout after Routing
+- Viewing the GDS view of the temperature generator using klayout in result folder.```klayout 6_final.gds```  
+
+<img width="960" alt="final gds" src="https://user-images.githubusercontent.com/99788755/222823025-fe80540a-d150-4919-8cd2-8b81702d0f2f.png">
+
 
 
