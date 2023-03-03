@@ -1016,7 +1016,7 @@ This section discusses Week 2 work (18.2.23 to 25.2.23) as part of VSD Mixed-sig
                                                                                                                  # 1. KLAYOUT Installation
 
 Download the ‘.deb’ file from the KLayout homepage and install it, as shown below.
-```
+```bash
 ## Install KLayout
 mkdir -p ~/Work/vlsi/tools/KLayout && cd ~/Work/vlsi/tools/KLayout
 wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.27.11-1_amd64.deb
@@ -1050,7 +1050,7 @@ An outline of steps used to build a chip using OpenROAD is shown below:
 
 ### B. Before you can go any further, you need to install some prerequisite software packages:
 
-```
+```bash
 ## Packages needed by OpenROAD
 sudo apt install -y cmake qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
     libmng2 qt5-image-formats-plugins tcl-tclreadline \
@@ -1064,7 +1064,7 @@ sudo cmake --build build -j $(nproc) --target install
 ```
 ### C. Start installtion of OpenROAD by Running the below commands step by step in terminal. 
 
-```
+```bash
 cd
 git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
 cd OpenROAD
@@ -1073,7 +1073,7 @@ sudo ./etc/DependencyInstaller.sh
 
 ### D. Build all the tools needed for OpenROAD:
 
-```
+```bash
 cd OpenROAD-flow-scripts
 sudo ./build_openroad.sh --local
 ## This step can take over 30 minutes
@@ -1083,13 +1083,13 @@ export PATH=~/OpenROAD-flow-scripts/tools/install/OpenROAD/bin:~/OpenROAD-flow-s
 ```
 
 #### Building OpenROAD Locally 
-```
+```bash
 ./build_openroad.sh --local
 source setup_env.sh
 ```
 
 - You will see the following message:
-```
+```bash
 OPENROAD: <path>/OpenROAD-flow-scripts/tools/OpenROAD
 ```
 
@@ -1108,7 +1108,7 @@ OPENROAD: <path>/OpenROAD-flow-scripts/tools/OpenROAD
 - The tool is comprised of analog and mixed-signal circuit generators, which automatically create a physical design based on user specifications.
  
  - To install the OpenFASoC use the following commands:
-```
+```bash
 cd
 git clone https://github.com/idea-fasoc/openfasoc
 cd openfasoc
@@ -1169,7 +1169,7 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 <img width="435" alt="test json file" src="https://user-images.githubusercontent.com/99788755/222806722-8724a09d-e4bf-4c1d-b881-f95d5f6a0ba4.png">
 
 - To run verilog generation
-```
+```bash
  make sky130hd_temp_verilog
 ```      
                                                                                                                                                  
