@@ -1010,12 +1010,19 @@ Fig 10. LVS for CMOS Inverter
 
 
 
-## VSD Mixed-signal PD Research Program
-
 
 # Week 2 AIs
 
 This section discusses Week 2 work (18.2.23 to 25.2.23) as part of VSD Mixed-signal PD Research Program
+                                                                                                                 # 1. KLAYOUT Installation
+
+Download the ‘.deb’ file from the KLayout homepage and install it, as shown below.
+```
+# Install KLayout
+mkdir -p ~/Work/vlsi/tools/KLayout && cd ~/Work/vlsi/tools/KLayout
+wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.28.5-1_amd64.deb
+sudo apt install -y ./klayout_0.28.5-1_amd64.deb                           
+```                                                                                                                                               
 
 ## OpenROAD Installation
 OpenROAD is an integrated chip physical design tool that takes a design from synthesized Verilog to routed layout.
