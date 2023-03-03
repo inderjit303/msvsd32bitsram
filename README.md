@@ -1188,12 +1188,12 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
  
 - The generator references the model file in an iterative process until either meeting specifications or failing.
 
-- The opmization is done based on "modelfile.csv" which exists at location ``` /.../openfasoc/openfasoc/generators/temp-sense-gen/models ```
+- The optimization is done based on "modelfile.csv" which exists at location ``` /.../openfasoc/openfasoc/generators/temp-sense-gen/models ```
                                                  
 
 <img width="960" alt="model_file" src="https://user-images.githubusercontent.com/99788755/222812679-3331dd2b-845b-4472-8cd9-b99f9f7a47aa.png">
-
-                                                                                                         ## Synthesis
+                                                                                                                                             
+## Synthesis
                             
 - The OpenROAD Flow starts with a flow configuration file config.mk, the chosen platform (sky130hd, for example) and the Verilog files are generated from the previous part.
 
