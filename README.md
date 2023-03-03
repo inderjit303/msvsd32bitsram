@@ -1010,7 +1010,6 @@ Fig 10. LVS for CMOS Inverter
 
 
 
-
 # Week 2 AIs
 
 This section discusses Week 2 work (18.2.23 to 25.2.23) as part of VSD Mixed-signal PD Research Program
@@ -1018,25 +1017,16 @@ This section discusses Week 2 work (18.2.23 to 25.2.23) as part of VSD Mixed-sig
 
 Download the ‘.deb’ file from the KLayout homepage and install it, as shown below.
 ```
-# Install KLayout
+## Install KLayout
 mkdir -p ~/Work/vlsi/tools/KLayout && cd ~/Work/vlsi/tools/KLayout
 wget https://www.klayout.org/downloads/Ubuntu-22/klayout_0.27.11-1_amd64.deb
 sudo apt install -y ./klayout_0.27.11-1_amd64.deb                           
-```                                                                                                                                                
-                                                                                                                 ![klayout install](https://user-images.githubusercontent.com/99788755/222795850-d0286a57-dee8-4816-aa32-fe2adcca00b1.png)
-
+```                  
+                                                                                                                 <img width="960" alt="klayout" src="https://user-images.githubusercontent.com/99788755/222797092-6a0000a3-2891-475e-b25e-f842cfea0247.png">
                                                                                                                  
-<img width="960" alt="klayout 1" src="https://user-images.githubusercontent.com/99788755/222796145-c7f3ea6c-2c91-433f-b103-268bc5af11b0.png">
-                                                                                      
 
-                                    
-
-                                                                                                                                               
-                                                                                                                                               
-                                                                                                                                               
-                                                                                                                                               
-
-## OpenROAD Installation
+                                                                                                                                          
+# 2. OpenROAD Installation
 OpenROAD is an integrated chip physical design tool that takes a design from synthesized Verilog to routed layout.
 
 An outline of steps used to build a chip using OpenROAD is shown below:
@@ -1058,21 +1048,12 @@ An outline of steps used to build a chip using OpenROAD is shown below:
 15. Parasitic extraction
 16. Static timing analysis
 
-Run the below commands step by step to install OpenROAD
+
+### A.  Run the below commands step by step to install OpenROAD and OpenROAD-flow-scripts
+
+### B. Before you can go any further, you need to install some prerequisite software packages:
 
 ```
-cd
-git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
-cd OpenROAD
-./etc/DependencyInstaller.sh
-cd
-git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
-## Packages needed by Yosys
-sudo apt install -y clang bison flex \
-    libreadline-dev gawk tcl-dev libffi-dev git \
-    graphviz xdot pkg-config python3 libboost-system-dev \
-    libboost-python-dev libboost-filesystem-dev zlib1g-dev
- 
 ## Packages needed by OpenROAD
 sudo apt install -y cmake qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools \
     libmng2 qt5-image-formats-plugins tcl-tclreadline \
@@ -1083,11 +1064,19 @@ wget http://lemon.cs.elte.hu/pub/sources/lemon-1.3.1.tar.gz
 tar -zxf lemon-1.3.1.tar.gz && cd lemon-1.3.1
 cmake -B build .
 sudo cmake --build build -j $(nproc) --target install
- 
-# Optional: Delete the 'lemon' sources
-cd ~/home/inderjit && rm -fR lemon
-Build all the tools needed for OpenROAD:
+```
+### C. Start installtion of OpenROAD by Running the below commands step by step in terminal. 
 
+```
+cd
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD.git
+cd OpenROAD
+./etc/DependencyInstaller.sh
+```
+
+### D. Build all the tools needed for OpenROAD:
+
+```
 cd OpenROAD-flow-scripts
 ./build_openroad.sh --local
 ## This step can take over 30 minutes
@@ -1096,6 +1085,24 @@ export OPENROAD=~/OpenROAD-flow-scripts/tools/OpenROAD
 export PATH=~/OpenROAD-flow-scripts/tools/install/OpenROAD/bin:~/OpenROAD-flow-scripts/tools/install/yosys/bin:~/OpenROAD-flow-scripts/tools/install/LSOracle/bin:$PATH
 ```
 
-1. In OpenROAD, facing the following configuration error while installation process for OpenROAD as shown in fig 0.1
+#### Building OpenROAD Locally 
+```
+./build_openroad.sh --local
+source setup_env.sh
+```
+
+- You will see the following message:
+```
+OPENROAD: <path>/OpenROAD-flow-scripts/tools/OpenROAD
+```
+
+### E. In OpenROAD, facing the following configuration error while installation process for OpenROAD as shown in fig 0.1
 ![image](https://user-images.githubusercontent.com/99788755/221319637-dc4956e6-52ec-4668-80c1-f42f543cea80.png)
+
+### F. The above error got resolved by re-running the commands in a new terminal 
+
+<img width="960" alt="openroad testing" src="https://user-images.githubusercontent.com/99788755/222798513-cf6f7807-d385-4adc-9294-d94e6adec0bb.png">
+
+
+
 
