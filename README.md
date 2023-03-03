@@ -1156,14 +1156,25 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 
 3. Post-layout verification (DRC and LVS)
                                                                                                                  ## 1. Verilog generation:
+                                                                                                                                                 
 - By using make sky130hd_temp_verilog in ```/.../openfasoc/openfasoc/generators/temp-sense-gen ``` the verilog code based on <b>.jason file</b> will get generated. In this file temperature is being varied from -20 C to 100 C, and the parameter toward which the circuit must be optimized is selected which is <b>"error"</b> here. 
 
 - Based on the operating temperature range, generator calculates the number of header and inverters to minimize the error. 
-                                                                                                                 - To configure circuit specifications, modify the test.json specfile in the ```openfasoc/generators/temp-sense-gen/``` folder.  
+                                                                                                                 - To configure circuit specifications, modify the test.json specfile in the ```openfasoc/generators/temp-sense-gen/``` folder.
+
+- The test.json file shown in the below screenshot corresponds to the temp_sense_gen.
 
 <img width="435" alt="test json file" src="https://user-images.githubusercontent.com/99788755/222806722-8724a09d-e4bf-4c1d-b881-f95d5f6a0ba4.png">
 
-                                                                                                                                                 
+- To run verilog generation
+```
+ make sky130hd_temp_verilog
+```      
+-  By running make sky130hd_temp_verilog, the result on the terminal is:
+                                                                                                                 <img width="960" alt="temp_sensor verilog generated" src="https://user-images.githubusercontent.com/99788755/222808230-435c35ce-ef00-4550-8948-458ca55d8fb4.png">
+         
+                      
+- The generator references the model file in an iterative process until either meeting specifications or failing.                    
                                                                                                                                                 
                                                                                                                                                    
                                                                                                                                                    
