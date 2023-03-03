@@ -1325,6 +1325,136 @@ XM6 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
 
 <img width="960" alt="ring_osc_layout" src="https://user-images.githubusercontent.com/99788755/222829731-7ec3e7a1-bebc-446a-849a-a308ec77a86a.png">
         
-                                                                                                                                           
+- go to File --> save and select autowrite
+- Go to the command window and type the following:
+```bash
+extract do local
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```                                                                                                     - Extracted Netlist generated from magic is shown below: 
+```bash 
+.subckt ring_osc vdd out gnd
+X0 m1_1658_712# out gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X1 m1_2418_712# m1_1658_712# gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.87 ps=7.74 w=1 l=0.15
+X2 out m1_2418_712# gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0 ps=0 w=1 l=0.15
+X3 m1_1658_712# out vdd XM4/w_n211_n319# sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X4 m1_2418_712# m1_1658_712# vdd XM5/w_n211_n319# sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.87 ps=7.74 w=1 l=0.15
+X5 out m1_2418_712# vdd XM6/w_n211_n319# sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0 ps=0 w=1 l=0.15
+C0 gnd m1_1658_712# 0.29fF
+C1 out XM6/w_n211_n319# 0.18fF
+C2 out m1_2418_712# 0.62fF
+C3 vdd gnd 0.01fF
+C4 XM4/w_n211_n319# m1_2418_712# 0.00fF
+C5 m1_1658_712# XM6/w_n211_n319# 0.00fF
+C6 m1_1658_712# m1_2418_712# 0.25fF
+C7 vdd XM6/w_n211_n319# 0.16fF
+C8 vdd m1_2418_712# 0.29fF
+C9 out XM5/w_n211_n319# 0.04fF
+C10 XM5/w_n211_n319# XM4/w_n211_n319# 0.04fF
+C11 m1_1658_712# XM5/w_n211_n319# 0.34fF
+C12 gnd m1_2418_712# 0.27fF
+C13 vdd XM5/w_n211_n319# 0.24fF
+C14 out XM4/w_n211_n319# 0.33fF
+C15 out m1_1658_712# 0.65fF
+C16 m1_2418_712# XM6/w_n211_n319# 0.36fF
+C17 vdd out 0.24fF
+C18 m1_1658_712# XM4/w_n211_n319# 0.20fF
+C19 vdd XM4/w_n211_n319# 0.26fF
+C20 vdd m1_1658_712# 0.30fF
+C21 out gnd 0.22fF
+C22 XM5/w_n211_n319# XM6/w_n211_n319# 0.04fF
+C23 XM5/w_n211_n319# m1_2418_712# 0.17fF
+C24 gnd XM4/w_n211_n319# 0.00fF
+C25 m1_2418_712# VSUBS 0.62fF 
+**FLOATING
+C26 m1_1658_712# VSUBS 0.59fF 
+**FLOATING
+C27 out VSUBS 1.83fF
+C28 vdd VSUBS 1.13fF
+C29 XM6/w_n211_n319# VSUBS 1.09fF 
+**FLOATING
+C30 XM5/w_n211_n319# VSUBS 1.08fF 
+**FLOATING
+C31 XM4/w_n211_n319# VSUBS 1.09fF 
+**FLOATING
+C32 gnd VSUBS 1.70fF
+.ends
+```                                                                                                                                            
+<img width="960" alt="ring_osc_layout_extracted_parasitics" src="https://user-images.githubusercontent.com/99788755/222830590-a2ee6fff-5c83-4856-b796-b10136d473a6.png">
+
+- Postlayout netlist with extracted parasitics is shown below:
+
+```bash
+* SPICE3 file created from ring_osc.ext - technology: sky130A
+** sch_path: /home/inderjit/lab_inverter/xschem/ring_osc_tb.sch
+*.PININFO gnd:B vdd:B out:O
+x1 vdd out gnd ring_osc
+V1 vdd gnd 1.8
+.save i(v1)
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/inderjit/open_pdks/sky130/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.tran 20ps 4n
+.save all
+
+**** end user architecture code
+
+.subckt ring_osc vdd out gnd
+X0 m1_1658_712# out gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X1 m1_2418_712# m1_1658_712# gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.87 ps=7.74 w=1 l=0.15
+X2 out m1_2418_712# gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0 ps=0 w=1 l=0.15
+X3 m1_1658_712# out vdd XM4/w_n211_n319# sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
+X4 m1_2418_712# m1_1658_712# vdd XM5/w_n211_n319# sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0.87 ps=7.74 w=1 l=0.15
+X5 out m1_2418_712# vdd XM6/w_n211_n319# sky130_fd_pr__pfet_01v8 ad=0.29 pd=2.58 as=0 ps=0 w=1 l=0.15
+C0 gnd m1_1658_712# 0.29fF
+C1 out XM6/w_n211_n319# 0.18fF
+C2 out m1_2418_712# 0.62fF
+C3 vdd gnd 0.01fF
+C4 XM4/w_n211_n319# m1_2418_712# 0.00fF
+C5 m1_1658_712# XM6/w_n211_n319# 0.00fF
+C6 m1_1658_712# m1_2418_712# 0.25fF
+C7 vdd XM6/w_n211_n319# 0.16fF
+C8 vdd m1_2418_712# 0.29fF
+C9 out XM5/w_n211_n319# 0.04fF
+C10 XM5/w_n211_n319# XM4/w_n211_n319# 0.04fF
+C11 m1_1658_712# XM5/w_n211_n319# 0.34fF
+C12 gnd m1_2418_712# 0.27fF
+C13 vdd XM5/w_n211_n319# 0.24fF
+C14 out XM4/w_n211_n319# 0.33fF
+C15 out m1_1658_712# 0.65fF
+C16 m1_2418_712# XM6/w_n211_n319# 0.36fF
+C17 vdd out 0.24fF
+C18 m1_1658_712# XM4/w_n211_n319# 0.20fF
+C19 vdd XM4/w_n211_n319# 0.26fF
+C20 vdd m1_1658_712# 0.30fF
+C21 out gnd 0.22fF
+C22 XM5/w_n211_n319# XM6/w_n211_n319# 0.04fF
+C23 XM5/w_n211_n319# m1_2418_712# 0.17fF
+C24 gnd XM4/w_n211_n319# 0.00fF
+C25 m1_2418_712# VSUBS 0.62fF 
+**FLOATING
+C26 m1_1658_712# VSUBS 0.59fF 
+**FLOATING
+C27 out VSUBS 1.83fF
+C28 vdd VSUBS 1.13fF
+C29 XM6/w_n211_n319# VSUBS 1.09fF 
+**FLOATING
+C30 XM5/w_n211_n319# VSUBS 1.08fF 
+**FLOATING
+C31 XM4/w_n211_n319# VSUBS 1.09fF 
+**FLOATING
+C32 gnd VSUBS 1.70fF
+.ends
+```
+
+- Simulate the spice file extracted from magic after modifications.
+
+<img width="960" alt="ring_osc_layout_output" src="https://user-images.githubusercontent.com/99788755/222831314-7294f8c4-b0d5-49e2-817a-000cb6595428.png">
+
+- Quite evident from above output, prelayout and postlayout outputs of Ring oscillator are very closely matching and are genrating oscillation, hene proving its functionality. 
 
 
+                                                                                                                                                  
