@@ -1254,6 +1254,8 @@ Routing is also divided into two phases: global routing and detailed routing. Ri
 - Viewing the GDS view of the temperature generator using klayout in result folder.```klayout 6_final.gds```  
 
 <img width="960" alt="final gds" src="https://user-images.githubusercontent.com/99788755/222823025-fe80540a-d150-4919-8cd2-8b81702d0f2f.png">
+                                                                                                                                            
+                                                                                                                                            
 
 
 
