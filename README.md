@@ -1202,10 +1202,31 @@ export PDK_ROOT=/home/inderjit/open_pdks/sky130
 - This commands are initialised OpenROAD along with open_pdks path.
 
 - The config.mk file is shown below:                            
-                                                                                                                                            
+                     
+<img width="960" alt="temp sens config file image" src="https://user-images.githubusercontent.com/99788755/222816821-c7f75414-4805-44cc-86de-d6dc19ea859a.png">
 
-                                                                                                                                                
-                                                                                                                                                   
+- The systhesis verilog codes are found inside tempsense folder
+```/openfasoc/openfasoc/generators/temp-sense-gen/flow/results/sky130hd/tempsense```
+
+<img width="960" alt="synthesis verilog code location" src="https://user-images.githubusercontent.com/99788755/222818061-70be9327-e2bd-4f3e-8e11-beb464d47707.png">
+
+
+## Floorplan
+
+- The floorplan for the physical design is generated with OpenROAD, which requires a description of the power delivery network in pdn.cfg.
+
+- The floorplan final power report is shown below:
+
+<img width="960" alt="floor plan final script" src="https://user-images.githubusercontent.com/99788755/222818827-a7190d43-1c34-4fbf-9c8a-06f49c044613.png">
+
+- This temperature sensor design implements two voltage domains: one for the VDD that powers most of the circuit, and another for the VIN that powers the ring oscillator and is an output of the HEADER cells. 
+
+- Such voltage domains are created within the floorplan.tcl script, with the following lines of code:
+                                                                                                       
+<img width="960" alt="floor plan final script" src="https://user-images.githubusercontent.com/99788755/222819876-28ad55e2-d0cc-4ba6-a6f6-81b4854383d8.png">
+
+
+      
                                                                                                                                                    
                                                                                                                                                    
                                                                                                                                                    
