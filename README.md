@@ -1316,8 +1316,15 @@ XM6 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
 .end
 ```
 
+# 2. Poatlayout simulation of Three-stage ring oscillator in Magic
 
-                                                                                                                                            
+- From the testbench for ring oscilator, from the files menu and go to suimulation menu and select "LVS netlist: top lvl is a subsckt" and then tap on the netlist and close xschem.
+- Next import the netlist to magic to create the layout. 
+- Open magic by moving to the mag directory and using magic -T sky130A.Tech. 
+- Go to file --> Import SPICE and select our netlist from the .xschem/simulation folder.
+
+<img width="960" alt="ring_osc_layout" src="https://user-images.githubusercontent.com/99788755/222829731-7ec3e7a1-bebc-446a-849a-a308ec77a86a.png">
+        
                                                                                                                                            
 
 
