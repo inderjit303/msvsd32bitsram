@@ -1177,6 +1177,15 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 
 <img width="960" alt="temp_sensor verilog generated" src="https://user-images.githubusercontent.com/99788755/222808230-435c35ce-ef00-4550-8948-458ca55d8fb4.png">
                            
+- - After running the``` make sky130hd_temp_verilog``` command, the verilog files of ```counter.v, TEMP_ANALOG_hv.nl.v, TEMP_ANALOG_lv.nl.v ```are created in the ```/.../openfasoc/openfasoc/generators/temp-sense-gen/src``` folder. 
+
+- To run the default generator:
+-  cd into``` ~/openfasoc/generators/temp_sense`` and  enter ```make sky130hd_temp``` command.
+
+
+<img width="960" alt="make sky130hd_temp working" src="https://user-images.githubusercontent.com/99788755/222823989-288b4398-8b67-44af-b27b-3de082bc938d.png">
+
+ 
 - The generator references the model file in an iterative process until either meeting specifications or failing.
 
 - The opmization is done based on "modelfile.csv" which exists at location ``` /.../openfasoc/openfasoc/generators/temp-sense-gen/models ```
