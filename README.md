@@ -1156,7 +1156,7 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 
 3. Post-layout verification (DRC and LVS)
 
-## 1. Verilog generation:
+## Verilog generation:
                                                                                                                                                  
 - By using make sky130hd_temp_verilog in ```/.../openfasoc/openfasoc/generators/temp-sense-gen ``` the verilog code based on <b>.jason file</b> will get generated. In this file temperature is being varied from -20 C to 100 C, and the parameter toward which the circuit must be optimized is selected which is <b>"error"</b> here. 
 
@@ -1183,7 +1183,25 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
                                                  
 
 <img width="960" alt="model_file" src="https://user-images.githubusercontent.com/99788755/222812679-3331dd2b-845b-4472-8cd9-b99f9f7a47aa.png">
+                                                                                                                 ## Synthesis
                                                                                                                                              
+- The OpenROAD Flow starts with a flow configuration file config.mk, the chosen platform (sky130hd, for example) and the Verilog files are generated from the previous part.
+
+- To Run the synthesis 
+```bash
+export PDK_ROOT=/usr/local/share/pdk
+make sky130hd_temp
+```
+- If will get some OpenROAD path error: (Remember follow below commands if OpenROAD is installed in home directory.
+                             
+```bash
+export OPENROAD=~/OpenROAD-flow-scripts/tools/OpenROAD
+export PATH=~/home/inderjit/OpenROADflowscripts/tools/install/yosys/bin:~/home/inderjit/OpenROAD-flowscripts/tools/install/LSOracle/bin:$PATH
+export PDK_ROOT=/home/inderjit/open_pdks/sky130
+```
+- This commands are initialised OpenROAD along with open_pdks path.
+
+- The config.mk file is shown below:                            
                                                                                                                                             
 
                                                                                                                                                 
