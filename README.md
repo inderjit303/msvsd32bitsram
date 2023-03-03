@@ -1125,7 +1125,7 @@ sudo ./dependencies.sh
 this section gives an overview of how the Temperature Sensor Generator (temp-sense-gen) works internally in OpenFASoC.
 
 ## Temperature Sensor Generator Circuit
--- This generator creates a compact mixed-signal temperature sensor based on the topology from this paper. It consists of a ring oscillator whose frequency is controlled by the voltage drop over a MOSFET operating in subthreshold regime, where its dependency on temperature is exponential.
+- This generator creates a compact mixed-signal temperature sensor based on the topology from this paper. It consists of a ring oscillator whose frequency is controlled by the voltage drop over a MOSFET operating in subthreshold regime, where its dependency on temperature is exponential.
 
 ![tempsense_ckt](https://user-images.githubusercontent.com/83899035/221102960-1f5c8fdc-b63d-4392-9e59-b25b74a0abce.png)
 
@@ -1146,10 +1146,23 @@ this section gives an overview of how the Temperature Sensor Generator (temp-sen
 
 <img width="960" alt="SLC gds layout" src="https://user-images.githubusercontent.com/99788755/222803075-8a5a7f89-97d0-4763-b31d-ba00858c77ec.png">
 
-                                                                                                                                                 
+              
 # 6. OpenFASOC flow for Temperature Sensor Generation       
-- To configure circuit specifications, modify the test.json specfile in the ```openfasoc/generators/temp-sense-gen/``` folder.  
-                                                                                                                                                 
+- The default circuit’s physical design generation can be divided into three parts:
+
+1. Verilog generation
+
+2. RTL-to-GDS flow (OpenROAD)
+
+3. Post-layout verification (DRC and LVS)
+                                                                                                                 ## 1. Verilog generation:
+- By using make sky130hd_temp_verilog in ```/.../openfasoc/openfasoc/generators/temp-sense-gen ``` the verilog code based on <b>.jason file</b> will get generated. In this file temperature is being varied from -20 C to 100 C, and the parameter toward which the circuit must be optimized is selected which is <b>"error"</b> here. 
+
+- Based on the operating temperature range, generator calculates the number of header and inverters to minimize the error. 
+                                                                                                                 - To configure circuit specifications, modify the test.json specfile in the ```openfasoc/generators/temp-sense-gen/``` folder.  
+
+<img width="435" alt="test json file" src="https://user-images.githubusercontent.com/99788755/222806722-8724a09d-e4bf-4c1d-b881-f95d5f6a0ba4.png">
+
                                                                                                                                                  
                                                                                                                                                 
                                                                                                                                                    
