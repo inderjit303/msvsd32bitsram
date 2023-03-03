@@ -1120,8 +1120,7 @@ To see the results in OpenROAD’s GUI, type:
 ```bash
 make DESIGN_CONFIG=./designs/sky130hd/ibex/config.mk gui_final
 ```
-                                                                                                         <img width="960" alt="32bit RISC core openroad testing 1" src="https://user-images.githubusercontent.com/99788755/222837624-dfab2e52-ae40-48c9-9db0-c18dac8e79be.png">
-                                                                                                         
+                                                                                             
 <img width="960" alt="32bit RISC core openroad testing 1" src="https://user-images.githubusercontent.com/99788755/222837868-c47fb200-b09b-4b6e-b695-5ae053fd3489.png">
                                                           
                                                                         
