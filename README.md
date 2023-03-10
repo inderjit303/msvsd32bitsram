@@ -1880,7 +1880,17 @@ XM6 outring net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1.3 W=2.6 nf=1 m=1
 .end
 ```
 
+## 6. Generating Layout of 1 Bit ADC as a Comparator using ALIGN Tool
 
+- Now, our next step is to generate the layout of ADC using ALIGN Tool. For generating it we need to follow some steps:
+
+- We first need to do some changes in the netlist which we got from the xschem as this netlist is given in the input of ALIGN Tool.
+
+- After done changes in the netlist, save that netlist with ".sp" extension under the ALIGN-public/ALIGN-pdk-sky130/examples/ring_osc directory
+
+- As, in my case I have first created the folder with the name "ring_osc" under the directory /Desktop/vsd_3FADC/ALIGN-public/ALIGN-pdk-sky130/examples and then, save the modified netlist under this ALIGN-public/ALIGN-pdk-sky130/examples/ring_osc directory with the name "ring_osc.sp".
+
+Now, after saving the modified netlist, we need to run the ALIGN Layout Generator for our design Ring Oscillator using these commands:
                                          
                                                                                                                                                       
                                                                                                                                                       
