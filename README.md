@@ -1771,7 +1771,7 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 
 <img width="960" alt="adc_output_sine" src="https://user-images.githubusercontent.com/99788755/224429003-5a4173f4-4731-4128-bd01-e72a48e01206.png">
 
-## 3. Interfacing Ring oscillator to 1 bit ADC 
+## 3. Interfacing Ring oscillator to 1 bit ADC (First Attempt) 
                                                                                                                                                   
 - For testing analog part of 4-Bit Asynchronous Up Counter using OpenFASoC, we first Interface Ring oscillator to 1 bit ADC. The schematic implemented in xschem is shown below: 
                                                                                                                                                   
@@ -1781,7 +1781,7 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
                                                                                                                                                    
 <img width="960" alt="adc_ring_osc_output" src="https://user-images.githubusercontent.com/99788755/224431859-0bb1d1da-a4cc-4cef-9f4f-29813adb75c3.png">
                                                                                                                                                       
-## Modfication in Ring oscillator to lowers its speed by adjusting nmos and pmos' width and length 
+## 4. Modification in Ring oscillator to lowers its speed by adjusting nmos and pmos' width and length 
 
                                                                                                                                                     
 -Following is the schematic of new ring oscillator with its output waveform. 
@@ -1795,7 +1795,24 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 - We can clearly observe that the output frequency of ring oscillator is reduced. 
                                     
                                                                                                                                             
+## 5. Pre-Layout Simulation of Ring oscillator and 1 bit ADC (2nd Attempt) 
+                                                                                                                                                  
+- For testing analog part of 4-Bit Asynchronous Up Counter using OpenFASoC, we now interface modifed Ring oscillator to 1 bit ADC. The schematic implemented in xschem is shown below: 
+                                                                                                                                                  
+<img width="960" alt="new_adc_ring_tb" src="https://user-images.githubusercontent.com/99788755/224439060-cb1a7b22-0b7e-4566-a0a4-ee0b126e3192.png">
 
+<img width="960" alt="new_adc_ring_output" src="https://user-images.githubusercontent.com/99788755/224439072-828eb30b-32c1-4cc0-9183-612ee7b18eb5.png">
+
+<img width="960" alt="new_adc_ring_output_digital" src="https://user-images.githubusercontent.com/99788755/224439081-6307733e-5b68-48b6-a99e-d91adff0656c.png">
+
+- The above waveforms clearly, shows the digital output obtained as desired for the analog part of 4-Bit Asynchronous Up Counter. 
+
+
+
+
+
+
+                                         
                                                                                                                                                       
                                                                                                                                                       
                                                                                                                                                       
