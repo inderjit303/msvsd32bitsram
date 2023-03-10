@@ -1771,7 +1771,19 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 
 <img width="960" alt="adc_output_sine" src="https://user-images.githubusercontent.com/99788755/224429003-5a4173f4-4731-4128-bd01-e72a48e01206.png">
 
-                                                                                                          
+## 3. Interfacing Ring oscillator to 1 bit ADC 
+                                                                                                                                                  
+- For testing analog part of 4-Bit Asynchronous Up Counter using OpenFASoC, we first Interface Ring oscillator to 1 bit ADC. The schematic implemented in xschem is shown below: 
+                                                                                                                                                  
+<img width="960" alt="adc_ring_osc_sch" src="https://user-images.githubusercontent.com/99788755/224431593-e086614a-f55a-4838-991a-3bdc68a11f49.png">
+                                                                                                                                                   
+- the output obtained is definately not CORRECT. This is due the the fact that the comparator adopted is not a very HIGH SPEED COMPARATOR. 
+                                                                                                                                                   
+<img width="960" alt="adc_ring_osc_output" src="https://user-images.githubusercontent.com/99788755/224431859-0bb1d1da-a4cc-4cef-9f4f-29813adb75c3.png">
+                                                                                                                                                      
+## Search continues for a Fast 1 bit ADC which can handle ring oscillator frequency of around 6.66 GHz. 
+                                                                                                                                                      
+        
                                                                                                                                           
 
 
