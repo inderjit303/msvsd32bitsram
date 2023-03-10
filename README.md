@@ -1748,6 +1748,17 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
                                                                                                              
 <img width="960" alt="adc_sch" src="https://user-images.githubusercontent.com/99788755/224426808-d3f3c9b9-52b5-40be-90e3-d0261c543cf0.png">
 
+- Next symbol is created from schematic as shown below. 
+
+<img width="960" alt="adc_sym" src="https://user-images.githubusercontent.com/99788755/224427086-39d08164-68dc-4e4b-9a00-5907ebc7ea8b.png">
+                                                                     - Next, testbench ss created with comparator symbol and supply defintions as shown below. 
+
+<img width="960" alt="adc_tb" src="https://user-images.githubusercontent.com/99788755/224427366-cc003cd3-921f-41f7-a4f9-b36845f434b6.png">
+                                                                                                                                         
+                                                                                                          
+                                                                                                                                          
+
+
                                                                                                              
                                                                                                              
                                                                                                              
