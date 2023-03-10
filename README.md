@@ -1807,9 +1807,9 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 
 - The above waveforms clearly, shows the digital output obtained as desired for the analog part of 4-Bit Asynchronous Up Counter. 
 
-- This completes the prelayout simulation of Ring oscillator.
+- This completes the prelayout simulation of Ring oscillator interfaced with 1bit ADC.
 
-- The prelayout netlist generated from xschem is shown for reference.
+- The prelayout lvs netlist generated from xschem is shown for reference.
 
 ```
 ** sch_path: /home/inderjit/lab_inverter/xschem/adc_test.sch
