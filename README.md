@@ -1751,10 +1751,16 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 - Next symbol is created from schematic as shown below. 
 
 <img width="960" alt="adc_sym" src="https://user-images.githubusercontent.com/99788755/224427086-39d08164-68dc-4e4b-9a00-5907ebc7ea8b.png">
-                                                                     - Next, testbench ss created with comparator symbol and supply defintions as shown below. 
+
+- Next, testbench ss created with comparator symbol and supply defintions as shown below. 
 
 <img width="960" alt="adc_tb" src="https://user-images.githubusercontent.com/99788755/224427366-cc003cd3-921f-41f7-a4f9-b36845f434b6.png">
                                                                                                                                          
+- The prelayout output for the comparator circuit is obtained as follows, which matches with adopted design https://github.com/vsdip/avsdcmp_3v3_sky130
+                                                                               
+<img width="960" alt="adc_output" src="https://user-images.githubusercontent.com/99788755/224427816-cddd8df3-dbb1-401c-af76-193daf7c80fb.png">
+                                                         
+
                                                                                                           
                                                                                                                                           
 
