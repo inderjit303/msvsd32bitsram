@@ -1807,9 +1807,78 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 
 - The above waveforms clearly, shows the digital output obtained as desired for the analog part of 4-Bit Asynchronous Up Counter. 
 
+- This completes the prelayout simulation of Ring oscillator.
 
+- The prelayout netlist generated from xschem is shown for reference.
 
+```
+** sch_path: /home/inderjit/lab_inverter/xschem/adc_test.sch
+.subckt adc_test OUT
+*.PININFO OUT:O
+V2 INEG GND 0.9
+.save i(v2)
+V1 VDD GND 1.8
+.save i(v1)
+V4 ENB GND 1.8
+.save i(v4)
+x1 VDD ENB IPOS OUT INEG BIAS GND adc
+Ihyst1 VDD BIAS pwl 0 0 10n 0 11n 0.2n 20n 0.2n 21n 0.8n 40n 0.8n 41n 10n 100n 10n
+x2 VDD IPOS GND ring
+**** begin user architecture code
 
+.tran 10p 100n
+.save all
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.include /usr/local/share/pdk/sky130A/libs.tech/ngspice/corners/tt.spice
+.include /usr/local/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+.include /usr/local/share/pdk/sky130A/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+.include /usr/local/share/pdk/sky130A/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+**** end user architecture code
+.ends
+
+* expanding   symbol:  adc.sym # of pins=7
+** sym_path: /home/inderjit/lab_inverter/xschem/adc.sym
+** sch_path: /home/inderjit/lab_inverter/xschem/adc.sch
+.subckt adc VDD ENB IPOS OUT INEG BIAS GND
+*.PININFO VDD:B INEG:I IPOS:I GND:B OUT:O ENB:I BIAS:I
+XM5 net3 VDD GND GND sky130_fd_pr__nfet_g5v0d10v5 L=1 W=0.5 nf=1 m=1
+XM9 net2 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1 W=1 nf=1 m=1
+XM1 net1 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1 W=1 nf=1 m=1
+XM2 net1 INEG net3 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1 nf=1 m=1
+XM3 net2 IPOS net3 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1 nf=1 m=1
+XM4 BIAS BIAS GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+XM6 net2 VX net4 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
+XM7 net1 VX net4 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
+XM8 net4 BIAS GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+XM10 VX net2 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=6 nf=1 m=1
+XM11 VX VDD GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
+XM12 net6 ENB VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=4 nf=1 m=1
+XM13 net6 VX VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=4 nf=1 m=1
+XM14 net6 VX net5 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
+XM15 net5 ENB GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
+XM16 OUT net6 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=4 nf=1 m=1
+XM17 OUT net6 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
+.ends
+
+* expanding   symbol:  ring.sym # of pins=3
+** sym_path: /home/inderjit/lab_inverter/xschem/ring.sym
+** sch_path: /home/inderjit/lab_inverter/xschem/ring.sch
+.subckt ring VDD outring GND
+*.PININFO VDD:B GND:B outring:O
+XM1 net1 outring GND GND sky130_fd_pr__nfet_01v8 L=1.3 W=1.3 nf=1 m=1
+XM2 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=1.3 W=1.3 nf=1 m=1
+XM3 outring net2 GND GND sky130_fd_pr__nfet_01v8 L=1.3 W=1.3 nf=1 m=1
+XM4 net1 outring VDD VDD sky130_fd_pr__pfet_01v8 L=1.3 W=2.6 nf=1 m=1
+XM5 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=1.3 W=2.6 nf=1 m=1
+XM6 outring net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1.3 W=2.6 nf=1 m=1
+.ends
+
+.GLOBAL GND
+.end
+```
 
 
                                          
