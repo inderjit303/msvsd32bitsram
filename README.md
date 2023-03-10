@@ -1759,7 +1759,17 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 - The prelayout output for the comparator circuit is obtained as follows, which matches with adopted design https://github.com/vsdip/avsdcmp_3v3_sky130
                                                                                
 <img width="960" alt="adc_output" src="https://user-images.githubusercontent.com/99788755/224427816-cddd8df3-dbb1-401c-af76-193daf7c80fb.png">
-                                                         
+                                                                     
+- But the above output plot reveals that the comparator is operated around MHz ( as time axis is in us, whereas the ring oscillator output frequency is in GHz (i.e time axis is in few ns) 
+                                                                     
+- Based of these observation, The following changes are been made, a synthetic sine wave is applied to one input of comparator and a reference signal of constant value is given to another inputs, and the frequency is around 0.1GHz (~ 100ns). The comparator schematic with these changes is shown below: 
+                                                                                                                                             
+<img width="960" alt="adc_tb_sine" src="https://user-images.githubusercontent.com/99788755/224428715-498b0e7e-4d70-42d0-b2d5-397264f12b91.png">
+
+- The output clearly shows the ringing effect in the output, but it still hold the functionalty of comparator or 1 bit ADC.
+                                                                                                                                                  
+
+<img width="960" alt="adc_output_sine" src="https://user-images.githubusercontent.com/99788755/224429003-5a4173f4-4731-4128-bd01-e72a48e01206.png">
 
                                                                                                           
                                                                                                                                           
