@@ -1781,7 +1781,25 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
                                                                                                                                                    
 <img width="960" alt="adc_ring_osc_output" src="https://user-images.githubusercontent.com/99788755/224431859-0bb1d1da-a4cc-4cef-9f4f-29813adb75c3.png">
                                                                                                                                                       
-## Search continues for a Fast 1 bit ADC which can handle ring oscillator frequency of around 6.66 GHz. 
+## Modfication in Ring oscillator to lowers its speed by adjusting nmos and pmos' width and length 
+
+                                                                                                                                                    
+-Following is the schematic of new ring oscillator with its output waveform. 
+          
+<img width="960" alt="new_ring" src="https://user-images.githubusercontent.com/99788755/224438670-1bb82cc3-a944-41e5-a8dc-569f19fdd6d0.png">
+                                                                                          
+<img width="960" alt="new_ring_tb" src="https://user-images.githubusercontent.com/99788755/224438690-338de971-585c-4077-a3ce-665d79c100d8.png">
+                                                           
+<img width="960" alt="new_ring_output" src="https://user-images.githubusercontent.com/99788755/224438698-0df6f11d-b42c-4364-a0db-049452e3ac8a.png">
+                                                                                                                                                  
+- We can clearly observe that the output frequency of ring oscillator is reduced. 
+                                    
+                                                                                                                                            
+
+                                                                                                                                                      
+                                                                                                                                                      
+                                                                                                                                                      
+
                                                                                                                                                       
         
                                                                                                                                           
