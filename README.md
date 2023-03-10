@@ -1730,7 +1730,7 @@ C9 VDD GND 17.11fF
 
 This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-signal PD Research Program  
 
-## 1. 1 bit ADC 
+## 1. One bit ADC 
 
 - A one-bit analog-to-digital converter (ADC) is the simplest form of ADC, which is capable of converting an analog signal into a digital signal. 
 
@@ -1742,4 +1742,12 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 
 - A comparator is a device that compares two analog inputs and outputs a digital signal indicating which input is larger. So it has two analog input terminals and one binary digital output. When the difference between two analog input signals approach zero, noise on the inputs will cause spurious switching of digital output. This rapid change in output due to noise can be prevented by hysteresis. Hysteresis is switching the output high or low at different input signal levels. In place of one switching point, hysteresis introduces two: one for rising edge, and one for falling edge of voltage or current. The difference between the higher-level trip value (VH) and the lower-level trip value (VL) equals the hysteresis voltage (HYST).
 
+## 2. Comparator as 1 bit ADC
 
+- The schematic of comparator circuit is implemented in Xschem as shown below. 
+                                                                                                             
+<img width="960" alt="adc_sch" src="https://user-images.githubusercontent.com/99788755/224426808-d3f3c9b9-52b5-40be-90e3-d0261c543cf0.png">
+
+                                                                                                             
+                                                                                                             
+                                                                                                             
