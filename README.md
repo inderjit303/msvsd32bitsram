@@ -2205,7 +2205,7 @@ C61 w_1032_0# a_147_819# 20.85fF
 <img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225688291-2ebce6b0-9eba-4740-bccb-4be6eaae8422.png">
                                                                                                                          
     
-## Observation: The pre-layout output output matches withe post layout output (using ALIGN flow) for ONE BIT ADC. 
+## Observation (Week 4): The pre-layout output matches with the post layout output (using ALIGN flow) for ONE BIT ADC
 
 # Week 5 AIs
 
