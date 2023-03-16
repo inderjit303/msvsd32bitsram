@@ -1951,7 +1951,10 @@ command2" src="https://user-images.githubusercontent.com/99788755/225512049-47e7
 ## Magic View for ONE BIT ADC 
                                                                                                                                                 
 - Now open Magic and read ONEBITADC.gds file 
-                                                                                                                                                
+    
+<img width="960" alt="reading_gds_file_onebitadc" src="https://user-images.githubusercontent.com/99788755/225512963-9ce6e5f5-a829-4a25-938b-aab3bca24bc5.png">
+
+- the magic view of one bit ADC is shown below:                                                                                                                                                 
 <img width="960" alt="magic_onebitadc" src="https://user-images.githubusercontent.com/99788755/225512607-fcdc9ac7-76dc-4802-b4c9-e62c12786d9e.png">
 
                                                                                                                                                       
