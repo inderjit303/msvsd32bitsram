@@ -1803,8 +1803,6 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 <img width="960" alt="onebitadc_ring_output_all" src="https://user-images.githubusercontent.com/99788755/225510521-37874fb0-2766-43a2-bf5c-0778daa7df11.png">
                                                                                                        
 <img width="960" alt="onebitadc_ring_output_all_without_ic" src="https://user-images.githubusercontent.com/99788755/225510614-29baf2b8-ddab-486f-8655-a6b525c4da0b.png">
- 
-<img width="960" alt="onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225510647-91b13e6d-58a2-40fa-8055-02d8797098db.png">
                                                                                                                                                     
 <img width="960" alt="onebitadc_ring_output_with_ic_0" src="https://user-images.githubusercontent.com/99788755/225510668-905aa321-e7a4-41f1-85f0-19bfd186baad.png">
 
@@ -1957,15 +1955,13 @@ XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
 <img width="960" alt="magic_onebitadc" src="https://user-images.githubusercontent.com/99788755/225512607-fcdc9ac7-76dc-4802-b4c9-e62c12786d9e.png">
 
     
-- By comparing pre-layout output and post layout output, it is clear that the output does not match. 
+- By comparing pre-layout output and post layout output, it is clear that the output match 
  
 <img width="960" alt="prelayout_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516648-3d99dfbb-483c-45f6-858f-510c46b658fb.png">
   
 <img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225593948-6ea50f8e-c279-4146-893f-84d4adf44c4d.png">
 
-
-    
-## Conclusion: ALIGN probably dosent work well above 12 transistors, it generated layout using klayout, but after reading gds, generating magic layout and extracting netlist, it does not work. 
+ 
                                                                                                                                       
 
                                                                                                                                                       
