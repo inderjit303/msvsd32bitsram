@@ -1797,7 +1797,13 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 ## 5. Pre-Layout Simulation of Ring oscillator and 1 bit ADC (2nd Attempt) 
                                                                                                                                                   
 - For testing analog part of 4-Bit Asynchronous Up Counter using OpenFASoC, we now interface modifed Ring oscillator to 1 bit ADC. The schematic implemented in xschem is shown below: 
-                                                                                                         
+                                                                                                                                                  
+- First, we check the schematic, symbol and testbench view of ONE BIT ADC                                                                                                                                                
+<img width="960" alt="onebitadc_sch" src="https://userimages.githubusercontent.com/99788755/225681561-ad69cc1f-8d50-4e58-9255-4824b1a2348f.png">
+                                                                                                                                               
+<img width="960" alt="onebitadc_sys" src="https://user-images.githubusercontent.com/99788755/225681874-f8c2a131-0e6f-427e-bec2-d921e85fd1ce.png">
+                                                                                         
+                                                                                      
 <img width="960" alt="onebitadc_ring_tb" src="https://user-images.githubusercontent.com/99788755/225510462-fefa06b4-6967-46ff-b585-835d8b3b9aea.png">
                                                                                                 
 <img width="960" alt="onebitadc_ring_output_all" src="https://user-images.githubusercontent.com/99788755/225510521-37874fb0-2766-43a2-bf5c-0778daa7df11.png">
@@ -1805,8 +1811,7 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 <img width="960" alt="onebitadc_ring_output_all_without_ic" src="https://user-images.githubusercontent.com/99788755/225510614-29baf2b8-ddab-486f-8655-a6b525c4da0b.png">
                                                                                                                                                     
 <img width="960" alt="onebitadc_ring_output_with_ic_0" src="https://user-images.githubusercontent.com/99788755/225510668-905aa321-e7a4-41f1-85f0-19bfd186baad.png">
-
-                                                                                                               
+                                                                                                              
 - The above waveforms clearly, shows the digital output obtained as desired for the analog part of 4-Bit Asynchronous Up Counter. 
 
 - This completes the prelayout simulation of Ring oscillator interfaced with 1bit ADC.
