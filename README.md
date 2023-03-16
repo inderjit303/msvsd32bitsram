@@ -1782,6 +1782,7 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 - the output obtained is definately not CORRECT. This is due the the fact that the comparator adopted is not a very HIGH SPEED COMPARATOR. 
                                                                                                                                                    
 <img width="960" alt="adc_ring_osc_output" src="https://user-images.githubusercontent.com/99788755/224431859-0bb1d1da-a4cc-4cef-9f4f-29813adb75c3.png">
+   
                                                                                                                                                       
 ## 4. Modification in Ring oscillator to lowers its speed by adjusting nmos and pmos' width and length 
                                                                                                                           
@@ -1910,8 +1911,16 @@ XM6 outring net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1300n W=2600n nf=4 m=1
 
 <img width="960" alt="ring_lef" src="https://user-images.githubusercontent.com/99788755/225511554-e1982b6a-6dab-49f2-9dcc-5d1ea62dba99.png">
                              
+## 7. Prelayout Simulation of ONE BIT ADC with synthetic sine wave
+                                                                                                                                           
+- First we create a  testbench schematic of the ONE BIT ADC using its symbol and with external sine wave clocked at 0.1GHz frequency                                                                                                                                            
+<img width="960" alt="onlyadc_tb" src="https://user-images.githubusercontent.com/99788755/225685467-650940aa-6556-440a-9c52-1ea47e2d4331.png">
 
-## 7. ALIGN flow for ONE BIT ADC
+- The prelayout output for ONE BIT ADC is given below
+                                                                                                                                             
+<img width="960" alt="onlyadc_tb_output" src="https://user-images.githubusercontent.com/99788755/225685850-b212869c-37bf-4bc3-9134-813f1cbfbe5a.png">                                                                                                                           
+                                                                                                                                           
+## 8. ALIGN flow for ONE BIT ADC
                 
 - Now, our next step is to generate the layout of ADC using ALIGN Tool. 
 
@@ -1961,12 +1970,244 @@ XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
 - the magic view of one bit ADC is shown below:                                                                                                                                                 
 <img width="960" alt="magic_onebitadc" src="https://user-images.githubusercontent.com/99788755/225512607-fcdc9ac7-76dc-4802-b4c9-e62c12786d9e.png">
 
+- The post layout (ALIGN flow) netlist is shared below 
+
+```  
+** sch_path: /home/inderjit/lab_inverter/xschem/onlyadc_tb.sch
+**.subckt onlyadc_tb OUT
+*.opin OUT
+V2 INEG GND 0.85
+.save i(v2)
+V3 IPOS GND sin(0.85 0.85 0.1G 0.1n)
+.save i(v3)
+V1 VDD GND 1.8
+.save i(v1)
+V4 ENB GND 1.8
+.save i(v4)
+Ihyst VDD BIAS pwl 0 0 20n 0 21n 0.2n 40n 0.2n 41n 0.8n 60n 0.8n 61n 10n 100n 10n
+x2 VDD ENB BIAS OUT IPOS INEG GND onebitadc
+**** begin user architecture code
+
+.tran 0.01n 100n
+.save all
+
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  onebitadc.sym # of pins=7
+** sym_path: /home/inderjit/lab_inverter/xschem/onebitadc.sym
+** sch_path: /home/inderjit/lab_inverter/xschem/onebitadc.sch
+XM1 net1 VDD GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 net2 INEG net1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 net3 IPOS net1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 net3 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net2 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM6 BIAS BIAS GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM7 net4 BIAS GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM8 net2 VX net4 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM9 net3 VX net4 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM10 VX VDD GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM11 VX net3 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=6 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM12 net5 ENB VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM13 net5 VX VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM14 OUT net5 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM15 net5 VX net6 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM16 net6 ENB GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+.subckt onebitadc VDD ENB BIAS OUT IPOS INEG GND
+*.PININFO INEG:I IPOS:I BIAS:I GND:B VDD:B OUT:O ENB:I
+X0 a_230_1827# a_1576_1764# a_1523_1953# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X1 a_1523_1953# w_1032_0# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X2 a_4014_651# a_200_1764# a_4530_651# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X3 a_5562_693# a_4530_651# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X4 a_147_819# a_4530_651# a_5562_693# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X5 a_147_819# a_3984_588# a_4014_651# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X6 w_1032_0# a_4530_651# a_5562_693# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X7 a_230_1827# a_230_1827# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X8 a_200_1764# a_918_1827# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X9 a_1523_1953# a_1576_1764# a_230_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X10 w_1032_0# a_230_1827# a_918_1827# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X11 a_147_819# a_200_561# a_147_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X12 a_147_819# a_200_561# a_200_561# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+X13 a_5562_693# a_4530_651# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X14 a_147_819# w_1032_0# a_1523_1953# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+X15 a_4530_651# a_200_1764# a_4014_651# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X16 a_5562_693# a_4530_651# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X17 a_200_1764# w_1032_0# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X18 a_4014_651# a_200_1764# a_4530_651# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X19 w_1032_0# a_918_1827# a_200_1764# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X20 a_918_1827# a_2264_1764# a_1523_1953# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X21 w_1032_0# a_230_1827# a_230_1827# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X22 a_147_1827# a_200_1764# a_230_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X23 a_147_819# w_1032_0# a_200_1764# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+X24 a_147_1827# a_200_561# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X25 a_230_1827# a_230_1827# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X26 a_230_1827# a_200_1764# a_147_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X27 a_1523_1953# w_1032_0# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X28 a_147_819# a_3984_588# a_4014_651# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X29 a_4530_651# a_200_1764# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X30 a_1523_1953# a_2264_1764# a_918_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+X31 a_147_819# w_1032_0# a_1523_1953# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+X32 a_4014_651# a_3984_588# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X33 a_147_1827# a_200_1764# a_230_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X34 a_147_1827# a_200_1764# a_918_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X35 a_918_1827# a_2264_1764# a_1523_1953# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X36 a_200_1764# w_1032_0# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X37 a_918_1827# a_200_1764# a_147_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X38 w_1032_0# a_4530_651# a_5562_693# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X39 a_5562_693# a_4530_651# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X40 a_1523_1953# a_2264_1764# a_918_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X41 w_1032_0# a_200_1764# a_4530_651# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X42 a_200_1764# a_918_1827# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X43 a_4530_651# a_3984_588# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X44 w_1032_0# a_3984_588# a_4530_651# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X45 a_230_1827# a_200_1764# a_147_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X46 a_200_561# a_200_561# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.3339 ps=3.05 w=1.26 l=0.15
+X47 w_1032_0# a_230_1827# a_918_1827# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X48 a_147_1827# a_200_1764# a_918_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X49 a_147_819# a_200_561# a_200_561# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X50 a_147_819# a_200_561# a_147_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X51 a_918_1827# a_230_1827# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X52 w_1032_0# a_230_1827# a_230_1827# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+X53 a_918_1827# a_200_1764# a_147_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X54 a_4014_651# a_3984_588# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X55 a_4530_651# a_200_1764# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X56 w_1032_0# a_200_1764# a_4530_651# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X57 a_147_819# w_1032_0# a_200_1764# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+X58 a_4530_651# a_3984_588# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X59 w_1032_0# a_918_1827# a_200_1764# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X60 a_4530_651# a_200_1764# a_4014_651# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.6678 ps=5.57 w=2.52 l=0.15
+X61 a_147_819# a_4530_651# a_5562_693# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3528 pd=2.8 as=0.3528 ps=2.8 w=2.52 l=0.15
+X62 w_1032_0# a_3984_588# a_4530_651# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.6678 pd=5.57 as=0.3528 ps=2.8 w=2.52 l=0.15
+X63 a_147_1827# a_200_561# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X64 a_918_1827# a_230_1827# w_1032_0# w_1032_0# sky130_fd_pr__pfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X65 a_230_1827# a_1576_1764# a_1523_1953# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X66 a_200_561# a_200_561# a_147_819# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.1764 pd=1.54 as=0.1764 ps=1.54 w=1.26 l=0.15
+X67 a_1523_1953# a_1576_1764# a_230_1827# a_147_819# sky130_fd_pr__nfet_01v8 ad=0.3339 pd=3.05 as=0.1764 ps=1.54 w=1.26 l=0.15
+C0 a_1523_1953# a_147_1827# 0.01fF
+C1 a_1523_1953# a_1576_1764# 0.23fF
+C2 a_200_561# a_147_1827# 0.66fF
+C3 a_1523_1953# a_230_1827# 1.35fF
+C4 a_5562_693# a_200_1764# 0.11fF
+C5 a_2264_1764# w_1032_0# 0.04fF
+C6 a_918_1827# a_147_1827# 1.39fF
+C7 a_200_561# a_230_1827# 0.39fF
+C8 a_918_1827# a_1576_1764# 0.00fF
+C9 a_200_1764# w_1032_0# 6.78fF
+C10 a_918_1827# a_230_1827# 1.42fF
+C11 a_5562_693# w_1032_0# 1.73fF
+C12 a_2264_1764# a_1523_1953# 0.24fF
+C13 a_1576_1764# a_147_1827# 0.00fF
+C14 a_1523_1953# a_200_1764# 0.58fF
+C15 a_230_1827# a_147_1827# 1.69fF
+C16 a_230_1827# a_1576_1764# 0.21fF
+C17 a_200_561# a_200_1764# 0.00fF
+C18 a_4530_651# a_200_1764# 2.18fF
+C19 a_2264_1764# a_918_1827# 0.21fF
+C20 a_2264_1764# a_3984_588# 0.00fF
+C21 a_2264_1764# a_4014_651# 0.00fF
+C22 a_918_1827# a_200_1764# 0.98fF
+C23 a_3984_588# a_200_1764# 0.39fF
+C24 a_4014_651# a_200_1764# 0.88fF
+C25 a_5562_693# a_4530_651# 0.65fF
+C26 a_1523_1953# w_1032_0# 1.08fF
+C27 a_5562_693# a_3984_588# 0.00fF
+C28 a_4014_651# a_5562_693# 0.00fF
+C29 a_200_561# w_1032_0# 0.04fF
+C30 a_4530_651# w_1032_0# 6.14fF
+C31 a_2264_1764# a_1576_1764# 0.03fF
+C32 a_147_1827# a_200_1764# 0.40fF
+C33 a_918_1827# w_1032_0# 4.39fF
+C34 a_3984_588# w_1032_0# 2.52fF
+C35 a_4014_651# w_1032_0# 2.31fF
+C36 a_1576_1764# a_200_1764# 0.07fF
+C37 a_230_1827# a_200_1764# 0.83fF
+C38 a_1523_1953# a_4530_651# 0.00fF
+C39 a_147_1827# w_1032_0# 0.02fF
+C40 a_918_1827# a_1523_1953# 1.70fF
+C41 a_1523_1953# a_3984_588# 0.00fF
+C42 a_1576_1764# w_1032_0# 0.02fF
+C43 a_4014_651# a_1523_1953# 0.00fF
+C44 a_230_1827# w_1032_0# 4.38fF
+C45 a_918_1827# a_200_561# 0.01fF
+C46 a_4530_651# a_3984_588# 0.70fF
+C47 a_4014_651# a_4530_651# 2.31fF
+C48 a_2264_1764# a_200_1764# 0.00fF
+C49 a_918_1827# a_3984_588# 0.00fF
+C50 a_918_1827# a_4014_651# 0.00fF
+C51 a_4014_651# a_3984_588# 0.72fF
+C52 a_200_561# a_147_819# 3.80fF 
+**FLOATING
+C53 a_5562_693# a_147_819# 1.30fF 
+**FLOATING
+C54 a_4014_651# a_147_819# 1.16fF 
+**FLOATING
+C55 a_1523_1953# a_147_819# 0.80fF 
+**FLOATING
+C56 a_3984_588# a_147_819# 1.07fF 
+**FLOATING
+C57 a_2264_1764# a_147_819# 0.99fF 
+**FLOATING
+C58 a_147_1827# a_147_819# 1.79fF 
+**FLOATING
+C59 a_1576_1764# a_147_819# 0.97fF 
+**FLOATING
+C60 a_200_1764# a_147_819# 3.58fF 
+**FLOATING
+C61 w_1032_0# a_147_819# 20.85fF 
+**FLOATING
+.ends
+
+.GLOBAL GND
+.end
+```                                                                                                                                                   
+                                                                                                                                                  
+- The post layout output for ONE BIT ADC is shown below
+                                                                                                                                                  
+<img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225688291-2ebce6b0-9eba-4740-bccb-4be6eaae8422.png">
+                                                                                                                         
     
-- By comparing pre-layout output and post layout output, it is clear that the output match 
+## By comparing pre-layout output and post layout output, it is clear that the output match. 
  
-<img width="960" alt="prelayout_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516648-3d99dfbb-483c-45f6-858f-510c46b658fb.png">
-  
-<img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225593948-6ea50f8e-c279-4146-893f-84d4adf44c4d.png">
+
 
  
                                                                                                                                       
