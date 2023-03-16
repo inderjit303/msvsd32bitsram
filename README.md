@@ -1941,8 +1941,7 @@ XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
 
 <img width="960" alt="align_onebitadc_command1" src="https://user-images.githubusercontent.com/99788755/225511997-5f639a25-4dac-46df-8265-661e4dc6faf5.png">
 
-<img width="960" alt="align_onebitadc_<img width="960" alt="magic_onebitadc" src="https://user-images.githubusercontent.com/99788755/225512549-b8ebae33-dfba-4591-8e1c-e28cb1c4de66.png">
-command2" src="https://user-images.githubusercontent.com/99788755/225512049-47e75b24-304e-424c-8560-d2669dd6fd3e.png">
+<img width="960" alt="align_onebitadc_command2" src="https://user-images.githubusercontent.com/99788755/225512049-47e75b24-304e-424c-8560-d2669dd6fd3e.png">
         
 <img width="960" alt="onebitadc_gds" src="https://user-images.githubusercontent.com/99788755/225511851-50fbce0a-377e-4c73-b79d-54bcd4ec3c37.png">
   
@@ -1962,7 +1961,7 @@ command2" src="https://user-images.githubusercontent.com/99788755/225512049-47e7
  
 <img width="960" alt="prelayout_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516648-3d99dfbb-483c-45f6-858f-510c46b658fb.png">
                            
-<img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516662-56624c70-2cc3-4efa-bebe-4f6f5140f04c.png">
+<img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516662-56624c70-2cc3-4efa-bebe4f6f5140f04c.png">
     
 ## Conclusion: ALIGN probably dosent work well above 12 transistors, it generated layout using klayout, but after reading gds, generating magic layout and extracting netlist, it does not work. 
                                                                                                                                       
