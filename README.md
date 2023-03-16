@@ -1948,7 +1948,7 @@ command2" src="https://user-images.githubusercontent.com/99788755/225512049-47e7
   
 <img width="960" alt="onebitadc_lef" src="https://user-images.githubusercontent.com/99788755/225511873-7ab300fc-3751-40e7-a523-e9a372cb1240.png">
                                                                                                                                                 
-## Magic View for ONE BIT ADC 
+## 8. Magic View for ONE BIT ADC 
                                                                                                                                                 
 - Now open Magic and read ONEBITADC.gds file 
     
@@ -1957,8 +1957,15 @@ command2" src="https://user-images.githubusercontent.com/99788755/225512049-47e7
 - the magic view of one bit ADC is shown below:                                                                                                                                                 
 <img width="960" alt="magic_onebitadc" src="https://user-images.githubusercontent.com/99788755/225512607-fcdc9ac7-76dc-4802-b4c9-e62c12786d9e.png">
 
-                                                                                                                                                      
-                                                                                                                                                      
+    
+- By comparing pre-layout output and post layout output, it is clear that the output does not match. 
+ 
+<img width="960" alt="prelayout_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516648-3d99dfbb-483c-45f6-858f-510c46b658fb.png">
+                           
+<img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516662-56624c70-2cc3-4efa-bebe-4f6f5140f04c.png">
+    
+## Conclusion: ALIGN probably dosent work well above 12 transistors, it generated layout using klayout, but after reading gds, generating magic layout and extracting netlist, it does not work. 
+                                                                                                                                      
 
                                                                                                                                                       
         
