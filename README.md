@@ -1800,8 +1800,9 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
                                                                                                                                                   
 - For testing analog part of 4-Bit Asynchronous Up Counter using OpenFASoC, we now interface modifed Ring oscillator to 1 bit ADC. The schematic implemented in xschem is shown below: 
                                                                                                                                                   
-- First, we check the schematic, symbol and testbench view of ONE BIT ADC                                                                                                                                                
-<img width="960" alt="onebitadc_sch" src="https://userimages.githubusercontent.com/99788755/225681561-ad69cc1f-8d50-4e58-9255-4824b1a2348f.png">
+- First, we check the schematic, symbol and testbench view of ONE BIT ADC                                                                                           
+                                                                                                                                                  
+<img width="960" alt="onebitadc_sch" src="https://user-images.githubusercontent.com/99788755/225683332-2224206a-7daa-41ce-b718-945d40603c36.png">
                                                                                                                                                
 <img width="960" alt="onebitadc_sys" src="https://user-images.githubusercontent.com/99788755/225681874-f8c2a131-0e6f-427e-bec2-d921e85fd1ce.png">
                                                                                                                                             
