@@ -1782,8 +1782,7 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 <img width="960" alt="adc_ring_osc_output" src="https://user-images.githubusercontent.com/99788755/224431859-0bb1d1da-a4cc-4cef-9f4f-29813adb75c3.png">
                                                                                                                                                       
 ## 4. Modification in Ring oscillator to lowers its speed by adjusting nmos and pmos' width and length 
-
-                                                                                                                                                    
+                                                                                                                          
 -Following is the schematic of new ring oscillator with its output waveform. 
           
 <img width="960" alt="new_ring" src="https://user-images.githubusercontent.com/99788755/224438670-1bb82cc3-a944-41e5-a8dc-569f19fdd6d0.png">
@@ -1885,20 +1884,72 @@ XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 m=1
 .end
 ```
 
-## 6. Generating Layout of 1 Bit ADC as a Comparator using ALIGN Tool
+## 6. ALIGN flow for RING OSCILLATOR
 
-- Now, our next step is to generate the layout of ADC using ALIGN Tool. For generating it we need to follow some steps:
+- Below is the spice netlist for RING OSCILLATOR (.sp file) 
+
+```
+.subckt ring VDD outring GND
+XM1 net1 outring GND GND sky130_fd_pr__nfet_01v8 L=1300n W=1300n nf=4 m=1
+XM2 net2 net1 GND GND sky130_fd_pr__nfet_01v8 L=1300n W=1300n nf=4 m=1
+XM3 outring net2 GND GND sky130_fd_pr__nfet_01v8 L=1300n W=1300n nf=4 m=1
+XM4 net1 outring VDD VDD sky130_fd_pr__pfet_01v8 L=1300n W=2600n nf=4 m=1
+XM5 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=1300n W=2600n nf=4 m=1
+XM6 outring net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1300n W=2600n nf=4 m=1
+.ends
+```
+
+- The gds and lef file for ring oscillator are shown below: 
+
+<img width="960" alt="ring_gds" src="https://user-images.githubusercontent.com/99788755/225511523-94daf32b-a557-4b95-99fa-0942f9ca27e0.png">
+
+<img width="960" alt="ring_lef" src="https://user-images.githubusercontent.com/99788755/225511554-e1982b6a-6dab-49f2-9dcc-5d1ea62dba99.png">
+                             
+
+## 7. ALIGN flow for ONE BIT ADC
+                
+- Now, our next step is to generate the layout of ADC using ALIGN Tool. 
 
 - We first need to do some changes in the netlist which we got from the xschem as this netlist is given in the input of ALIGN Tool.
 
-- After done changes in the netlist, save that netlist with ".sp" extension under the ALIGN-public/ALIGN-pdk-sky130/examples/
+- After done changes in the netlist, save that netlist with ".sp" extension under the ALIGN-public/ALIGN-pdk-sky130/examples/                                                                                                                                          
+- Below is the spice netlist for ONE BIT ADC (.sp file) 
+     
+```                                                                 
+.subckt onebitadc VDD ENB BIAS OUT IPOS INEG GND
+*.PININFO INEG:I IPOS:I BIAS:I GND:B VDD:B OUT:O ENB:I
+XM1 net1 VDD GND GND sky130_fd_pr__nfet_01v8 L=150n W=1300n nf=4 m=1
+XM2 net2 INEG net1 GND sky130_fd_pr__nfet_01v8 L=150n W=1300n nf=4 m=1
+XM3 net3 IPOS net1 GND sky130_fd_pr__nfet_01v8 L=150n W=1300n nf=4 m=1
+XM4 net3 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150n W=1300n nf=4 m=1
+XM5 net2 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=150n W=1300n nf=4 m=1
+XM6 BIAS BIAS GND GND sky130_fd_pr__nfet_01v8 L=150n W=1300n nf=4 m=1
+XM7 net4 BIAS GND GND sky130_fd_pr__nfet_01v8 L=150n W=1300n nf=4 m=1
+XM8 net2 VX net4 GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
+XM9 net3 VX net4 GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
+XM10 VX VDD GND GND sky130_fd_pr__nfet_01v8 L=150n W=1300n nf=4 m=1
+XM11 VX net3 VDD VDD sky130_fd_pr__pfet_01v8 L=150n W=2600n nf=4 m=1
+XM12 net5 ENB VDD VDD sky130_fd_pr__pfet_01v8 L=150n W=2600n nf=4 m=1
+XM13 net5 VX VDD VDD sky130_fd_pr__pfet_01v8 L=150n W=2600n nf=4 m=1
+XM14 OUT net5 VDD VDD sky130_fd_pr__pfet_01v8 L=150n W=2600n nf=4 m=1
+XM15 net5 VX net6 GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
+XM16 net6 ENB GND GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
+XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
+.ends
+```
+- The gds and lef file for ring oscillator are shown below: 
 
-Now, after saving the modified netlist, we need to run the ALIGN Layout Generator for ADC using these commands:
-                                                                 
-<img width="960" alt="error align" src="https://user-images.githubusercontent.com/99788755/224447583-184fc44e-6f00-454f-bf83-5330cb4b4a7d.png">
-                                   
-                                         
-                                                                                                                                                      
+<img width="960" alt="align_onebitadc_command1" src="https://user-images.githubusercontent.com/99788755/225511997-5f639a25-4dac-46df-8265-661e4dc6faf5.png">
+
+<img width="960" alt="align_onebitadc_command2" src="https://user-images.githubusercontent.com/99788755/225512049-47e75b24-304e-424c-8560-d2669dd6fd3e.png">
+        
+<img width="960" alt="onebitadc_gds" src="https://user-images.githubusercontent.com/99788755/225511851-50fbce0a-377e-4c73-b79d-54bcd4ec3c37.png">
+  
+<img width="960" alt="onebitadc_lef" src="https://user-images.githubusercontent.com/99788755/225511873-7ab300fc-3751-40e7-a523-e9a372cb1240.png">
+                                                                                                                                                
+## Magic View for ONE BIT ADC 
+                                                                                                                                                
+
                                                                                                                                                       
                                                                                                                                                       
 
