@@ -2205,7 +2205,11 @@ C61 w_1032_0# a_147_819# 20.85fF
 <img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225688291-2ebce6b0-9eba-4740-bccb-4be6eaae8422.png">
                                                                                                                          
     
-## By comparing pre-layout output and post layout output, it is clear that the output match. 
+## Observation: The pre-layout output output matches withe post layout output (using ALIGN flow) for ONE BIT ADC. 
+
+# Week 5 AIs
+
+This section discusses Week 5 work (12.3.23 to 18.3.23) as part of VSD Mixed-signal PD Research Program  
  
 
 
