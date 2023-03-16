@@ -1801,18 +1801,15 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
                                                                                                          
 <img width="960" alt="onebitadc_ring_tb" src="https://user-images.githubusercontent.com/99788755/225510462-fefa06b4-6967-46ff-b585-835d8b3b9aea.png">
                                                                                                 
-                                                                                                       <img width="960" alt="onebitadc_ring_output_all" src="https://user-images.githubusercontent.com/99788755/225510521-37874fb0-2766-43a2-bf5c-0778daa7df11.png">
+<img width="960" alt="onebitadc_ring_output_all" src="https://user-images.githubusercontent.com/99788755/225510521-37874fb0-2766-43a2-bf5c-0778daa7df11.png">
                                                                                                        
-
-<img width="960" alt="onebitadc_ring_output_all_without_ic" src="https://user-images.githubusercontent.com/99788755/225510614-29baf2b8-ddab-486f-8655-a6b525c4da0b.png"
- 
+<img width="960" alt="onebitadc_ring_output_all_without_ic" src="https://user-images.githubusercontent.com/99788755/225510614-29baf2b8-ddab-486f-8655-a6b525c4da0b.png">
  
 <img width="960" alt="onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225510647-91b13e6d-58a2-40fa-8055-02d8797098db.png">
                                                                                                                                                     
 <img width="960" alt="onebitadc_ring_output_with_ic_0" src="https://user-images.githubusercontent.com/99788755/225510668-905aa321-e7a4-41f1-85f0-19bfd186baad.png">
 
                                                                                                                
-
 - The above waveforms clearly, shows the digital output obtained as desired for the analog part of 4-Bit Asynchronous Up Counter. 
 
 - This completes the prelayout simulation of Ring oscillator interfaced with 1bit ADC.
@@ -1820,8 +1817,8 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 - The prelayout lvs netlist generated from xschem is shown for reference.
 
 ```
-** sch_path: /home/inderjit/lab_inverter/xschem/adc_test.sch
-.subckt adc_test OUT
+** sch_path: /home/inderjit/lab_inverter/xschem/onebitadc_tb.sch
+.subckt onebitadc_tb OUT
 *.PININFO OUT:O
 V2 INEG GND 0.9
 .save i(v2)
@@ -1829,9 +1826,9 @@ V1 VDD GND 1.8
 .save i(v1)
 V4 ENB GND 1.8
 .save i(v4)
-x1 VDD ENB IPOS OUT INEG BIAS GND adc
 Ihyst1 VDD BIAS pwl 0 0 10n 0 11n 0.2n 20n 0.2n 21n 0.8n 40n 0.8n 41n 10n 100n 10n
-x2 VDD IPOS GND ring
+x3 VDD IPOS GND ring
+x2 VDD ENB BIAS OUT IPOS INEG GND onebitadc
 **** begin user architecture code
 
 .tran 10p 100n
@@ -1847,30 +1844,6 @@ x2 VDD IPOS GND ring
 **** end user architecture code
 .ends
 
-* expanding   symbol:  adc.sym # of pins=7
-** sym_path: /home/inderjit/lab_inverter/xschem/adc.sym
-** sch_path: /home/inderjit/lab_inverter/xschem/adc.sch
-.subckt adc VDD ENB IPOS OUT INEG BIAS GND
-*.PININFO VDD:B INEG:I IPOS:I GND:B OUT:O ENB:I BIAS:I
-XM5 net3 VDD GND GND sky130_fd_pr__nfet_g5v0d10v5 L=1 W=0.5 nf=1 m=1
-XM9 net2 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1 W=1 nf=1 m=1
-XM1 net1 net1 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=1 W=1 nf=1 m=1
-XM2 net1 INEG net3 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1 nf=1 m=1
-XM3 net2 IPOS net3 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=1 nf=1 m=1
-XM4 BIAS BIAS GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
-XM6 net2 VX net4 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
-XM7 net1 VX net4 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
-XM8 net4 BIAS GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
-XM10 VX net2 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=6 nf=1 m=1
-XM11 VX VDD GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=0.5 nf=1 m=1
-XM12 net6 ENB VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=4 nf=1 m=1
-XM13 net6 VX VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=4 nf=1 m=1
-XM14 net6 VX net5 GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
-XM15 net5 ENB GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
-XM16 OUT net6 VDD VDD sky130_fd_pr__pfet_g5v0d10v5 L=0.5 W=4 nf=1 m=1
-XM17 OUT net6 GND GND sky130_fd_pr__nfet_g5v0d10v5 L=0.5 W=2 nf=1 m=1
-.ends
-
 * expanding   symbol:  ring.sym # of pins=3
 ** sym_path: /home/inderjit/lab_inverter/xschem/ring.sym
 ** sch_path: /home/inderjit/lab_inverter/xschem/ring.sch
@@ -1882,6 +1855,30 @@ XM3 outring net2 GND GND sky130_fd_pr__nfet_01v8 L=1.3 W=1.3 nf=1 m=1
 XM4 net1 outring VDD VDD sky130_fd_pr__pfet_01v8 L=1.3 W=2.6 nf=1 m=1
 XM5 net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=1.3 W=2.6 nf=1 m=1
 XM6 outring net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1.3 W=2.6 nf=1 m=1
+.ends
+
+* expanding   symbol:  onebitadc.sym # of pins=7
+** sym_path: /home/inderjit/lab_inverter/xschem/onebitadc.sym
+** sch_path: /home/inderjit/lab_inverter/xschem/onebitadc.sch
+.subckt onebitadc VDD ENB BIAS OUT IPOS INEG GND
+*.PININFO INEG:I IPOS:I BIAS:I GND:B VDD:B OUT:O ENB:I
+XM1 net1 VDD GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM2 net2 INEG net1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM3 net3 IPOS net1 GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM4 net3 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
+XM5 net2 net2 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
+XM6 BIAS BIAS GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM7 net4 BIAS GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM8 net2 VX net4 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 m=1
+XM9 net3 VX net4 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 m=1
+XM10 VX VDD GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM11 VX net3 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=6 nf=1 m=1
+XM12 net5 ENB VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 m=1
+XM13 net5 VX VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 m=1
+XM14 OUT net5 VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=4 nf=1 m=1
+XM15 net5 VX net6 GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 m=1
+XM16 net6 ENB GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 m=1
+XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=0.15 W=2 nf=1 m=1
 .ends
 
 .GLOBAL GND
