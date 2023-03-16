@@ -1960,7 +1960,7 @@ XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
 - By comparing pre-layout output and post layout output, it is clear that the output does not match. 
  
 <img width="960" alt="prelayout_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516648-3d99dfbb-483c-45f6-858f-510c46b658fb.png">
-                           
+  
 <img width="960" alt="postlayout_magic_onebitadc_output" src="https://user-images.githubusercontent.com/99788755/225516662-56624c70-2cc3-4efa-bebe4f6f5140f04c.png">
     
 ## Conclusion: ALIGN probably dosent work well above 12 transistors, it generated layout using klayout, but after reading gds, generating magic layout and extracting netlist, it does not work. 
