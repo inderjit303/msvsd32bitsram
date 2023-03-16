@@ -1353,13 +1353,16 @@ XM6 out net2 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
         
 - go to File --> save and select autowrite
 - Go to the command window and type the following:
-```bash
+                                                                                                                                                  
+```                                                                                                                                  
 extract do local
 extract all
 ext2spice cthresh 0 rthresh 0
 ext2spice
-```                                                                                                     - Extracted Netlist generated from magic is shown below: 
-```bash 
+``` 
+                                                                                                                                                  
+- Extracted Netlist generated from magic is shown below: 
+``` 
 .subckt ring_osc vdd out gnd
 X0 m1_1658_712# out gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.29 ps=2.58 w=1 l=0.15
 X1 m1_2418_712# m1_1658_712# gnd VSUBS sky130_fd_pr__nfet_01v8 ad=0.29 pd=2.58 as=0.87 ps=7.74 w=1 l=0.15
@@ -1497,7 +1500,7 @@ source general/bin/activate
 
 <img width="960" alt="ring_osc_sp file" src="https://user-images.githubusercontent.com/99788755/222833706-988326b0-7973-4f95-a254-39fd1f343d14.png">
 
-```bash
+```
 .subckt ring_osc vdd out gnd
 XM1 net1 out gnd gnd sky130_fd_pr__nfet_01v8 L=150e-09 W=420n nf=10 m=1
 XM2 net2 net1 gnd gnd sky130_fd_pr__nfet_01v8 L=150e-09 W=420n nf=10 m=1
@@ -1720,7 +1723,6 @@ C9 VDD GND 17.11fF
 .ends
 ```
 
-
 - Next we, simulate it by invoking ngspice with command ```ngspice filename.spice``` . The following waveform are obtained as shown
 
 <img width="960" alt="ring_osc_align_layout_output" src="https://user-images.githubusercontent.com/99788755/222834743-f82c346b-9e9a-4312-a455-17f95cd12548.png">
@@ -1802,8 +1804,7 @@ This section discusses Week 4 work (4.3.23 to 11.3.23) as part of VSD Mixed-sign
 <img width="960" alt="onebitadc_sch" src="https://userimages.githubusercontent.com/99788755/225681561-ad69cc1f-8d50-4e58-9255-4824b1a2348f.png">
                                                                                                                                                
 <img width="960" alt="onebitadc_sys" src="https://user-images.githubusercontent.com/99788755/225681874-f8c2a131-0e6f-427e-bec2-d921e85fd1ce.png">
-                                                                                         
-                                                                                      
+                                                                                                                                            
 <img width="960" alt="onebitadc_ring_tb" src="https://user-images.githubusercontent.com/99788755/225510462-fefa06b4-6967-46ff-b585-835d8b3b9aea.png">
                                                                                                 
 <img width="960" alt="onebitadc_ring_output_all" src="https://user-images.githubusercontent.com/99788755/225510521-37874fb0-2766-43a2-bf5c-0778daa7df11.png">
