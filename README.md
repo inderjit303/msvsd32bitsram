@@ -2289,7 +2289,28 @@ endmodule
 
 ![image](https://user-images.githubusercontent.com/99788755/226068246-54005e00-6f2f-4f76-852a-1010ad7f48a7.png)
 
-                                                                                                                                          
+- The contents of gds and lef folder under blocks is shown below:
+
+![image](https://user-images.githubusercontent.com/99788755/226068487-99055920-5f63-4610-b293-af15674f539a.png)
+
+![image](https://user-images.githubusercontent.com/99788755/226068519-ec1c7c23-d726-4abf-99d2-da164f83b891.png)
+
+- Makefile under flow is shown with necessary changes in module file:
+
+![image](https://user-images.githubusercontent.com/99788755/226068744-90c0848b-00d7-4b2d-9e9f-17f30fa83b26.png)
+
+- .sp file for adc and ring oscillator are added inside template folder under simulation folder. 
+
+![image](https://user-images.githubusercontent.com/99788755/226068828-ca696d91-8b55-4a69-8bcb-af5a320c30d1.png)
+
+- Json file contents are 
+
+![image](https://user-images.githubusercontent.com/99788755/226068911-17298003-319f-4ab5-9082-7ae9742f08cf.png)
+
+
+
+
+
 
 
                                                                                                              
