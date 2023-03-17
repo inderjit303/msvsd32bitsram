@@ -2211,6 +2211,63 @@ C61 w_1032_0# a_147_819# 20.85fF
 
 This section discusses Week 5 work (12.3.23 to 18.3.23) as part of VSD Mixed-signal PD Research Program  
  
+## OpenFASoC Flow Verilog File
+
+### Dummy Verilog For Top level
+```verilog
+module analog_block_up_down_counter(
+input BIAS,
+input INEG,
+        input ENB,
+        inout VDD,
+        inout GND,
+output OUT
+);
+
+wire outring_IPOS;
+
+ring RING_OSC(.VDD(VDD)
+        .GND(GND),
+.outring(outring),
+);
+
+onebitadc ADC(
+        .BIAS(BIAS),
+        .IPOS(outring_IPOS),
+        .INEG(INEG),
+        .ENB(ENB),
+        .VDD(VDD),
+        .GND(GND),
+        .OUT(OUT)
+);
+
+endmodule
+```
+#### 1_bit_ADC
+```verilog
+module onebitadc (ENB, BIAS, IPOS, INEG, OUT, VDD, GND);
+ input ENB;
+ input BIAS;
+ input IPOS;
+ input INEG;
+ inout VDD;
+ inout GND;
+// IPOS is interface with ring oscillator output;
+ output OUT;
+endmodule
+
+```
+#### Ring_Oscillator
+```verilog
+module ring ( outring VDD GND);
+(
+output outring;
+inout VDD;
+inout GND;
+);
+endmodule
+```
+
 
 
  
