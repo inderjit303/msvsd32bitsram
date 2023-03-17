@@ -2268,10 +2268,16 @@ inout GND;
 endmodule
 ```
 
+## OpenFASoC Flow
+- For OpenFASoC flow go to openfasoc directory ```~/openfasoc/openfasoc/generators ``` create a folder as your design name. My design name is  ```analog-block-up-down-counter-gen```
+
+![image](https://user-images.githubusercontent.com/99788755/226067212-a6411abd-bb38-4380-9566-e9a78748ee10.png)
+
+- Inside the ```analog-block-up-down-counter-gen``` there are many folders/ files.
+
+![image](https://user-images.githubusercontent.com/99788755/226067303-93e13dd9-bc09-4c5d-bab8-0ad459d90ef1.png)
 
 
- 
-                                                                                                                                      
 
                                                                                                                                                       
         
