@@ -2307,7 +2307,9 @@ endmodule
 
 ![image](https://user-images.githubusercontent.com/99788755/226068911-17298003-319f-4ab5-9082-7ae9742f08cf.png)
 
+## Unfortunately, the Openfasoc flow was not completed, it got stuck due to problem in analog-block-up-down-counter-gen.py python file contents. This needs to be investigated and worked upon. 
 
+![image](https://user-images.githubusercontent.com/99788755/226069040-b9549320-1011-4a4a-a07d-ad4276bf70fd.png)
 
 
 
