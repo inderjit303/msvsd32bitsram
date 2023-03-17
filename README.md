@@ -2277,10 +2277,18 @@ endmodule
 
 ![image](https://user-images.githubusercontent.com/99788755/226067303-93e13dd9-bc09-4c5d-bab8-0ad459d90ef1.png)
 
+- We change the name of generator file in Top level Makefile as shown below:
 
+![image](https://user-images.githubusercontent.com/99788755/226067750-9daee0ae-9ce2-4238-93d5-4280960d2887.png)
 
-                                                                                                                                                      
-        
+- Next, we create dummy verilog code by Going to ```/src/``` location as shown below: 
+
+![image](https://user-images.githubusercontent.com/99788755/226068146-f778c0ef-443b-4cde-84db-5ddb6b1da9d1.png)
+
+- The following image shows the contents of the tools directory, we have to do all the necessary changes in the .py files, since Temp-sense design was take as reference for writing into these files. 
+
+![image](https://user-images.githubusercontent.com/99788755/226068246-54005e00-6f2f-4f76-852a-1010ad7f48a7.png)
+
                                                                                                                                           
 
 
