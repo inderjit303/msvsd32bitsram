@@ -2312,7 +2312,368 @@ endmodule
 ![image](https://user-images.githubusercontent.com/99788755/226069040-b9549320-1011-4a4a-a07d-ad4276bf70fd.png)
 
 
+# Week 6 AIs 
 
+- This section discusses Week 6 work (25.3.23 to 1.4.23) as part of VSD Mixed-signal PD Research Program  
+                                                                                                                                           
+# 1. 6T SRAM Cell: 
+The structure of a 6 transistor SRAM cell, storing one bit of information, can be seen in fig 8. The core of the cell is formed by two CMOS inverters. This feedback loop stabilizes the inverters to their respective state. The access transistors Mn3 & Mn4 the word and bit lines, wl and bl, are used to read and write from or to the cell. There are 3 inputs to the 6T RAM cell which are Write line(wl), Bit line(bl) and Bit line bar(blbar). When the wl is high the N-MOSFETs on either sides of the latched inverters are switched on so that the value in the bl, blb are transferred to opposite sides of the inverter network overriding the already present value.
+
+<img src="https://user-images.githubusercontent.com/99788755/194718431-9a082e3f-82ca-49e2-99b6-e68d749dfe0c.png">
+                                                                                                        
+# 2. Prelayout simulation of 6T SRAM Cell in Xschem
+                     
+- First, we build the schematic of 6T SRAM in xschem
+                 
+<img width="960" alt="6tsram_sch" src="https://user-images.githubusercontent.com/99788755/229355454-c37fb25c-dc1d-4243-ad9f-46a23702b040.png">
+                                                                                                         
+- Create symbol by going to the symbol menu and click on "Make symbol from schematic"
+              
+- Next, we create testbench by bringing the symbol of 6T SRAM into the new schematic and add voltage sources, gnd terminal and ipins/opins.                                   
+<img width="960" alt="6tsram_tb" src="https://user-images.githubusercontent.com/99788755/229355539-98151e5a-3276-4904-863a-b4588717eb53.png">
+                                                                                                         
+- Then, we simulate the 6T SRAM testbench in ngspice and obtain the following results: 
+                                                                    
+<img width="960" alt="6tsram_output" src="https://user-images.githubusercontent.com/99788755/229355618-9498598a-25d3-4134-aa48-cb8883aa9644.png">
+
+- This completes the prelayout simulation of 6T SRAM. 
+
+- The prelayout netlist generated from xschem is shown for reference. 
+
+```
+** sch_path: /home/inderjit/lab_sram/xschem/6tsram_tb.sch
+**.subckt 6tsram_tb
+x1 wl vdd q blbar bl GND 6tsram
+V1 vdd GND 1.8
+.save i(v1)
+V4 wl GND pulse(0 1.8 0 10ps 10ps 5ns 10ns)
+.save i(v4)
+V2 blbar GND pulse(0 1.8 0 10ps 10ps 1ns 2ns)
+.save i(v2)
+V3 bl GND pulse(1.8 0 0 10ps 10ps 1ns 2ns)
+.save i(v3)
+**** begin user architecture code
+
+.control
+save all
+tran 0.01n 16n
+plot wl+8 bl+6 blbar+4 q+2
+.endc
+
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  6tsram.sym # of pins=6
+** sym_path: /home/inderjit/lab_sram/xschem/6tsram.sym
+** sch_path: /home/inderjit/lab_sram/xschem/6tsram.sch
+.subckt 6tsram wl vdd q blbar bl vss
+*.ipin vdd
+*.ipin vss
+*.ipin bl
+*.ipin blbar
+*.ipin wl
+*.opin q
+XM1 net1 q vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 q net1 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 q wl bl vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 blbar wl net1 vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net1 q vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM6 q net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.end
+                              
+```
+     
+- The prelayout lvs netlist generated from xschem is shown for reference. 
+                                                                                                                                                
+``` 
+** sch_path: /home/inderjit/lab_sram/xschem/6tsram_tb.sch
+.subckt 6tsram_tb
+
+x1 wl vdd q blbar bl GND 6tsram
+V1 vdd GND 1.8
+.save i(v1)
+V4 wl GND pulse(0 1.8 0 10ps 10ps 5ns 10ns)
+.save i(v4)
+V2 blbar GND pulse(0 1.8 0 10ps 10ps 1ns 2ns)
+.save i(v2)
+V3 bl GND pulse(1.8 0 0 10ps 10ps 1ns 2ns)
+.save i(v3)
+**** begin user architecture code
+
+.control
+save all
+tran 0.01n 16n
+plot wl+8 bl+6 blbar+4 q+2
+.endc
+
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+.ends
+
+* expanding   symbol:  6tsram.sym # of pins=6
+** sym_path: /home/inderjit/lab_sram/xschem/6tsram.sym
+** sch_path: /home/inderjit/lab_sram/xschem/6tsram.sch
+.subckt 6tsram wl vdd q blbar bl vss
+*.PININFO vdd:I vss:I bl:I blbar:I wl:I q:O
+XM1 net1 q vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM2 q net1 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM3 q wl bl vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM4 blbar wl net1 vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 m=1
+XM5 net1 q vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
+XM6 q net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 m=1
+.ends
+
+.GLOBAL GND
+.end
+```                                                                                                                                              
+
+# 3. Post-layout simulation of 6T SRAM using ALIGN
+
+- Go to ```ALIGN-public``` folder and Create a python virtualenv by typing the following commands in the terminal
+
+```
+python -m venv general
+source general/bin/activate
+```
+
+- To make the layout using align tools, first create a work directory in ```ALIGN-public``` folder.
+- Make sure you have the spice file (created from lvs netlist in xschem) in that folder by copying that file and rename it to .sp as ALIGN only reads .sp files
+- Contents of 6tsram.sp is shown below
+
+
+```
+.subckt 6tsram wl vdd q blbar bl vss
+*.PININFO vdd:I vss:I bl:I blbar:I wl:I q:O
+XM1 net1 q vss vss sky130_fd_pr__nfet_01v8 L=150n W=840n nf=2 m=1
+XM2 q net1 vss vss sky130_fd_pr__nfet_01v8 L=150n W=840n nf=2 m=1
+XM3 q wl bl vss sky130_fd_pr__nfet_01v8 L=150n W=840n nf=2 m=1
+XM4 blbar wl net1 vss sky130_fd_pr__nfet_01v8 L=150n W=840n nf=2 m=1
+XM5 net1 q vdd vdd sky130_fd_pr__pfet_01v8 L=150n W=840n nf=2 m=1
+XM6 q net1 vdd vdd sky130_fd_pr__pfet_01v8 L=150n W=840n nf=2 m=1
+.ends
+```
+
+- Next, use the following command to make it work
+
+``` python3 ../bin/schematic2layout.py (your .spice file name here) -p ../pdks/SKY130_PDK/ ```
+
+- After running the command successfully, a .GDS and .LEF file are created as shown, 
+                                                                                                       <img width="960" alt="align_flow_command" src="https://user-images.githubusercontent.com/99788755/229356575-0bbbfac3-ce11-4db0-a619-c8b1f86118b9.png">
+ 
+<img width="960" alt="align_flow_command_1" src="https://user-images.githubusercontent.com/99788755/229356580-f87d04c0-486d-4d5d-bada-e6ce9f1a6a9c.png">
+
+ 
+- We next can view ALIGN Generated .gds and .lef using ``klayout`` of Ring oscillator
+
+<img width="960" alt="6tsram_gds" src="https://user-images.githubusercontent.com/99788755/229356625-f014c098-b450-473a-b118-6b5675af4655.png">
+
+<img width="960" alt="6tsram_gds_without_python" src="https://user-images.githubusercontent.com/99788755/229356632-e9c2e9a6-966f-4c2e-90ea-604cafe195d5.png">
+
+<img width="960" alt="6tsram_lef" src="https://user-images.githubusercontent.com/99788755/229356639-80c5b0d4-71c7-44bf-81c5-1522f2fea644.png">
+
+
+- Next, we open GDS file. To open this .gds file you need to run magic first using the magic commands as 
+
+``` magic -T sky130A.tech ```
+
+- Next go to file menu in Magic-> Click on read gds -> Select your .gds file
+
+- You will get box with black boundaries, do not panic just press s and then x your layout will be displayed like shown below
+
+                                                                                                         <img width="960" alt="6tsram_magic_layout" src="https://user-images.githubusercontent.com/99788755/229356693-badd3543-c162-4a10-8543-5bbf5a5d7fd7.png">
+
+
+- Next we need to run post layout spice simulation, so go to tkcon window and type the following command as shown below
+
+```bash
+extract do local
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```
+
+<img width="960" alt="6tsram_magic_tkcon_window" src="https://user-images.githubusercontent.com/99788755/229356715-a8ec1450-f3c1-419d-942f-f51bf25f6240.png">
+
+
+- PostLayout extracted netlist is shown below: 
+
+```
+* SPICE3 file created from 6TSRAM_0.ext - technology: sky130A
+
+X0 BLBAR m1_430_896# m1_860_140# VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.2226 ps=2.21 w=0.84 l=0.15
+X1 m1_860_140# m1_430_896# BLBAR VSS sky130_fd_pr__nfet_01v8 ad=0.2226 pd=2.21 as=0.1176 ps=1.12 w=0.84 l=0.15
+X2 m1_398_56# m1_430_896# NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# VSS sky130_fd_pr__nfet_01v8 ad=0.2352 pd=2.24 as=0.4452 ps=4.42 w=0.84 l=0.15
+X3 NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# m1_430_896# m1_398_56# VSS sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=0.84 l=0.15
+X4 VSS m1_860_140# Q VSS sky130_fd_pr__nfet_01v8 ad=0.2226 pd=2.21 as=0.1176 ps=1.12 w=0.84 l=0.15
+X5 m1_860_140# Q VSS VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.2226 ps=2.21 w=0.84 l=0.15
+X6 VSS Q m1_860_140# VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X7 Q m1_860_140# VSS VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X8 m1_860_140# Q CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.1176 pd=1.12 as=0.2226 ps=2.21 w=0.84 l=0.15
+X9 CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# Q m1_860_140# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X10 Q m1_860_140# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X11 CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# m1_860_140# Q CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.2226 pd=2.21 as=0.1176 ps=1.12 w=0.84 l=0.15
+C0 BL WL 0.01fF
+C1 WL Q 0.07fF
+C2 m1_860_140# m1_430_896# 0.10fF
+C3 WL VSS 0.00fF
+C4 m1_430_896# m1_398_56# 0.13fF
+C5 m1_860_140# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# 1.58fF
+C6 m1_430_896# NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# 0.10fF
+C7 m1_860_140# BL 0.07fF
+C8 m1_860_140# m1_398_56# 0.35fF
+C9 CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# Q 2.19fF
+C10 WL VDD 0.00fF
+C11 m1_860_140# Q 3.06fF
+C12 BL Q 0.04fF
+C13 m1_430_896# VSS 0.02fF
+C14 NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# m1_398_56# 0.63fF
+C15 m1_430_896# BLBAR 0.11fF
+C16 m1_860_140# VSS 0.13fF
+C17 BL VSS 0.00fF
+C18 m1_860_140# BLBAR 0.63fF
+C19 BL BLBAR 0.00fF
+C20 VSS m1_398_56# 0.03fF
+C21 VSS Q 0.57fF
+C22 m1_860_140# VDD 0.04fF
+C23 BLBAR Q 0.11fF
+C24 VDD Q 0.30fF
+C25 BLBAR VSS 0.00fF
+C26 VDD VSS 0.16fF
+C27 VDD BLBAR 0.00fF
+C28 m1_860_140# WL 0.02fF
+
+```
+
+- Postlayout netlist with control statements and sources is shown below:
+
+```
+* SPICE3 file created from 6TSRAM_0.ext - technology: sky130A
+
+** sch_path: /home/inderjit/lab_sram/xschem/6tsram_tb.sch
+**.subckt 6tsram_tb
+x1 wl vdd q blbar bl GND 6tsram
+V1 vdd GND 1.8
+.save i(v1)
+V4 wl GND pulse(0 1.8 0 10ps 10ps 5ns 10ns)
+.save i(v4)
+V2 blbar GND pulse(0 1.8 0 10ps 10ps 1ns 2ns)
+.save i(v2)
+V3 bl GND pulse(1.8 0 0 10ps 10ps 1ns 2ns)
+.save i(v3)
+**** begin user architecture code
+
+.control
+save all
+tran 0.01n 16n
+plot wl+8 bl+6 blbar+4 q+2
+.endc
+
+** opencircuitdesign pdks install
+.lib /usr/local/share/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  6tsram.sym # of pins=6
+** sym_path: /home/inderjit/lab_sram/xschem/6tsram.sym
+** sch_path: /home/inderjit/lab_sram/xschem/6tsram.sch
+*.ipin vdd
+*.ipin vss
+*.ipin bl
+*.ipin blbar
+*.ipin wl
+*.opin q
+XM1 net1 q vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM2 q net1 vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM3 q wl bl vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM4 blbar wl net1 vss sky130_fd_pr__nfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM5 net1 q vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+XM6 q net1 vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W'
++ sa=0 sb=0 sd=0 mult=1 m=1
+
+.subckt 6tsram wl vdd q blbar bl vss
+*.PININFO vdd:I vss:I bl:I blbar:I wl:I q:O
+X0 BLBAR m1_430_896# m1_860_140# VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.2226 ps=2.21 w=0.84 l=0.15
+X1 m1_860_140# m1_430_896# BLBAR VSS sky130_fd_pr__nfet_01v8 ad=0.2226 pd=2.21 as=0.1176 ps=1.12 w=0.84 l=0.15
+X2 m1_398_56# m1_430_896# NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# VSS sky130_fd_pr__nfet_01v8 ad=0.2352 pd=2.24 as=0.4452 ps=4.42 w=0.84 l=0.15
+X3 NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# m1_430_896# m1_398_56# VSS sky130_fd_pr__nfet_01v8 ad=0 pd=0 as=0 ps=0 w=0.84 l=0.15
+X4 VSS m1_860_140# Q VSS sky130_fd_pr__nfet_01v8 ad=0.2226 pd=2.21 as=0.1176 ps=1.12 w=0.84 l=0.15
+X5 m1_860_140# Q VSS VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.2226 ps=2.21 w=0.84 l=0.15
+X6 VSS Q m1_860_140# VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X7 Q m1_860_140# VSS VSS sky130_fd_pr__nfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X8 m1_860_140# Q CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.1176 pd=1.12 as=0.2226 ps=2.21 w=0.84 l=0.15
+X9 CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# Q m1_860_140# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X10 Q m1_860_140# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.1176 pd=1.12 as=0.1176 ps=1.12 w=0.84 l=0.15
+X11 CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# m1_860_140# Q CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# sky130_fd_pr__pfet_01v8 ad=0.2226 pd=2.21 as=0.1176 ps=1.12 w=0.84 l=0.15
+C0 BL WL 0.01fF
+C1 WL Q 0.07fF
+C2 m1_860_140# m1_430_896# 0.10fF
+C3 WL VSS 0.00fF
+C4 m1_430_896# m1_398_56# 0.13fF
+C5 m1_860_140# CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# 1.58fF
+C6 m1_430_896# NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# 0.10fF
+C7 m1_860_140# BL 0.07fF
+C8 m1_860_140# m1_398_56# 0.35fF
+C9 CCP_PMOS_9485126_X1_Y1_1680360128_0/w_0_0# Q 2.19fF
+C10 WL VDD 0.00fF
+C11 m1_860_140# Q 3.06fF
+C12 BL Q 0.04fF
+C13 m1_430_896# VSS 0.02fF
+C14 NMOS_4T_90354340_X1_Y1_1680360129_1/a_147_483# m1_398_56# 0.63fF
+C15 m1_430_896# BLBAR 0.11fF
+C16 m1_860_140# VSS 0.13fF
+C17 BL VSS 0.00fF
+C18 m1_860_140# BLBAR 0.63fF
+C19 BL BLBAR 0.00fF
+C20 VSS m1_398_56# 0.03fF
+C21 VSS Q 0.57fF
+C22 m1_860_140# VDD 0.04fF
+C23 BLBAR Q 0.11fF
+C24 VDD Q 0.30fF
+C25 BLBAR VSS 0.00fF
+C26 VDD VSS 0.16fF
+C27 VDD BLBAR 0.00fF
+C28 m1_860_140# WL 0.02fF
+.ends
+
+```
+
+- Next we, simulate it by invoking ngspice with command ```ngspice filename.spice``` . The following waveform are obtained as shown
+
+<img width="960" alt="6tsram_output_postlayout_align" src="https://user-images.githubusercontent.com/99788755/229356822-349ef552-9a76-4b04-b869-e4a906ea3729.png">
+
+- Quite evident from above output, prelayout and postlayout output of 6T SRAM are very closely matching. 
 
 
                                                                                                              
