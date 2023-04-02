@@ -1961,7 +1961,7 @@ XM17 OUT net5 GND GND sky130_fd_pr__nfet_01v8 L=150n W=2600n nf=4 m=1
   
 <img width="960" alt="onebitadc_lef" src="https://user-images.githubusercontent.com/99788755/225511873-7ab300fc-3751-40e7-a523-e9a372cb1240.png">
                                                                                                                                                 
-## 8. Magic View for ONE BIT ADC 
+## 9. Magic View for ONE BIT ADC 
                                                                                                                                                 
 - Now open Magic and read ONEBITADC.gds file 
     
